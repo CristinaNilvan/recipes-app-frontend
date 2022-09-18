@@ -1,0 +1,30 @@
+.recipe-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 60vh;
+  border-radius: 10px;
+}
+
+.name-and-author h1 {
+  font-size: 2rem;
+}
+
+.name-and-author h2 {
+  font-size: 1.5rem;
+}
+
+.name-and-author {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.recipe-details {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

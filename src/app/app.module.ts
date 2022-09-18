@@ -7,6 +7,7 @@ import { IngredientsListComponent } from './ingredients/ingredients-list/ingredi
 import { IngredientDetailsCardComponent } from './ingredients/ingredient-details-card/ingredient-details-card.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
 import { RecipeDetailsCardComponent } from './recipes/recipe-details-card/recipe-details-card.component';
+import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RecipeDetailsCardComponent } from './recipes/recipe-details-card/recipe
     IngredientDetailsCardComponent,
     RecipesListComponent,
     RecipeDetailsCardComponent,
+    RecipeDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
