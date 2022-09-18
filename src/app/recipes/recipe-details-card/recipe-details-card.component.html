@@ -1,0 +1,13 @@
+<div class="card">
+  <img [src]="recipe.recipeImage?.storageImageUrl" alt="Recipe" />
+  <div class="container">
+    <h3>{{ recipe.name }}</h3>
+    <h4>{{ recipe.author }}</h4>
+    <p>Meal type: {{ recipe.mealType }}</p>
+    <p>Serving Time: {{ recipe.servingTime }}</p>
+    <p>Calories: {{ recipe.calories }}</p>
+    <p>Fats: {{ recipe.fats }}</p>
+    <p>Carbs: {{ recipe.carbs }}</p>
+    <p>Proteins: {{ recipe.proteins }}</p>
+  </div>
+</div>

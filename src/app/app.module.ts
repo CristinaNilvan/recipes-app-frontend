@@ -5,9 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IngredientsListComponent } from './ingredients/ingredients-list/ingredients-list.component';
 import { IngredientDetailsCardComponent } from './ingredients/ingredient-details-card/ingredient-details-card.component';
+import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
+import { RecipeDetailsCardComponent } from './recipes/recipe-details-card/recipe-details-card.component';
 
 @NgModule({
-  declarations: [AppComponent, IngredientsListComponent, IngredientDetailsCardComponent],
+  declarations: [
+    AppComponent,
+    IngredientsListComponent,
+    IngredientDetailsCardComponent,
+    RecipesListComponent,
+    RecipeDetailsCardComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
