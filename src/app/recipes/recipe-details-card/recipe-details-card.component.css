@@ -1,3 +1,15 @@
+div {
+  background-color: #eff0f3;
+}
+
+h3 {
+  color: #0d0d0d;
+}
+
+p {
+  color: #2a2a2a;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
