@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { INGREDIENTS } from 'src/app/core/mock-data/mock-ingredients';
+import { Ingredient } from 'src/app/core/models/ingredient';
+import { IngredientService } from '../../ingredient.service';
 
 @Component({
   selector: 'app-all-ingredients-page',
@@ -7,9 +9,15 @@ import { INGREDIENTS } from 'src/app/core/mock-data/mock-ingredients';
   styleUrls: ['./all-ingredients-page.component.css'],
 })
 export class AllIngredientsPageComponent implements OnInit {
-  allIngredients = INGREDIENTS;
+  allIngredients: Ingredient[] = [];
+  pageNumber: number = 1;
+  pageSize: number = 12;
 
-  constructor() {}
+  constructor(private ingredientService: IngredientService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ingredientService
+      .getAllIngredients(this.pageNumber, this.pageSize)
+      .subscribe((ingredients) => (this.allIngredients = ingredients));
+  }
 }

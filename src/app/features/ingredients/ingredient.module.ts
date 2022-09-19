@@ -4,14 +4,19 @@ import { IngredientsListComponent } from './components/ingredients-list/ingredie
 import { IngredientDetailsCardComponent } from './components/ingredient-details-card/ingredient-details-card.component';
 import { AllIngredientsPageComponent } from './pages/all-ingredients-page/all-ingredients-page.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { HttpClientModule } from '@angular/common/http';
+import { IngredientDetailsPageComponent } from './pages/ingredient-details-page/ingredient-details-page.component';
+import { IngredientDetailsComponent } from './components/ingredient-details/ingredient-details.component';
 
 @NgModule({
   declarations: [
     IngredientsListComponent,
     IngredientDetailsCardComponent,
     AllIngredientsPageComponent,
+    IngredientDetailsPageComponent,
+    IngredientDetailsComponent,
   ],
-  imports: [CommonModule, CoreModule],
-  exports: [AllIngredientsPageComponent],
+  imports: [CommonModule, HttpClientModule, CoreModule],
+  exports: [AllIngredientsPageComponent, IngredientDetailsPageComponent],
 })
 export class IngredientModule {}

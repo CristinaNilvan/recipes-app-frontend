@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RecipeModule } from './features/recipes/recipe.module';
 import { IngredientModule } from './features/ingredients/ingredient.module';
 import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
