@@ -1,5 +1,5 @@
 .content {
-  background-color: #eff0f3;
+  background-color: #fffffe;
   padding: 2%;
 }
 
@@ -33,6 +33,8 @@ p {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 55%;
   padding: 2%;
+  margin-top: 2%;
+  background-color: #e3f6f5;
 }

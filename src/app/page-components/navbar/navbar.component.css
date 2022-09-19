@@ -1,0 +1,22 @@
+.content {
+  font-size: 10px;
+}
+
+nav {
+  width: 100%;
+  height: 50px;
+  background-color: #272343;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  float: left;
+  color: #fffffe;
+  text-align: center;
+  padding: 1.4rem 1.6rem;
+  text-decoration: none;
+  font-size: 1rem;
+}
