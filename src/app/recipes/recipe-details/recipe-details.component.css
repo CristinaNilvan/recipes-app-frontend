@@ -3,8 +3,17 @@
   padding: 2%;
 }
 
-h3 {
+h1,
+h2 {
   color: #0d0d0d;
+}
+
+h1 {
+  font-size: x-large;
+}
+
+h2 {
+  font-size: medium;
 }
 
 p {
@@ -18,21 +27,6 @@ p {
   width: 60%;
   height: 60vh;
   border-radius: 10px;
-}
-
-.name-and-author h1 {
-  font-size: 2rem;
-}
-
-.name-and-author h2 {
-  font-size: 1.5rem;
-}
-
-.name-and-author {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
 }
 
 .recipe-details {

@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MealType } from 'src/app/enums/meal-type';
 import { ServingTime } from 'src/app/enums/serving-time';
-import { RECIPES } from 'src/app/mock-data/mock-recipes';
-import { Recipe } from 'src/app/models/recipe';
 
 @Component({
   selector: 'app-recipe-details',
