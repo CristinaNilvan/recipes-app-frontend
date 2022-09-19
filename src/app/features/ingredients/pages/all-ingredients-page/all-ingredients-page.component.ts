@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { INGREDIENTS } from 'src/app/core/mock-data/mock-ingredients';
 import { Ingredient } from 'src/app/core/models/ingredient';
 import { IngredientService } from '../../ingredient.service';
 
@@ -11,7 +10,7 @@ import { IngredientService } from '../../ingredient.service';
 export class AllIngredientsPageComponent implements OnInit {
   allIngredients: Ingredient[] = [];
   pageNumber: number = 1;
-  pageSize: number = 12;
+  pageSize: number = 5;
 
   constructor(private ingredientService: IngredientService) {}
 

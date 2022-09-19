@@ -7,6 +7,8 @@ import { CoreModule } from 'src/app/core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IngredientDetailsPageComponent } from './pages/ingredient-details-page/ingredient-details-page.component';
 import { IngredientDetailsComponent } from './components/ingredient-details/ingredient-details.component';
+import { ApprovedIngredientsPageComponent } from './pages/approved-ingredients-page/approved-ingredients-page.component';
+import { UnapprovedIngredientsPageComponent } from './pages/unapproved-ingredients-page/unapproved-ingredients-page.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,15 @@ import { IngredientDetailsComponent } from './components/ingredient-details/ingr
     AllIngredientsPageComponent,
     IngredientDetailsPageComponent,
     IngredientDetailsComponent,
+    ApprovedIngredientsPageComponent,
+    UnapprovedIngredientsPageComponent,
   ],
   imports: [CommonModule, HttpClientModule, CoreModule],
-  exports: [AllIngredientsPageComponent, IngredientDetailsPageComponent],
+  exports: [
+    AllIngredientsPageComponent,
+    ApprovedIngredientsPageComponent,
+    UnapprovedIngredientsPageComponent,
+    IngredientDetailsPageComponent,
+  ],
 })
 export class IngredientModule {}

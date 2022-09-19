@@ -15,7 +15,7 @@ export class IngredientDetailsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingredientService
-      .getIngredient(this.ingredientId)
+      .getIngredientById(this.ingredientId)
       .subscribe((ingredient) => (this.ingredient = ingredient));
   }
 }
