@@ -21,7 +21,18 @@ export const RECIPES: Recipe[] = [
         'https://www.acouplecooks.com/wp-content/uploads/2020/09/Veggie-Breakfast-Scramble-008-735x919.jpg',
       recipeId: 1,
     },
-    recipeIngredients: undefined,
+    recipeIngredients: [
+      {
+        id: 1,
+        quantity: 50,
+        ingredientId: 1,
+      },
+      {
+        id: 2,
+        quantity: 100,
+        ingredientId: 2,
+      },
+    ],
   },
   {
     id: 2,
@@ -41,7 +52,18 @@ export const RECIPES: Recipe[] = [
         'https://img.taste.com.au/g-5-8ibb/taste/2021/09/creamy-roast-pumpkin-and-mascarpone-fusilli-pasta-173591-1.jpg',
       recipeId: 2,
     },
-    recipeIngredients: undefined,
+    recipeIngredients: [
+      {
+        id: 1,
+        quantity: 50,
+        ingredientId: 1,
+      },
+      {
+        id: 2,
+        quantity: 100,
+        ingredientId: 2,
+      },
+    ],
   },
   {
     id: 3,
@@ -61,6 +83,17 @@ export const RECIPES: Recipe[] = [
         'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-mccormick-chickencoconutricecasserole-horizontal-1556288060.png',
       recipeId: 3,
     },
-    recipeIngredients: undefined,
+    recipeIngredients: [
+      {
+        id: 1,
+        quantity: 50,
+        ingredientId: 1,
+      },
+      {
+        id: 2,
+        quantity: 100,
+        ingredientId: 2,
+      },
+    ],
   },
 ];
