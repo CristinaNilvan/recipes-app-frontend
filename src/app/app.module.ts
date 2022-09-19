@@ -5,11 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecipeModule } from './features/recipes/recipe.module';
 import { IngredientModule } from './features/ingredients/ingredient.module';
-import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
-  imports: [BrowserModule, AppRoutingModule, RecipeModule, IngredientModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    RecipeModule,
+    IngredientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
