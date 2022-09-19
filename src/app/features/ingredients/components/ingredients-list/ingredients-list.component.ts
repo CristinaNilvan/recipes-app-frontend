@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { INGREDIENTS } from 'src/app/core/mock-data/mock-ingredients';
+import { Ingredient } from 'src/app/core/models/ingredient';
 
 @Component({
   selector: 'app-ingredients-list',
@@ -7,7 +8,7 @@ import { INGREDIENTS } from 'src/app/core/mock-data/mock-ingredients';
   styleUrls: ['./ingredients-list.component.css'],
 })
 export class IngredientsListComponent implements OnInit {
-  ingredients = INGREDIENTS;
+  @Input() ingredients!: Ingredient[];
 
   constructor() {}
 

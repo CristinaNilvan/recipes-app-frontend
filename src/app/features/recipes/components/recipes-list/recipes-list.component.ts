@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RECIPES } from 'src/app/core/mock-data/mock-recipes';
+import { Recipe } from 'src/app/core/models/recipe';
 
 @Component({
   selector: 'app-recipes-list',
@@ -7,7 +8,7 @@ import { RECIPES } from 'src/app/core/mock-data/mock-recipes';
   styleUrls: ['./recipes-list.component.css'],
 })
 export class RecipesListComponent implements OnInit {
-  recipes = RECIPES;
+  @Input() recipes!: Recipe[];
 
   constructor() {}
 
