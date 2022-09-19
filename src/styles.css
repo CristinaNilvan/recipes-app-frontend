@@ -1,8 +1,9 @@
 @import "~normalize.css";
-@import url("https://fonts.googleapis.com/css2?family=League+Gothic&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat&family=Roboto&display=swap");
 
 * {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Montserrat", sans-serif;
 }
 
 html {
