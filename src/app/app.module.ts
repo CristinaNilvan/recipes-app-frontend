@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RecipeModule } from './recipes/recipe.module';
-import { IngredientModule } from './ingredients/ingredient.module';
-import { NavbarComponent } from './page-components/navbar/navbar.component';
+import { RecipeModule } from './features/recipes/recipe.module';
+import { IngredientModule } from './features/ingredients/ingredient.module';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],

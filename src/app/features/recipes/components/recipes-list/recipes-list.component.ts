@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RECIPES } from 'src/app/mock-data/mock-recipes';
+import { RECIPES } from 'src/app/core/mock-data/mock-recipes';
 
 @Component({
   selector: 'app-recipes-list',

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { INGREDIENTS } from 'src/app/mock-data/mock-ingredients';
-import { Ingredient } from 'src/app/models/ingredient';
+import { INGREDIENTS } from 'src/app/core/mock-data/mock-ingredients';
 
 @Component({
   selector: 'app-ingredients-list',
