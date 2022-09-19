@@ -1,6 +1,6 @@
 <section class="content">
   <img
-    [src]="recipe.recipeImage.storageImageUrl"
+    [src]="recipe.recipeImage?.storageImageUrl"
     alt="Recipe"
     class="recipe-image"
   />
@@ -14,7 +14,17 @@
     <p>Fats: {{ recipe.fats }}</p>
     <p>Carbs: {{ recipe.carbs }}</p>
     <p>Proteins: {{ recipe.proteins }}</p>
+
+    <section>
+      <h3>Recipe ingredients</h3>
+      <ul *ngFor="let recIng of recipe.recipeIngredients">
+        <li>
+          Ingredient id: {{ recIng.ingredientId }} Quantity:
+          {{ recIng.quantity }}
+        </li>
+      </ul>
+    </section>
+
     <p>{{ recipe.description }}</p>
-    <h3>Recipe ingredients</h3>
   </section>
 </section>
