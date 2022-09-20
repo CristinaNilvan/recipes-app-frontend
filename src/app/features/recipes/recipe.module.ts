@@ -6,6 +6,8 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
 import { AllRecipesPageComponent } from './pages/all-recipes-page/all-recipes-page.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { RecipeDetailsPageComponent } from './pages/recipe-details-page/recipe-details-page.component';
+import { ApprovedRecipesPageComponent } from './pages/approved-recipes-page/approved-recipes-page.component';
+import { UnapprovedRecipesPageComponent } from './pages/unapproved-recipes-page/unapproved-recipes-page.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +16,15 @@ import { RecipeDetailsPageComponent } from './pages/recipe-details-page/recipe-d
     RecipeDetailsComponent,
     AllRecipesPageComponent,
     RecipeDetailsPageComponent,
+    ApprovedRecipesPageComponent,
+    UnapprovedRecipesPageComponent,
   ],
   imports: [CommonModule, CoreModule],
-  exports: [AllRecipesPageComponent, RecipeDetailsPageComponent],
+  exports: [
+    AllRecipesPageComponent,
+    ApprovedRecipesPageComponent,
+    UnapprovedRecipesPageComponent,
+    RecipeDetailsPageComponent,
+  ],
 })
 export class RecipeModule {}
