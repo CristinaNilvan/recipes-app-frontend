@@ -17,7 +17,7 @@ export const INGREDIENTS: Ingredient[] = [
         'https://saverafresh.com/wp-content/uploads/2021/08/istockphoto-466175630-612x612-1.jpg',
       ingredientId: 1,
     },
-    recipeIngredients: undefined,
+    recipeIngredients: [],
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ export const INGREDIENTS: Ingredient[] = [
         'https://upload.wikimedia.org/wikipedia/en/5/58/Instagram_egg.jpg',
       ingredientId: 2,
     },
-    recipeIngredients: undefined,
+    recipeIngredients: [],
   },
   {
     id: 3,
@@ -51,6 +51,6 @@ export const INGREDIENTS: Ingredient[] = [
         'https://shop.pastacinquepalmi.com/wp-content/uploads/2021/10/PENNE-AL-BRONZO-2-Edit.jpg',
       ingredientId: 3,
     },
-    recipeIngredients: undefined,
+    recipeIngredients: [],
   },
 ];

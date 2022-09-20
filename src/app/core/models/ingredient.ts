@@ -11,6 +11,6 @@ export interface Ingredient {
   carbs: number;
   proteins: number;
   approved: boolean;
-  ingredientImage?: IngredientImage;
-  recipeIngredients?: RecipeIngredient[];
+  ingredientImage: IngredientImage;
+  recipeIngredients: RecipeIngredient[];
 }
