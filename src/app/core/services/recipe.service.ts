@@ -54,4 +54,21 @@ export class RecipeService {
 
     return this.httpService.get<Recipe[]>(url, { params });
   }
+
+  getSuggestedRecipes(
+    pageNumber: number,
+    pageSize: number,
+    ingredientName: string,
+    ingredientQuantity: number
+  ): Observable<Recipe[]> {
+    const url = this.url + 'suggest-recipes';
+
+    const params = new HttpParams()
+      .set('PageNumber', pageNumber)
+      .set('PageSize', pageSize)
+      .set('IngredientName', ingredientName)
+      .set('IngredientQuantity', ingredientQuantity);
+
+    return this.httpService.get<Recipe[]>(url, { params });
+  }
 }
