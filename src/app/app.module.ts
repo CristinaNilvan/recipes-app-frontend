@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RecipeModule } from './features/recipes/recipe.module';
 import { IngredientModule } from './features/ingredients/ingredient.module';
 import { CoreModule } from './core/core.module';
+import { SuggestRecipesModule } from './features/suggest-recipes-feature/suggest-recipes.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { CoreModule } from './core/core.module';
     CoreModule,
     RecipeModule,
     IngredientModule,
+    SuggestRecipesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

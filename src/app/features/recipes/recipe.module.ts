@@ -21,6 +21,7 @@ import { UnapprovedRecipesPageComponent } from './pages/unapproved-recipes-page/
   ],
   imports: [CommonModule, CoreModule],
   exports: [
+    RecipesListComponent,
     AllRecipesPageComponent,
     ApprovedRecipesPageComponent,
     UnapprovedRecipesPageComponent,

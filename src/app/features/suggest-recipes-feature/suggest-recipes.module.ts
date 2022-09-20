@@ -7,5 +7,6 @@ import { SuggestedRecipesPageComponent } from './pages/suggested-recipes-page/su
 @NgModule({
   declarations: [SuggestedRecipesPageComponent],
   imports: [CommonModule, CoreModule, RecipeModule],
+  exports: [SuggestedRecipesPageComponent],
 })
 export class SuggestRecipesModule {}
