@@ -4,7 +4,6 @@ import { IngredientsListComponent } from './components/ingredients-list/ingredie
 import { IngredientDetailsCardComponent } from './components/ingredient-details-card/ingredient-details-card.component';
 import { AllIngredientsPageComponent } from './pages/all-ingredients-page/all-ingredients-page.component';
 import { CoreModule } from 'src/app/core/core.module';
-import { HttpClientModule } from '@angular/common/http';
 import { IngredientDetailsPageComponent } from './pages/ingredient-details-page/ingredient-details-page.component';
 import { IngredientDetailsComponent } from './components/ingredient-details/ingredient-details.component';
 import { ApprovedIngredientsPageComponent } from './pages/approved-ingredients-page/approved-ingredients-page.component';
@@ -20,7 +19,7 @@ import { UnapprovedIngredientsPageComponent } from './pages/unapproved-ingredien
     ApprovedIngredientsPageComponent,
     UnapprovedIngredientsPageComponent,
   ],
-  imports: [CommonModule, HttpClientModule, CoreModule],
+  imports: [CommonModule, CoreModule],
   exports: [
     AllIngredientsPageComponent,
     ApprovedIngredientsPageComponent,
