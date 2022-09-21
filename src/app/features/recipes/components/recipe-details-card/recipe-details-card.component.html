@@ -1,16 +1,26 @@
-<div class="card">
-  <div *ngIf="recipe.recipeImage?.storageImageUrl">
-    <img [src]="recipe.recipeImage.storageImageUrl" alt="Recipe" />
-  </div>
+<mat-card class="card" *ngIf="recipe">
+  <mat-card-header>
+    <mat-card-title>{{ recipe.name }}</mat-card-title>
+    <mat-card-subtitle> {{ recipe.author }} </mat-card-subtitle>
+  </mat-card-header>
 
-  <div class="container">
-    <h3>{{ recipe.name }}</h3>
-    <h4>{{ recipe.author }}</h4>
-    <p>Meal type: {{ recipe.mealType }}</p>
-    <p>Serving Time: {{ recipe.servingTime }}</p>
+  <img
+    *ngIf="recipe.recipeImage"
+    mat-card-image
+    [src]="recipe.recipeImage.storageImageUrl"
+    alt="Recipe"
+  />
+
+  <mat-card-content>
+    <p>Meal type: {{ getRecipeMealType() }}</p>
+    <p>Serving Time: {{ getRecipeServingTime() }}</p>
     <p>Calories: {{ recipe.calories }}</p>
     <p>Fats: {{ recipe.fats }}</p>
     <p>Carbs: {{ recipe.carbs }}</p>
     <p>Proteins: {{ recipe.proteins }}</p>
-  </div>
-</div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button color="accent">See more</button>
+  </mat-card-actions>
+</mat-card>

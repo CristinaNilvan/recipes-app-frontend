@@ -1,23 +1,16 @@
-<section class="content">
-  <div *ngIf="recipe.recipeImage?.storageImageUrl">
-    <img
-      [src]="recipe.recipeImage.storageImageUrl"
-      alt="Recipe"
-      class="recipe-image"
-    />
-  </div>
-
-  <!-- <img
+<section class="content" *ngIf="recipe">
+  <img
+    *ngIf="recipe.recipeImage"
     [src]="recipe.recipeImage.storageImageUrl"
     alt="Recipe"
     class="recipe-image"
-  /> -->
+  />
 
   <section class="recipe-details">
     <h1>{{ recipe.name }}</h1>
     <h2>{{ recipe.author }}</h2>
-    <p>Meal type: {{ recipe.mealType }}</p>
-    <p>Serving Time: {{ recipe.servingTime }}</p>
+    <p>Meal type: {{ getRecipeMealType() }}</p>
+    <p>Serving Time: {{ getRecipeServingTime() }}</p>
     <p>Calories: {{ recipe.calories }}</p>
     <p>Fats: {{ recipe.fats }}</p>
     <p>Carbs: {{ recipe.carbs }}</p>
