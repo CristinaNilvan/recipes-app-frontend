@@ -1,9 +1,17 @@
 <section class="content">
-  <img
+  <div *ngIf="recipe.recipeImage?.storageImageUrl">
+    <img
+      [src]="recipe.recipeImage.storageImageUrl"
+      alt="Recipe"
+      class="recipe-image"
+    />
+  </div>
+
+  <!-- <img
     [src]="recipe.recipeImage.storageImageUrl"
     alt="Recipe"
     class="recipe-image"
-  />
+  /> -->
 
   <section class="recipe-details">
     <h1>{{ recipe.name }}</h1>

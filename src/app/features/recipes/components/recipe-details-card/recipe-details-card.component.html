@@ -1,5 +1,8 @@
 <div class="card">
-  <img [src]="recipe.recipeImage.storageImageUrl" alt="Recipe" />
+  <div *ngIf="recipe.recipeImage?.storageImageUrl">
+    <img [src]="recipe.recipeImage.storageImageUrl" alt="Recipe" />
+  </div>
+
   <div class="container">
     <h3>{{ recipe.name }}</h3>
     <h4>{{ recipe.author }}</h4>
