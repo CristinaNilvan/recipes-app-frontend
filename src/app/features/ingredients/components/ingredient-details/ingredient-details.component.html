@@ -7,15 +7,9 @@
     />
   </div>
 
-  <!-- <img
-    [src]="ingredient.ingredientImage.storageImageUrl"
-    alt="Ingredient"
-    class="ingredient-image"
-  /> -->
-
   <section class="ingredient-details">
     <h3>{{ ingredient.name }}</h3>
-    <p>Category: {{ ingredient.category }}</p>
+    <p>Category: {{ getIngredientCategory() }}</p>
     <p>Calories: {{ ingredient.calories }}</p>
     <p>Fats: {{ ingredient.fats }}</p>
     <p>Carbs: {{ ingredient.carbs }}</p>

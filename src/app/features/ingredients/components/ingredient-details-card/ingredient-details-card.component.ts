@@ -12,4 +12,23 @@ export class IngredientDetailsCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  getIngredientCategory() {
+    switch (this.ingredient.category) {
+      case 0:
+        return 'Meat';
+      case 1:
+        return 'Dairy';
+      case 2:
+        return 'Fruit';
+      case 3:
+        return 'Vegetable';
+      case 4:
+        return 'Herbs';
+      case 5:
+        return 'Others';
+      default:
+        return '';
+    }
+  }
 }

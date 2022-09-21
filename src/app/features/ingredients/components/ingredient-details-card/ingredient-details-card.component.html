@@ -1,14 +1,23 @@
-<div class="card">
-  <div *ngIf="ingredient.ingredientImage?.storageImageUrl">
-    <img [src]="ingredient.ingredientImage.storageImageUrl" alt="Ingredient" />
-  </div>
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{ ingredient.name }}</mat-card-title>
+    <mat-card-subtitle> {{ getIngredientCategory() }} </mat-card-subtitle>
+  </mat-card-header>
 
-  <div class="container">
-    <h3>{{ ingredient.name }}</h3>
-    <p>Category: {{ ingredient.category }}</p>
+  <img
+    *ngIf="ingredient.ingredientImage?.storageImageUrl"
+    mat-card-image
+    [src]="ingredient.ingredientImage.storageImageUrl"
+    alt="Ingredient"
+  />
+
+  <mat-card-content>
     <p>Calories: {{ ingredient.calories }}</p>
     <p>Fats: {{ ingredient.fats }}</p>
     <p>Carbs: {{ ingredient.carbs }}</p>
     <p>Proteins: {{ ingredient.proteins }}</p>
-  </div>
-</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="accent">See more</button>
+  </mat-card-actions>
+</mat-card>
