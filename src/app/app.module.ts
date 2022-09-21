@@ -8,6 +8,7 @@ import { RecipeModule } from './features/recipes/recipe.module';
 import { IngredientModule } from './features/ingredients/ingredient.module';
 import { CoreModule } from './core/core.module';
 import { SuggestRecipesModule } from './features/suggest-recipes-feature/suggest-recipes.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { SuggestRecipesModule } from './features/suggest-recipes-feature/suggest
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
+    SharedModule,
     RecipeModule,
     IngredientModule,
     SuggestRecipesModule,
