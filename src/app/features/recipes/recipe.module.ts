@@ -22,6 +22,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [CommonModule, CoreModule, SharedModule],
   exports: [
+    RecipeDetailsCardComponent,
     RecipesListComponent,
     AllRecipesPageComponent,
     ApprovedRecipesPageComponent,

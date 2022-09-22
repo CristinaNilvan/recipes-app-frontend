@@ -1,0 +1,21 @@
+<section class="content" *ngIf="mealPlan">
+  <section class="recipe-cards">
+    <app-recipe-details-card
+      [recipe]="mealPlan.breakfast"
+    ></app-recipe-details-card>
+
+    <app-recipe-details-card
+      [recipe]="mealPlan.lunch"
+    ></app-recipe-details-card>
+
+    <app-recipe-details-card
+      [recipe]="mealPlan.dinner"
+    ></app-recipe-details-card>
+  </section>
+  <section class="meal-plan-details">
+    <p>Calories: {{ mealPlan.calories }}</p>
+    <p>Fats: {{ mealPlan.fats }}</p>
+    <p>Carbs: {{ mealPlan.carbs }}</p>
+    <p>Proteins: {{ mealPlan.proteins }}</p>
+  </section>
+</section>

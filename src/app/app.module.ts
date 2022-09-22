@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { SuggestRecipesModule } from './features/suggest-recipes-feature/suggest-recipes.module';
 import { SharedModule } from './shared/shared.module';
 import { FindRecipesModule } from './features/find-recipes-feature/find-recipes.module';
+import { MealPlannerModule } from './features/meal-planner-feature/meal-planner.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { FindRecipesModule } from './features/find-recipes-feature/find-recipes.
     IngredientModule,
     SuggestRecipesModule,
     FindRecipesModule,
+    MealPlannerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

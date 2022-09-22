@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Recipe } from 'src/app/core/models/recipe';
 import { MealType } from '../enums/meal-type';
+import { MealPlan } from '../models/meal-plan';
 
 @Injectable({
   providedIn: 'root',
@@ -80,11 +81,16 @@ export class RecipeService {
     return this.httpService.get<Recipe[]>(url, { params });
   }
 
-  getMealPlanFromRecipes(mealType: MealType, calories: number) {
+  generateMealPlanFromRecipes(
+    mealType: MealType,
+    calories: number
+  ): Observable<MealPlan> {
     const url = this.url + 'generate-meal-plan';
 
     const params = new HttpParams()
       .set('MealType', mealType)
       .set('Calories', calories);
+
+    return this.httpService.get<MealPlan>(url, { params });
   }
 }
