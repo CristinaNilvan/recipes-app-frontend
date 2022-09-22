@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Recipe } from 'src/app/core/models/recipe';
+import { MealType } from '../enums/meal-type';
 
 @Injectable({
   providedIn: 'root',
@@ -59,7 +60,7 @@ export class RecipeService {
     const url = this.url + 'find-recipes';
     const params = new HttpParams().appendAll({ ingredientIds: ids });
 
-    return this.httpService.get<Recipe[]>(url + `?${params.toString()}`);
+    return this.httpService.get<Recipe[]>(url, { params });
   }
 
   getSuggestedRecipes(
@@ -77,5 +78,13 @@ export class RecipeService {
       .set('IngredientQuantity', ingredientQuantity);
 
     return this.httpService.get<Recipe[]>(url, { params });
+  }
+
+  getMealPlanFromRecipes(mealType: MealType, calories: number) {
+    const url = this.url + 'generate-meal-plan';
+
+    const params = new HttpParams()
+      .set('MealType', mealType)
+      .set('Calories', calories);
   }
 }
