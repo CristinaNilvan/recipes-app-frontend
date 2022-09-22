@@ -15,8 +15,18 @@ export class AllIngredientsPageComponent implements OnInit {
   constructor(private ingredientService: IngredientService) {}
 
   ngOnInit(): void {
+    this.getIngredients();
+  }
+
+  getIngredients() {
     this.ingredientService
       .getAllIngredients(this.pageNumber, this.pageSize)
       .subscribe((ingredients) => (this.allIngredients = ingredients));
+  }
+
+  onScroll() {
+    this.ingredientService
+      .getAllIngredients(++this.pageNumber, this.pageSize)
+      .subscribe((ingredients) => this.allIngredients.push(...ingredients));
   }
 }

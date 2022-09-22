@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 const modules = [
   CommonModule,
   FlexLayoutModule,
   MaterialModule,
   ReactiveFormsModule,
+  InfiniteScrollModule,
 ];
 
 @NgModule({

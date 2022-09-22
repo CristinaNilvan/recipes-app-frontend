@@ -1,3 +1,6 @@
 <app-navbar></app-navbar>
 <h1>All Ingredients</h1>
-<app-ingredients-list [ingredients]="allIngredients"></app-ingredients-list>
+
+<div infinite-scroll (scrolled)="onScroll()">
+  <app-ingredients-list [ingredients]="allIngredients"></app-ingredients-list>
+</div>
