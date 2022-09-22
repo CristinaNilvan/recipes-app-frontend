@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { INGREDIENTS } from 'src/app/core/mock-data/mock-ingredients';
 import { Ingredient } from 'src/app/core/models/ingredient';
 
 @Component({

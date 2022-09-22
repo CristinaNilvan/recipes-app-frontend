@@ -21,7 +21,7 @@
       <h3>Recipe ingredients</h3>
       <ul *ngFor="let recIng of recipe.recipeIngredients">
         <li>
-          Ingredient id: {{ recIng.ingredientId }} Quantity:
+          Ingredient name: {{ recIng.ingredient.name }} Quantity:
           {{ recIng.quantity }}
         </li>
       </ul>

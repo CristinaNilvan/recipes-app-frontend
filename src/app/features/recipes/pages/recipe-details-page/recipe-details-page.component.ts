@@ -17,5 +17,7 @@ export class RecipeDetailsPageComponent implements OnInit {
     this.recipeService
       .getRecipeById(this.recipeId)
       .subscribe((recipe) => (this.recipe = recipe));
+
+    console.log(this.recipe);
   }
 }
