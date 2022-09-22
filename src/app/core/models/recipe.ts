@@ -10,6 +10,7 @@ export interface Recipe {
   description: string;
   mealType: MealType;
   servingTime: ServingTime;
+  servings: number;
   calories: number;
   fats: number;
   carbs: number;
