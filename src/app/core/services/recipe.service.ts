@@ -55,6 +55,13 @@ export class RecipeService {
     return this.httpService.get<Recipe[]>(url, { params });
   }
 
+  getFoundRecipes(ids: number[]): Observable<Recipe[]> {
+    const url = this.url + 'find-recipes';
+    const params = new HttpParams().appendAll({ ingredientIds: ids });
+
+    return this.httpService.get<Recipe[]>(url + `?${params.toString()}`);
+  }
+
   getSuggestedRecipes(
     pageNumber: number,
     pageSize: number,
