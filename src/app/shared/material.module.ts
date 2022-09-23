@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const modules = [
   CommonModule,
@@ -28,6 +29,7 @@ const modules = [
   MatIconModule,
   MatButtonModule,
   MatSelectModule,
+  MatStepperModule,
 ];
 
 @NgModule({
