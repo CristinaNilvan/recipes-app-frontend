@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MealType } from 'src/app/core/enums/meal-type';
-import { ServingTime } from 'src/app/core/enums/serving-time';
 import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
 import { Recipe } from 'src/app/core/models/recipe';
 import { RecipeService } from 'src/app/core/services/recipe.service';
+import {
+  getRecipeMealTypeKey,
+  getRecipeServingTimeKey,
+} from '../../utils/recipe-functions';
 
 @Component({
   selector: 'app-create-recipe',
@@ -56,15 +58,15 @@ export class CreateRecipeComponent implements OnInit {
       name: this.name,
       author: this.author,
       description: this.description,
-      mealType: this.getRecipeMealTypeKey(this.mealType),
-      servingTime: this.getRecipeServingTimeKey(this.servingTime),
+      mealType: getRecipeMealTypeKey(this.mealType),
+      servingTime: getRecipeServingTimeKey(this.servingTime),
       servings: parseFloat(this.servings),
     };
 
-    this.recipeService.createRecipe(formRecipe).subscribe((recipe) => {
-      this.recipe = recipe;
-      this.addImageFromForm(this.recipe.id);
-    });
+    // this.recipeService.createRecipe(formRecipe).subscribe((recipe) => {
+    //   this.recipe = recipe;
+    //   this.addImageFromForm(this.recipe.id);
+    // });
   }
 
   onClear() {
@@ -110,33 +112,5 @@ export class CreateRecipeComponent implements OnInit {
 
   get image() {
     return this.createRecipeForm.get('image')?.value;
-  }
-
-  getRecipeMealTypeKey(mealTypeValue: string): MealType {
-    switch (mealTypeValue) {
-      case 'Normal':
-        return MealType.Normal;
-      case 'Vegetarian':
-        return MealType.Vegetarian;
-      case 'Vegan':
-        return MealType.Vegan;
-      default:
-        return MealType.Normal;
-    }
-  }
-
-  getRecipeServingTimeKey(servingTimeValue: string): ServingTime {
-    switch (servingTimeValue) {
-      case 'Breakfast':
-        return ServingTime.Breakfast;
-      case 'Lunch':
-        return ServingTime.Lunch;
-      case 'Dinner':
-        return ServingTime.Dinner;
-      case 'Others':
-        return ServingTime.Others;
-      default:
-        return ServingTime.Breakfast;
-    }
   }
 }
