@@ -30,7 +30,7 @@ export class IngredientDetailsPageComponent implements OnInit {
     //   .subscribe((ingredient) => (this.ingredient = ingredient));
     // this.ingredientService
     //   .createIngredient(this.ing)
-    //   .subscribe((ingredient) => console.log('created'));
+    //   .subscribe((ingredient) => console.log('create'));
     // this.ingredientService
     //   .deleteIngredient(16)
     //   .subscribe((ingredient) => console.log('delete'));
