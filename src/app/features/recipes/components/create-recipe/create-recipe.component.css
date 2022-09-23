@@ -1,0 +1,15 @@
+.form-group {
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  width: 35%;
+}
+
+.form-control {
+  width: 100%;
+}
+
+button {
+  margin: 1%;
+}

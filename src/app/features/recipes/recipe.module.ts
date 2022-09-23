@@ -9,6 +9,7 @@ import { RecipeDetailsPageComponent } from './pages/recipe-details-page/recipe-d
 import { ApprovedRecipesPageComponent } from './pages/approved-recipes-page/approved-recipes-page.component';
 import { UnapprovedRecipesPageComponent } from './pages/unapproved-recipes-page/unapproved-recipes-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RecipeDetailsPageComponent,
     ApprovedRecipesPageComponent,
     UnapprovedRecipesPageComponent,
+    CreateRecipeComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule],
   exports: [
     RecipeDetailsCardComponent,
     RecipesListComponent,
+    CreateRecipeComponent,
     AllRecipesPageComponent,
     ApprovedRecipesPageComponent,
     UnapprovedRecipesPageComponent,

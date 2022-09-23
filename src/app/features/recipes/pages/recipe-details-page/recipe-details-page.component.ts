@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MealType } from 'src/app/core/enums/meal-type';
 import { ServingTime } from 'src/app/core/enums/serving-time';
-import { RecipePost } from 'src/app/core/models/post-models/recipes-post';
+import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
 import { Recipe } from 'src/app/core/models/recipe';
 import { RecipeService } from '../../../../core/services/recipe.service';
 

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Recipe } from 'src/app/core/models/recipe';
 import { MealType } from '../enums/meal-type';
 import { MealPlan } from '../models/meal-plan';
-import { RecipePost } from '../models/post-models/recipes-post';
+import { RecipePost } from '../models/post-models/recipe-post';
 
 @Injectable({
   providedIn: 'root',
@@ -111,5 +111,11 @@ export class RecipeService {
   deleteRecipe(id: number): Observable<{}> {
     const url = `${this.url}${id}`;
     return this.httpService.delete(url);
+  }
+
+  addImageToRecipes(id: number, formData: FormData): Observable<{}> {
+    const url = `${this.url}${id}/image`;
+
+    return this.httpService.post(url, formData);
   }
 }
