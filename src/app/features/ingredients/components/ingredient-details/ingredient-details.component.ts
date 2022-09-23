@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Ingredient } from 'src/app/core/models/ingredient';
+import { getIngredientCategoryValue } from '../../utils/ingredient-functions';
 
 @Component({
   selector: 'app-ingredient-details',
@@ -14,21 +15,6 @@ export class IngredientDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   getIngredientCategory() {
-    switch (this.ingredient.category) {
-      case 0:
-        return 'Meat';
-      case 1:
-        return 'Dairy';
-      case 2:
-        return 'Fruit';
-      case 3:
-        return 'Vegetable';
-      case 4:
-        return 'Herbs';
-      case 5:
-        return 'Others';
-      default:
-        return '';
-    }
+    return getIngredientCategoryValue(this.ingredient.category);
   }
 }
