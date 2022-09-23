@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
 <h1>Unapproved Ingredients</h1>
-<app-ingredients-list
-  [ingredients]="unapprovedIngredients"
-></app-ingredients-list>
+
+<div infinite-scroll (scrolled)="onScroll()">
+  <app-ingredients-list
+    [ingredients]="unapprovedIngredients"
+  ></app-ingredients-list>
+</div>

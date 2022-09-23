@@ -19,4 +19,12 @@ export class ApprovedIngredientsPageComponent implements OnInit {
       .getApprovedIngredients(this.pageNumber, this.pageSize)
       .subscribe((ingredients) => (this.approvedIngredients = ingredients));
   }
+
+  onScroll() {
+    this.ingredientService
+      .getApprovedIngredients(++this.pageNumber, this.pageSize)
+      .subscribe((ingredients) =>
+        this.approvedIngredients.push(...ingredients)
+      );
+  }
 }

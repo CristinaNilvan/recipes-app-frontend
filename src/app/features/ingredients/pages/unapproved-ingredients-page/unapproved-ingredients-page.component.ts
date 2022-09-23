@@ -19,4 +19,12 @@ export class UnapprovedIngredientsPageComponent implements OnInit {
       .getUnapprovedIngredients(this.pageNumber, this.pageSize)
       .subscribe((ingredients) => (this.unapprovedIngredients = ingredients));
   }
+
+  onScroll() {
+    this.ingredientService
+      .getUnapprovedIngredients(++this.pageNumber, this.pageSize)
+      .subscribe((ingredients) =>
+        this.unapprovedIngredients.push(...ingredients)
+      );
+  }
 }
