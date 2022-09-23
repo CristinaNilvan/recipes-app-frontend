@@ -19,4 +19,10 @@ export class ApprovedRecipesPageComponent implements OnInit {
       .getApprovedRecipes(this.pageNumber, this.pageSize)
       .subscribe((recipes) => (this.approvedRecipes = recipes));
   }
+
+  onScroll() {
+    this.recipeService
+      .getApprovedRecipes(++this.pageNumber, this.pageSize)
+      .subscribe((recipes) => this.approvedRecipes.push(...recipes));
+  }
 }

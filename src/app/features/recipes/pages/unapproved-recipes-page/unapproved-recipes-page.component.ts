@@ -19,4 +19,10 @@ export class UnapprovedRecipesPageComponent implements OnInit {
       .getUnapprovedRecipes(this.pageNumber, this.pageSize)
       .subscribe((recipes) => (this.unapprovedRecipes = recipes));
   }
+
+  onScroll() {
+    this.recipeService
+      .getUnapprovedRecipes(++this.pageNumber, this.pageSize)
+      .subscribe((recipes) => this.unapprovedRecipes.push(...recipes));
+  }
 }

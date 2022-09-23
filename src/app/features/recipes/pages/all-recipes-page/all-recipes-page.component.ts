@@ -19,4 +19,10 @@ export class AllRecipesPageComponent implements OnInit {
       .getAllRecipes(this.pageNumber, this.pageSize)
       .subscribe((recipes) => (this.allRecipes = recipes));
   }
+
+  onScroll() {
+    this.recipeService
+      .getAllRecipes(++this.pageNumber, this.pageSize)
+      .subscribe((recipes) => this.allRecipes.push(...recipes));
+  }
 }

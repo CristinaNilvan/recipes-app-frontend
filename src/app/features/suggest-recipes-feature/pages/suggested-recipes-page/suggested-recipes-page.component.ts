@@ -26,4 +26,15 @@ export class SuggestedRecipesPageComponent implements OnInit {
       )
       .subscribe((recipes) => (this.suggestedRecipes = recipes));
   }
+
+  onScroll() {
+    this.recipeService
+      .getSuggestedRecipes(
+        ++this.pageNumber,
+        this.pageSize,
+        this.ingredientName,
+        this.ingredientQuantity
+      )
+      .subscribe((recipes) => this.suggestedRecipes.push(...recipes));
+  }
 }
