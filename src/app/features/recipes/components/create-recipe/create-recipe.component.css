@@ -1,8 +1,13 @@
+.form {
+  background: url("src/assets/form-background.jpg") no-repeat scroll left center;
+}
+
 .form-group {
+  background-color: white;
   overflow: auto;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2%;
+  padding: 3%;
   width: 35%;
 }
 

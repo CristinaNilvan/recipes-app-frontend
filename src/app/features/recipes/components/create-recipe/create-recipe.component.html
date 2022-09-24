@@ -1,80 +1,88 @@
-<form [formGroup]="createRecipeForm" (ngSubmit)="onSubmit()" class="form-group">
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Name</mat-label>
-      <input formControlName="name" matInput placeholder="Recipe name" />
-      <mat-hint>Recipe name</mat-hint>
-    </mat-form-field>
-  </p>
+<section class="form">
+  <form
+    [formGroup]="createRecipeForm"
+    (ngSubmit)="onSubmit()"
+    class="form-group"
+  >
+    <p>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="Recipe name" />
+        <mat-hint>Recipe name</mat-hint>
+      </mat-form-field>
+    </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Author</mat-label>
-      <input formControlName="author" matInput placeholder="Your name" />
-      <mat-hint>Your name</mat-hint>
-    </mat-form-field>
-  </p>
+    <p>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Author</mat-label>
+        <input formControlName="author" matInput placeholder="Your name" />
+        <mat-hint>Your name</mat-hint>
+      </mat-form-field>
+    </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Description</mat-label>
-      <textarea formControlName="description" matInput></textarea>
-      <mat-hint>Recipe description</mat-hint>
-    </mat-form-field>
-  </p>
+    <p>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput></textarea>
+        <mat-hint>Recipe description</mat-hint>
+      </mat-form-field>
+    </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Meal type</mat-label>
-      <mat-select formControlName="mealType">
-        <mat-option value="Normal">Normal</mat-option>
-        <mat-option value="Vegetarian">Vegetarian</mat-option>
-        <mat-option value="Vegan">Vegan</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </p>
+    <p>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Meal type</mat-label>
+        <mat-select formControlName="mealType">
+          <mat-option value="Normal">Normal</mat-option>
+          <mat-option value="Vegetarian">Vegetarian</mat-option>
+          <mat-option value="Vegan">Vegan</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Serving time</mat-label>
-      <mat-select formControlName="servingTime">
-        <mat-option value="Breakfast">Breakfast</mat-option>
-        <mat-option value="Lunch">Lunch</mat-option>
-        <mat-option value="Dinner">Dinner</mat-option>
-        <mat-option value="Others">Others</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </p>
+    <p>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Serving time</mat-label>
+        <mat-select formControlName="servingTime">
+          <mat-option value="Breakfast">Breakfast</mat-option>
+          <mat-option value="Lunch">Lunch</mat-option>
+          <mat-option value="Dinner">Dinner</mat-option>
+          <mat-option value="Others">Others</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Servings</mat-label>
-      <input formControlName="servings" matInput placeholder="Servings" />
-      <mat-hint>Number of servings</mat-hint>
-    </mat-form-field>
-  </p>
+    <p>
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Servings</mat-label>
+        <input formControlName="servings" matInput placeholder="Servings" />
+        <mat-hint>Number of servings</mat-hint>
+      </mat-form-field>
+    </p>
 
-  <p>
-    <button type="button" mat-raised-button (click)="fileInput.click()">
-      Choose File
-    </button>
-    <input hidden (change)="onFileChange($event)" #fileInput type="file" />
-  </p>
+    <p>
+      <button type="button" mat-raised-button (click)="fileInput.click()">
+        Choose File
+      </button>
+      <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+    </p>
 
-  <!-- <p>
-    <app-search-ingredient></app-search-ingredient>
-  </p> -->
+    <!-- <p>
+      <app-search-ingredient></app-search-ingredient>
+    </p> -->
 
-  <p>
-    <button
-      mat-raised-button
-      color="accent"
-      [disabled]="!createRecipeForm.valid"
-      type="submit"
-    >
-      Create
-    </button>
+    <p>
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="!createRecipeForm.valid"
+        type="submit"
+      >
+        Create
+      </button>
 
-    <button mat-raised-button color="primary" (click)="onClear()">Clear</button>
-  </p>
-</form>
+      <button mat-raised-button color="primary" (click)="onClear()">
+        Clear
+      </button>
+    </p>
+  </form>
+</section>
