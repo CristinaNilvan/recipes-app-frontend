@@ -10,6 +10,7 @@ import { ApprovedIngredientsPageComponent } from './pages/approved-ingredients-p
 import { UnapprovedIngredientsPageComponent } from './pages/unapproved-ingredients-page/unapproved-ingredients-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SearchIngredientComponent } from './components/search-ingredient/search-ingredient.component';
+import { CreateIngredientComponent } from './components/create-ingredient/create-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,11 @@ import { SearchIngredientComponent } from './components/search-ingredient/search
     ApprovedIngredientsPageComponent,
     UnapprovedIngredientsPageComponent,
     SearchIngredientComponent,
+    CreateIngredientComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule],
   exports: [
+    CreateIngredientComponent,
     SearchIngredientComponent,
     AllIngredientsPageComponent,
     ApprovedIngredientsPageComponent,

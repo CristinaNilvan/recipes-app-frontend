@@ -83,7 +83,7 @@ export class CreateRecipeComponent implements OnInit {
     const formData: FormData = new FormData();
     formData.set('File', image);
 
-    this.recipeService.addImageToRecipes(id, formData).subscribe();
+    this.recipeService.addImageToRecipe(id, formData).subscribe();
   }
 
   get name() {

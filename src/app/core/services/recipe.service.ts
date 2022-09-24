@@ -113,7 +113,7 @@ export class RecipeService {
     return this.httpService.delete(url);
   }
 
-  addImageToRecipes(id: number, formData: FormData): Observable<{}> {
+  addImageToRecipe(id: number, formData: FormData): Observable<{}> {
     const url = `${this.url}${id}/image`;
 
     return this.httpService.post(url, formData);

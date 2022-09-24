@@ -20,3 +20,22 @@ export function getIngredientCategoryValue(
       return '';
   }
 }
+
+export function getIngredientCategoryKey(ingredientCategory: string) {
+  switch (ingredientCategory) {
+    case 'Meat':
+      return IngredientCategory.Meat;
+    case 'Dairy':
+      return IngredientCategory.Dairy;
+    case 'Fruit':
+      return IngredientCategory.Fruit;
+    case 'Vegetable':
+      return IngredientCategory.Vegetable;
+    case 'Herbs':
+      return IngredientCategory.Herbs;
+    case 'Others':
+      return IngredientCategory.Others;
+    default:
+      return IngredientCategory.Meat;
+  }
+}
