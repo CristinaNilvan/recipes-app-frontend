@@ -10,6 +10,7 @@ import { ApprovedRecipesPageComponent } from './pages/approved-recipes-page/appr
 import { UnapprovedRecipesPageComponent } from './pages/unapproved-recipes-page/unapproved-recipes-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
+import { IngredientModule } from '../ingredients/ingredient.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CreateRecipeComponent } from './components/create-recipe/create-recipe.
     UnapprovedRecipesPageComponent,
     CreateRecipeComponent,
   ],
-  imports: [CommonModule, CoreModule, SharedModule],
+  imports: [CommonModule, CoreModule, SharedModule, IngredientModule],
   exports: [
     RecipeDetailsCardComponent,
     RecipesListComponent,

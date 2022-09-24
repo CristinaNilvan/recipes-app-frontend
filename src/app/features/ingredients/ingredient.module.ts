@@ -9,6 +9,7 @@ import { IngredientDetailsComponent } from './components/ingredient-details/ingr
 import { ApprovedIngredientsPageComponent } from './pages/approved-ingredients-page/approved-ingredients-page.component';
 import { UnapprovedIngredientsPageComponent } from './pages/unapproved-ingredients-page/unapproved-ingredients-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SearchIngredientComponent } from './components/search-ingredient/search-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
     IngredientDetailsComponent,
     ApprovedIngredientsPageComponent,
     UnapprovedIngredientsPageComponent,
+    SearchIngredientComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule],
   exports: [
+    SearchIngredientComponent,
     AllIngredientsPageComponent,
     ApprovedIngredientsPageComponent,
     UnapprovedIngredientsPageComponent,
