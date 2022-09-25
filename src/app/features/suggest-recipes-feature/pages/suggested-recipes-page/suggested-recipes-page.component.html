@@ -1,5 +1,49 @@
-<h1>Suggested recipes</h1>
+<form
+  [formGroup]="suggestRecipesForm"
+  (ngSubmit)="onSubmit()"
+  class="form-group"
+>
+  <p>
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Ingredient name</mat-label>
+      <input
+        formControlName="ingredientName"
+        matInput
+        placeholder="Ingredient name"
+      />
+    </mat-form-field>
+  </p>
 
-<div infinite-scroll (scrolled)="onScroll()">
-  <app-recipes-list [recipes]="suggestedRecipes"></app-recipes-list>
-</div>
+  <p>
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Ingredient quantity</mat-label>
+      <input
+        formControlName="ingredientQuantity"
+        matInput
+        placeholder="Ingredient quantity"
+      />
+      <mat-hint>Must be two decimal!</mat-hint>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="!suggestRecipesForm.valid"
+      type="submit"
+    >
+      Suggest
+    </button>
+
+    <button mat-raised-button color="primary" (click)="onClear()">Clear</button>
+  </p>
+</form>
+
+<section *ngIf="suggestedRecipes">
+  <h1>Suggested recipes</h1>
+
+  <div infinite-scroll (scrolled)="onScroll()">
+    <app-recipes-list [recipes]="suggestedRecipes"></app-recipes-list>
+  </div>
+</section>
