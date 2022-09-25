@@ -3,6 +3,8 @@
 }
 
 .form-group {
+  /* background-color: #daddf1; */
+  /* border-radius: 15px; */
   background-color: white;
   overflow: auto;
   margin-left: auto;
