@@ -19,6 +19,9 @@ export class MealPlannerPageComponent implements OnInit {
   ngOnInit(): void {
     this.recipeService
       .generateMealPlanFromRecipes(this.mealType, this.calories)
-      .subscribe((mealPlan) => (this.mealPlan = mealPlan));
+      .subscribe((mealPlan) => {
+        this.mealPlan = mealPlan;
+        console.log(this.mealPlan);
+      });
   }
 }

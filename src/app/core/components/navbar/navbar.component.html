@@ -1,4 +1,4 @@
-<div class="content">
+<!-- <div class="content">
   <nav>
     <a href="#">Recipes</a>
     <a href="#">Ingredients</a>
@@ -6,4 +6,40 @@
     <a href="#">Find recipes</a>
     <a href="#">Suggest recipes</a>
   </nav>
-</div>
+</div> -->
+
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a routerLink="/recipes">RecipesApp</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/recipes">Recipes</a>
+      </li>
+      <li>
+        <a routerLink="/ingredients">Ingredients</a>
+      </li>
+      <li>
+        <a routerLink="/meal-planner">Meal planner</a>
+      </li>
+      <li>
+        <a routerLink="/suggest-recipes">Suggest recipes</a>
+      </li>
+      <li>
+        <a routerLink="/find-recipes">Find recipes</a>
+      </li>
+      <li>
+        <a routerLink="/create-recipe">Create recipe</a>
+      </li>
+      <li>
+        <a routerLink="/create-ingredient">Create ingredient</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

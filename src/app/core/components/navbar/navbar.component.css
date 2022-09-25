@@ -1,4 +1,4 @@
-.content {
+/* .content {
   font-size: 10px;
 }
 
@@ -19,4 +19,30 @@ nav a {
   padding: 1.4rem 1.6rem;
   text-decoration: none;
   font-size: 1rem;
+} */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+.navigation-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+mat-toolbar {
+  background-color: brown;
+  border-radius: 3px;
+}
+
+@media (max-width: 959px) {
+  mat-toolbar {
+    border-radius: 0px;
+  }
 }

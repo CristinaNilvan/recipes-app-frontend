@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SharedModule } from '../shared/shared.module';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [NavbarComponent, NotFoundPageComponent],
-  imports: [CommonModule],
-  exports: [NavbarComponent, NotFoundPageComponent],
+  declarations: [NavbarComponent, NotFoundComponent, SidebarComponent],
+  imports: [CommonModule, SharedModule],
+  exports: [NavbarComponent, SidebarComponent],
 })
 export class CoreModule {}
