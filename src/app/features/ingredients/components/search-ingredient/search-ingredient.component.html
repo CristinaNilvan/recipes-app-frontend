@@ -1,32 +1,12 @@
-<form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="form-group">
+<form [formGroup]="searchForm" (ngSubmit)="onAdd()" class="form-group">
   <p>
     <mat-form-field class="form-control" appearance="outline">
       <mat-label>Ingredient name</mat-label>
       <input formControlName="name" matInput placeholder="Ingredient name" />
     </mat-form-field>
 
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="!searchForm.valid"
-      type="submit"
-    >
-      Search
-    </button>
-
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="!searchForm.valid"
-      (click)="onAdd()"
-    >
-      Add
+    <button mat-raised-button color="primary" [disabled]="!searchForm.valid">
+      Add to list
     </button>
   </p>
 </form>
-
-<div *ngIf="ingredient">
-  <app-ingredient-search-card
-    [ingredient]="ingredient"
-  ></app-ingredient-search-card>
-</div>

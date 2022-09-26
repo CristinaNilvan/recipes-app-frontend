@@ -32,20 +32,13 @@ export class SearchIngredientComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onAdd() {
     this.ingredientService
       .getIngredientByName(this.name)
       .subscribe((ingredient) => {
-        if (ingredient === null) {
-          console.log('null ing');
-        }
-
         this.ingredient = ingredient;
+        this.ingredientEvent.emit(this.ingredient);
       });
-  }
-
-  onAdd() {
-    this.ingredientEvent.emit(this.ingredient);
   }
 
   get name() {

@@ -15,7 +15,7 @@ export class CreateIngredientListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addIngredientId(newIngredient: Ingredient) {
+  addIngredient(newIngredient: Ingredient) {
     this.ingredientIdList.push(newIngredient.id);
     this.ingredientList.push(newIngredient);
     console.log(this.ingredientIdList);

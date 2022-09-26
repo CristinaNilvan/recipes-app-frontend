@@ -1,15 +1,13 @@
 <app-search-ingredient
-  (ingredientEvent)="addIngredientId($event)"
+  (ingredientEvent)="addIngredient($event)"
 ></app-search-ingredient>
 
 <section *ngIf="ingredientList.length > 0">
-  <h3>Ingredient list</h3>
-  <div class="ingredient-cards">
-    <div *ngFor="let ingredient of ingredientList">
-      <app-ingredient-search-card
-        [ingredient]="ingredient"
-      ></app-ingredient-search-card>
-    </div>
+  <h1>Ingredient list</h1>
+  <div *ngFor="let ingredient of ingredientList">
+    <app-ingredient-search-card
+      [ingredient]="ingredient"
+    ></app-ingredient-search-card>
   </div>
 </section>
 
