@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Ingredient } from 'src/app/core/models/ingredient';
-import { getIngredientCategoryValue } from '../../utils/ingredient-functions';
+import { getIngredientCategoryValue } from '../../../../core/utils/ingredient-functions';
 
 @Component({
   selector: 'app-ingredient-details-card',

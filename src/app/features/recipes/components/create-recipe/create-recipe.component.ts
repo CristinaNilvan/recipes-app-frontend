@@ -6,7 +6,7 @@ import { RecipeService } from 'src/app/core/services/recipe.service';
 import {
   getRecipeMealTypeKey,
   getRecipeServingTimeKey,
-} from '../../utils/recipe-functions';
+} from '../../../../core/utils/recipe-functions';
 
 @Component({
   selector: 'app-create-recipe',

@@ -13,8 +13,8 @@ export class SuggestedRecipesPageComponent implements OnInit {
   suggestedRecipes!: Recipe[];
   pageNumber: number = 1;
   pageSize: number = 5;
-  ingredientName: string = 'Ing1';
-  ingredientQuantity: number = 100;
+  ingredientName!: string;
+  ingredientQuantity!: number;
 
   constructor(
     private formBuilder: FormBuilder,

@@ -1,1 +1,41 @@
-<app-meal-plan-details [mealPlan]="mealPlan"></app-meal-plan-details>
+<form
+  [formGroup]="generateMealPlanForm"
+  (ngSubmit)="onSubmit()"
+  class="form-group"
+>
+  <p>
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Meal type</mat-label>
+      <mat-select formControlName="mealType">
+        <mat-option value="Normal">Normal</mat-option>
+        <mat-option value="Vegetarian">Vegetarian</mat-option>
+        <mat-option value="Vegan">Vegan</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Calories</mat-label>
+      <input formControlName="calories" matInput placeholder="Calories" />
+      <mat-hint>Must be two decimal!</mat-hint>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="!generateMealPlanForm.valid"
+      type="submit"
+    >
+      Generate
+    </button>
+
+    <button mat-raised-button color="primary" (click)="onClear()">Clear</button>
+  </p>
+</form>
+
+<section *ngIf="mealPlan">
+  <app-meal-plan-details [mealPlan]="mealPlan"></app-meal-plan-details>
+</section>

@@ -3,7 +3,7 @@ import { Recipe } from 'src/app/core/models/recipe';
 import {
   getRecipeMealTypeValue,
   getRecipeServingTimeValue,
-} from '../../utils/recipe-functions';
+} from '../../../../core/utils/recipe-functions';
 
 @Component({
   selector: 'app-recipe-details-card',

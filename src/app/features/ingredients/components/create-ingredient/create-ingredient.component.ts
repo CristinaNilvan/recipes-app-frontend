@@ -6,7 +6,7 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 import {
   getIngredientCategoryKey,
   getIngredientCategoryValue,
-} from '../../utils/ingredient-functions';
+} from '../../../../core/utils/ingredient-functions';
 
 @Component({
   selector: 'app-create-ingredient',
