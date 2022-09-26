@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { FoundRecipesPageComponent } from './features/find-recipes-feature/pages/found-recipes-page/found-recipes-page.component';
 import { CreateIngredientComponent } from './features/ingredients/components/create-ingredient/create-ingredient.component';
+import { IngredientDetailsComponent } from './features/ingredients/components/ingredient-details/ingredient-details.component';
 import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/approved-ingredients-page/approved-ingredients-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
 import { CreateRecipeComponent } from './features/recipes/components/create-recipe/create-recipe.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'recipes', component: ApprovedRecipesPageComponent },
   { path: 'recipes/:id', component: RecipeDetailsComponent },
   { path: 'ingredients', component: ApprovedIngredientsPageComponent },
+  { path: 'ingredients/:id', component: IngredientDetailsComponent },
   { path: 'meal-planner', component: MealPlannerPageComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
   { path: 'find-recipes', component: FoundRecipesPageComponent },

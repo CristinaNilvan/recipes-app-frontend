@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Ingredient } from 'src/app/core/models/ingredient';
+import { IngredientService } from 'src/app/core/services/ingredient.service';
 import { getIngredientCategoryValue } from '../../../../core/utils/ingredient-functions';
 
 @Component({
@@ -8,11 +10,23 @@ import { getIngredientCategoryValue } from '../../../../core/utils/ingredient-fu
   styleUrls: ['./ingredient-details.component.css'],
 })
 export class IngredientDetailsComponent implements OnInit {
-  @Input() ingredient!: Ingredient;
+  ingredient!: Ingredient;
 
-  constructor() {}
+  constructor(
+    private route: ActivatedRoute,
+    private ingredientService: IngredientService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getIngredient();
+  }
+
+  getIngredient() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.ingredientService
+      .getIngredientById(id)
+      .subscribe((ingredient) => (this.ingredient = ingredient));
+  }
 
   getIngredientCategory() {
     return getIngredientCategoryValue(this.ingredient.category);
