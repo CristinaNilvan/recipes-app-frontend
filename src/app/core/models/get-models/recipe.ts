@@ -1,5 +1,5 @@
-import { MealType } from '../enums/meal-type';
-import { ServingTime } from '../enums/serving-time';
+import { MealType } from '../../enums/meal-type';
+import { ServingTime } from '../../enums/serving-time';
 import { RecipeImage } from './recipe-image';
 import { RecipeIngredient } from './recipe-ingredient';
 

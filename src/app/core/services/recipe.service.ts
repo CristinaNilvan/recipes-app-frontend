@@ -1,9 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Recipe } from 'src/app/core/models/recipe';
+import { Recipe } from 'src/app/core/models/get-models/recipe';
 import { MealType } from '../enums/meal-type';
-import { MealPlan } from '../models/meal-plan';
+import { MealPlan } from '../models/get-models/meal-plan';
 import { RecipePost } from '../models/post-models/recipe-post';
 
 @Injectable({

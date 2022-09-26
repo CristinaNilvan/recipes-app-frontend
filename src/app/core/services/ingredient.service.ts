@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Ingredient } from 'src/app/core/models/ingredient';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { Observable } from 'rxjs';
 import { IngredientPost } from '../models/post-models/ingredient-post';
 
@@ -64,10 +64,6 @@ export class IngredientService {
   }
 
   patchIngredient(id: number, ingredient: IngredientPost): Observable<{}> {
-    // const httpOptions = {
-    //   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    // };
-
     const url = `${this.url}${id}`;
     return this.httpService.patch(url, ingredient);
   }

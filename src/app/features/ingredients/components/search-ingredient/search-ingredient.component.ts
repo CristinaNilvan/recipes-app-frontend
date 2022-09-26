@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Ingredient } from 'src/app/core/models/ingredient';
+import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
 
 @Component({

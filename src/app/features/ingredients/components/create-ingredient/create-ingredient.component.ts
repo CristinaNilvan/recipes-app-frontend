@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Ingredient } from 'src/app/core/models/ingredient';
+import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientPost } from 'src/app/core/models/post-models/ingredient-post';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
 import {

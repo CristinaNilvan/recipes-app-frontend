@@ -1,12 +1,5 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { MealPlan } from 'src/app/core/models/meal-plan';
-import { Recipe } from 'src/app/core/models/recipe';
+import { Component, Input, OnInit } from '@angular/core';
+import { MealPlan } from 'src/app/core/models/get-models/meal-plan';
 
 @Component({
   selector: 'app-meal-plan-details',

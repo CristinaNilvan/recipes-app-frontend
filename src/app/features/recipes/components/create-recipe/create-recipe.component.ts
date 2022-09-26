@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
-import { Recipe } from 'src/app/core/models/recipe';
+import { Recipe } from 'src/app/core/models/get-models/recipe';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import {
   getRecipeMealTypeKey,

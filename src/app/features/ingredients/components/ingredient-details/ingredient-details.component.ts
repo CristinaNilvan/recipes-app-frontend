@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Ingredient } from 'src/app/core/models/ingredient';
+import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
 import { getIngredientCategoryValue } from '../../../../core/utils/ingredient-functions';
 

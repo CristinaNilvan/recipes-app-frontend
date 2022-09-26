@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Recipe } from 'src/app/core/models/recipe';
+import { Recipe } from 'src/app/core/models/get-models/recipe';
 import {
   getRecipeMealTypeValue,
   getRecipeServingTimeValue,

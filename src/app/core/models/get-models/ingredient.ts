@@ -1,4 +1,4 @@
-import { IngredientCategory } from '../enums/ingredient-category';
+import { IngredientCategory } from '../../enums/ingredient-category';
 import { IngredientImage } from './ingredient-image';
 import { RecipeIngredient } from './recipe-ingredient';
 

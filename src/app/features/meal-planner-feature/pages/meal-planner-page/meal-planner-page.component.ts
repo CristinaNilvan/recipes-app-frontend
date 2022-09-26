@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MealType } from 'src/app/core/enums/meal-type';
-import { MealPlan } from 'src/app/core/models/meal-plan';
-import { Recipe } from 'src/app/core/models/recipe';
+import { MealPlan } from 'src/app/core/models/get-models/meal-plan';
+import { Recipe } from 'src/app/core/models/get-models/recipe';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import { getRecipeMealTypeKey } from 'src/app/core/utils/recipe-functions';
 
