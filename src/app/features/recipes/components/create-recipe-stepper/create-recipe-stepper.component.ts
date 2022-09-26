@@ -2,7 +2,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
 import { RecipeService } from 'src/app/core/services/recipe.service';
