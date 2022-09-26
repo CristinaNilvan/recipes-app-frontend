@@ -6,6 +6,7 @@ import { CreateIngredientComponent } from './features/ingredients/components/cre
 import { IngredientDetailsComponent } from './features/ingredients/components/ingredient-details/ingredient-details.component';
 import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/approved-ingredients-page/approved-ingredients-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
+import { CreateRecipeStepperComponent } from './features/recipes/components/create-recipe-stepper/create-recipe-stepper.component';
 import { CreateRecipeComponent } from './features/recipes/components/create-recipe/create-recipe.component';
 import { RecipeDetailsComponent } from './features/recipes/components/recipe-details/recipe-details.component';
 import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'meal-planner', component: MealPlannerPageComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
   { path: 'find-recipes', component: FoundRecipesPageComponent },
-  { path: 'create-recipe', component: CreateRecipeComponent },
+  { path: 'create-recipe', component: CreateRecipeStepperComponent },
   { path: 'create-ingredient', component: CreateIngredientComponent },
   { path: '**', component: NotFoundComponent },
 ];

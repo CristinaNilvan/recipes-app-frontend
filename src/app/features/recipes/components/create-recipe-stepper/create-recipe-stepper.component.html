@@ -1,0 +1,106 @@
+<mat-stepper
+  class="example-stepper"
+  [orientation]="(stepperOrientation | async)!"
+>
+  <mat-step [stepControl]="recipeDetailsForm" label="Fill out recipe details">
+    <form [formGroup]="recipeDetailsForm">
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput placeholder="Recipe name" />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Author</mat-label>
+          <input formControlName="author" matInput placeholder="Your name" />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Meal type</mat-label>
+          <mat-select formControlName="mealType">
+            <mat-option value="Normal">Normal</mat-option>
+            <mat-option value="Vegetarian">Vegetarian</mat-option>
+            <mat-option value="Vegan">Vegan</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Serving time</mat-label>
+          <mat-select formControlName="servingTime">
+            <mat-option value="Breakfast">Breakfast</mat-option>
+            <mat-option value="Lunch">Lunch</mat-option>
+            <mat-option value="Dinner">Dinner</mat-option>
+            <mat-option value="Others">Others</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Servings</mat-label>
+          <input formControlName="servings" matInput placeholder="Servings" />
+          <mat-hint>Must be two decimal!</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="recipeImageForm" label="Choose a photo">
+    <form [formGroup]="recipeImageForm">
+      <p>
+        <button type="button" mat-raised-button (click)="fileInput.click()">
+          Choose File
+        </button>
+        <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+      </p>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step label="Add ingredients">
+    <p>
+      <app-create-ingredient-list></app-create-ingredient-list>
+    </p>
+
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step label="Done">
+    <p>You are now done.</p>
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="!recipeDetailsForm.valid && !recipeImageForm.valid"
+      type="submit"
+    >
+      Create
+    </button>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+    </div>
+  </mat-step>
+</mat-stepper>
