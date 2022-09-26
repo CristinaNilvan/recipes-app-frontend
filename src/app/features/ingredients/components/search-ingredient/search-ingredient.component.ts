@@ -40,7 +40,7 @@ export class SearchIngredientComponent implements OnInit {
     this.ingredientService.getIngredientByName(this.name).subscribe({
       next: (ingredient) => {
         this.ingredient = ingredient;
-        this.ingredientEvent.emit(this.ingredient);
+        this.emitIngredient();
       },
       error: (error: HttpErrorResponse) => {
         if (error.status === 404) {
@@ -48,6 +48,10 @@ export class SearchIngredientComponent implements OnInit {
         }
       },
     });
+  }
+
+  emitIngredient() {
+    this.ingredientEvent.emit(this.ingredient);
   }
 
   get name() {

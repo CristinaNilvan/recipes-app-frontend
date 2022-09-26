@@ -1,14 +1,12 @@
 <form [formGroup]="searchForm" (ngSubmit)="onAdd()" class="form-group">
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Ingredient name</mat-label>
-      <input formControlName="name" matInput placeholder="Ingredient name" />
-    </mat-form-field>
+  <mat-form-field class="form-control" appearance="outline">
+    <mat-label>Ingredient name</mat-label>
+    <input formControlName="name" matInput placeholder="Ingredient name" />
+  </mat-form-field>
 
-    <button mat-raised-button color="primary" [disabled]="!searchForm.valid">
-      Add to list
-    </button>
-  </p>
+  <button mat-raised-button color="primary" [disabled]="!searchForm.valid">
+    Add to list
+  </button>
 </form>
 
 <!-- <div *ngIf="errorMessage.length > 0">

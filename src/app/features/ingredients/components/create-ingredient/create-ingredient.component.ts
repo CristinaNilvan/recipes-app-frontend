@@ -3,10 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientPost } from 'src/app/core/models/post-models/ingredient-post';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
-import {
-  getIngredientCategoryKey,
-  getIngredientCategoryValue,
-} from '../../../../core/utils/ingredient-functions';
+import { getIngredientCategoryKey } from '../../../../core/utils/ingredient-functions';
 
 @Component({
   selector: 'app-create-ingredient',

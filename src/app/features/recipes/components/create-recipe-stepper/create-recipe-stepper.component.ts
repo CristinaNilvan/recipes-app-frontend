@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Recipe } from 'src/app/core/models/get-models/recipe';
+import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
 import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import {
@@ -20,6 +22,8 @@ export class CreateRecipeStepperComponent implements OnInit {
   recipeDetailsForm!: FormGroup;
   recipeImageForm!: FormGroup;
   stepperOrientation!: Observable<StepperOrientation>;
+  recipeIngredientList!: RecipeIngredient[];
+  recipe!: Recipe;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -75,10 +79,12 @@ export class CreateRecipeStepperComponent implements OnInit {
       servings: parseFloat(this.servings),
     };
 
-    // this.recipeService.createRecipe(formRecipe).subscribe((recipe) => {
-    //   this.recipe = recipe;
-    //   this.addImageFromForm(this.recipe.id);
-    // });
+    this.recipeService.createRecipe(formRecipe).subscribe((recipe) => {
+      this.recipe = recipe;
+      console.log(this.recipe);
+      this.addImageFromForm(this.recipe.id);
+      this.addRecipeIngredients(this.recipe.id);
+    });
   }
 
   onFileChange(event: any) {
@@ -92,6 +98,24 @@ export class CreateRecipeStepperComponent implements OnInit {
     formData.set('File', image);
 
     this.recipeService.addImageToRecipe(id, formData).subscribe();
+  }
+
+  setRecipeIngredientList(recipeIngredientList: RecipeIngredient[]) {
+    this.recipeIngredientList = recipeIngredientList;
+  }
+
+  addRecipeIngredients(id: number) {
+    console.log('adding recipe ingredients');
+    this.recipeIngredientList.forEach((recipeIngredient) =>
+      this.addRecipeIngredient(id, recipeIngredient)
+    );
+  }
+
+  addRecipeIngredient(id: number, recipeIngredient: RecipeIngredient) {
+    console.log('adding recipe ingredient ' + recipeIngredient.id);
+    this.recipeService
+      .addRecipeIngredientToRecipe(id, recipeIngredient)
+      .subscribe();
   }
 
   get name() {

@@ -12,6 +12,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
 import { IngredientModule } from '../ingredients/ingredient.module';
 import { CreateRecipeStepperComponent } from './components/create-recipe-stepper/create-recipe-stepper.component';
+import { CreateRecipeIngredientComponent } from './components/create-recipe-ingredient/create-recipe-ingredient.component';
+import { CreateRecipeIngredientListComponent } from './components/create-recipe-ingredient-list/create-recipe-ingredient-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { CreateRecipeStepperComponent } from './components/create-recipe-stepper
     UnapprovedRecipesPageComponent,
     CreateRecipeComponent,
     CreateRecipeStepperComponent,
+    CreateRecipeIngredientComponent,
+    CreateRecipeIngredientListComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule, IngredientModule],
   exports: [

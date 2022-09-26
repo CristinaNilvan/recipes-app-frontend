@@ -80,8 +80,14 @@
 
   <mat-step label="Add ingredients">
     <p>
-      <app-create-ingredient-list></app-create-ingredient-list>
+      <app-create-recipe-ingredient-list
+        (recipeIngredientListEvent)="setRecipeIngredientList($event)"
+      ></app-create-recipe-ingredient-list>
     </p>
+
+    <!-- <p>
+      <app-create-recipe-ingredient></app-create-recipe-ingredient>
+    </p> -->
 
     <div>
       <button mat-button matStepperPrevious>Back</button>
@@ -95,7 +101,7 @@
       mat-raised-button
       color="accent"
       [disabled]="!recipeDetailsForm.valid && !recipeImageForm.valid"
-      type="submit"
+      (click)="onSubmit()"
     >
       Create
     </button>
