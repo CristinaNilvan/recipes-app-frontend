@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/core/models/ingredient';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
@@ -11,6 +11,7 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 export class SearchIngredientComponent implements OnInit {
   searchForm!: FormGroup;
   ingredient!: Ingredient;
+  @Output() ingredientEvent = new EventEmitter<Ingredient>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,7 +35,17 @@ export class SearchIngredientComponent implements OnInit {
   onSubmit() {
     this.ingredientService
       .getIngredientByName(this.name)
-      .subscribe((ingredient) => (this.ingredient = ingredient));
+      .subscribe((ingredient) => {
+        if (ingredient === null) {
+          console.log('null ing');
+        }
+
+        this.ingredient = ingredient;
+      });
+  }
+
+  onAdd() {
+    this.ingredientEvent.emit(this.ingredient);
   }
 
   get name() {

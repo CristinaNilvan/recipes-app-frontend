@@ -8,14 +8,20 @@ import { RecipeService } from 'src/app/core/services/recipe.service';
   styleUrls: ['./found-recipes-page.component.css'],
 })
 export class FoundRecipesPageComponent implements OnInit {
-  foundRecipes: Recipe[] = [];
-  ingredientIds: number[] = [1, 3];
+  foundRecipes!: Recipe[];
+  ingredientIds!: number[];
 
   constructor(private recipeService: RecipeService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  findRecipes() {
     this.recipeService
       .getFoundRecipes(this.ingredientIds)
       .subscribe((recipes) => (this.foundRecipes = recipes));
+  }
+
+  setIngredientIds(ingredientIds: number[]) {
+    this.ingredientIds = ingredientIds;
   }
 }

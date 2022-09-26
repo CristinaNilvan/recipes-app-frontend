@@ -1,27 +1,32 @@
 <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="form-group">
   <p>
     <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Name</mat-label>
+      <mat-label>Ingredient name</mat-label>
       <input formControlName="name" matInput placeholder="Ingredient name" />
-      <mat-hint>Ingredient name</mat-hint>
     </mat-form-field>
 
     <button
       mat-raised-button
-      color="accent"
+      color="primary"
       [disabled]="!searchForm.valid"
       type="submit"
     >
       Search
     </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!searchForm.valid"
+      (click)="onAdd()"
+    >
+      Add
+    </button>
   </p>
 </form>
 
 <div *ngIf="ingredient">
-  <section>
-    <h3>Recipe ingredients</h3>
-    <ul *ngFor="let recIng of ingredient.recipeIngredients">
-      <li>Ingredient name: {{ recIng.id }} Quantity:{{ recIng.quantity }}</li>
-    </ul>
-  </section>
+  <app-ingredient-search-card
+    [ingredient]="ingredient"
+  ></app-ingredient-search-card>
 </div>
