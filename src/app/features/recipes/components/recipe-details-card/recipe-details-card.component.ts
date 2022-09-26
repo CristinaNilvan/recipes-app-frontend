@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Recipe } from 'src/app/core/models/recipe';
 import {
   getRecipeMealTypeValue,
@@ -13,9 +14,14 @@ import {
 export class RecipeDetailsCardComponent implements OnInit {
   @Input() recipe!: Recipe;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  onClick() {
+    const route = `/recipes/${this.recipe.id}`;
+    this.router.navigate([route]);
+  }
 
   getRecipeMealType() {
     return getRecipeMealTypeValue(this.recipe.mealType);

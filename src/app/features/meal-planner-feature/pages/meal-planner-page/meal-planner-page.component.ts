@@ -14,8 +14,8 @@ import { getRecipeMealTypeKey } from 'src/app/core/utils/recipe-functions';
 export class MealPlannerPageComponent implements OnInit {
   generateMealPlanForm!: FormGroup;
   mealPlan!: MealPlan;
-  mealType: MealType = MealType.Normal;
-  calories: number = 2000;
+  mealType!: MealType;
+  calories!: number;
 
   constructor(
     private formBuilder: FormBuilder,

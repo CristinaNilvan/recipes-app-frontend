@@ -6,12 +6,14 @@ import { CreateIngredientComponent } from './features/ingredients/components/cre
 import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/approved-ingredients-page/approved-ingredients-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
 import { CreateRecipeComponent } from './features/recipes/components/create-recipe/create-recipe.component';
+import { RecipeDetailsComponent } from './features/recipes/components/recipe-details/recipe-details.component';
 import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'recipes', component: ApprovedRecipesPageComponent },
+  { path: 'recipes/:id', component: RecipeDetailsComponent },
   { path: 'ingredients', component: ApprovedIngredientsPageComponent },
   { path: 'meal-planner', component: MealPlannerPageComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
