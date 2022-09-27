@@ -9,10 +9,7 @@ import { IngredientDetailsComponent } from './components/ingredient-details/ingr
 import { ApprovedIngredientsPageComponent } from './pages/approved-ingredients-page/approved-ingredients-page.component';
 import { UnapprovedIngredientsPageComponent } from './pages/unapproved-ingredients-page/unapproved-ingredients-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SearchIngredientComponent } from './components/search-ingredient/search-ingredient.component';
 import { CreateIngredientComponent } from './components/create-ingredient/create-ingredient.component';
-import { IngredientSearchCardComponent } from './components/ingredient-search-card/ingredient-search-card.component';
-import { CreateIngredientListComponent } from './components/create-ingredient-list/create-ingredient-list.component';
 
 @NgModule({
   declarations: [
@@ -23,16 +20,11 @@ import { CreateIngredientListComponent } from './components/create-ingredient-li
     IngredientDetailsComponent,
     ApprovedIngredientsPageComponent,
     UnapprovedIngredientsPageComponent,
-    SearchIngredientComponent,
     CreateIngredientComponent,
-    IngredientSearchCardComponent,
-    CreateIngredientListComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule],
   exports: [
     CreateIngredientComponent,
-    SearchIngredientComponent,
-    CreateIngredientListComponent,
     AllIngredientsPageComponent,
     ApprovedIngredientsPageComponent,
     UnapprovedIngredientsPageComponent,
