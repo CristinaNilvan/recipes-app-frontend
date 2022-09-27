@@ -85,10 +85,6 @@
       ></app-create-recipe-ingredient-list>
     </p>
 
-    <!-- <p>
-      <app-create-recipe-ingredient></app-create-recipe-ingredient>
-    </p> -->
-
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>
@@ -103,7 +99,7 @@
       [disabled]="!recipeDetailsForm.valid && !recipeImageForm.valid"
       (click)="onSubmit()"
     >
-      Create
+      Create recipe
     </button>
     <div>
       <button mat-button matStepperPrevious>Back</button>

@@ -1,0 +1,21 @@
+<app-search-ingredient-for-list
+  (ingredientEvent)="addIngredient($event)"
+></app-search-ingredient-for-list>
+
+<section *ngIf="ingredientList.length > 0">
+  <h1>Ingredient list</h1>
+  <div *ngFor="let ingredient of ingredientList">
+    <app-ingredient-from-list-card
+      [ingredient]="ingredient"
+    ></app-ingredient-from-list-card>
+  </div>
+</section>
+
+<p>
+  <button mat-raised-button color="primary" (click)="createList()">
+    Create list
+  </button>
+  <button mat-raised-button color="primary" (click)="clearList()">
+    Clear list
+  </button>
+</p>
