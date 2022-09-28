@@ -17,4 +17,9 @@ export class RecipeIngredientService {
   ): Observable<RecipeIngredient> {
     return this.httpService.post<RecipeIngredient>(this.url, recipeIngredient);
   }
+
+  getRecipeIngredientById(id: number): Observable<RecipeIngredient> {
+    const url = `${this.url}${id}`;
+    return this.httpService.get<RecipeIngredient>(url);
+  }
 }

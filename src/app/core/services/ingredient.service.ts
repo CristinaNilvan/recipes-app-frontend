@@ -75,7 +75,6 @@ export class IngredientService {
 
   addImageToIngredient(id: number, formData: FormData): Observable<{}> {
     const url = `${this.url}${id}/image`;
-
     return this.httpService.post(url, formData);
   }
 }
