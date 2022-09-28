@@ -1,8 +1,8 @@
-.content {
+.operations {
   background-color: white;
   padding: 3%;
 }
 
 button {
-  margin: 1%;
+  width: 100%;
 }
