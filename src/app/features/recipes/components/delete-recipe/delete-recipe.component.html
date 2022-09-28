@@ -1,0 +1,19 @@
+<form [formGroup]="deleteRecipeForm" (ngSubmit)="onSubmit()" class="form-group">
+  <p>
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Recipe name</mat-label>
+      <input formControlName="name" matInput placeholder="Recipe name" />
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Recipe author</mat-label>
+      <input formControlName="author" matInput placeholder="Recipe author" />
+    </mat-form-field>
+  </p>
+
+  <button mat-raised-button color="accent" [disabled]="!deleteRecipeForm.valid">
+    Delete
+  </button>
+</form>

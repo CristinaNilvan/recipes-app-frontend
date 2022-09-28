@@ -10,6 +10,8 @@ import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/a
 import { CrudIngredientPageComponent } from './features/ingredients/pages/crud-ingredient-page/crud-ingredient-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
 import { CreateRecipeStepperComponent } from './features/recipes/components/create-recipe-stepper/create-recipe-stepper.component';
+import { DeleteRecipeComponent } from './features/recipes/components/delete-recipe/delete-recipe.component';
+import { GetRecipeComponent } from './features/recipes/components/get-recipe/get-recipe.component';
 import { RecipeDetailsComponent } from './features/recipes/components/recipe-details/recipe-details.component';
 import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
 import { CrudRecipePageComponent } from './features/recipes/pages/crud-recipe-page/crud-recipe-page.component';
@@ -20,6 +22,9 @@ const routes: Routes = [
   { path: 'recipes', component: ApprovedRecipesPageComponent },
   { path: 'recipes/:id', component: RecipeDetailsComponent },
   { path: 'crud-recipe', component: CrudRecipePageComponent },
+  { path: 'create-recipe', component: CreateRecipeStepperComponent },
+  { path: 'get-recipe', component: GetRecipeComponent },
+  { path: 'delete-recipe', component: DeleteRecipeComponent },
   { path: 'ingredients', component: ApprovedIngredientsPageComponent },
   { path: 'ingredients/:id', component: IngredientDetailsComponent },
   { path: 'crud-ingredient', component: CrudIngredientPageComponent },
@@ -29,7 +34,6 @@ const routes: Routes = [
   { path: 'meal-planner', component: MealPlannerPageComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
   { path: 'find-recipes', component: FoundRecipesPageComponent },
-  { path: 'create-recipe', component: CreateRecipeStepperComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

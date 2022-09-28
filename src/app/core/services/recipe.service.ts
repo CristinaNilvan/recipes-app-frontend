@@ -24,7 +24,12 @@ export class RecipeService {
     return this.httpService.get<Recipe>(url);
   }
 
-  getRecipeByName(name: string): Observable<Recipe> {
+  getRecipeByNameAndAuthor(name: string, author: string): Observable<Recipe> {
+    const url = `${this.url}${name}&${author}`;
+    return this.httpService.get<Recipe>(url);
+  }
+
+  getRecipesByName(name: string): Observable<Recipe> {
     const url = `${this.url}${name}`;
     return this.httpService.get<Recipe>(url);
   }
