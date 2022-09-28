@@ -11,6 +11,9 @@ import { UnapprovedIngredientsPageComponent } from './pages/unapproved-ingredien
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateIngredientComponent } from './components/create-ingredient/create-ingredient.component';
 import { CrudIngredientPageComponent } from './pages/crud-ingredient-page/crud-ingredient-page.component';
+import { IngredientRoutingModule } from './ingredient-routing.module';
+import { GetIngredientComponent } from './components/get-ingredient/get-ingredient.component';
+import { DeleteIngredientComponent } from './components/delete-ingredient/delete-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -21,17 +24,21 @@ import { CrudIngredientPageComponent } from './pages/crud-ingredient-page/crud-i
     IngredientDetailsComponent,
     ApprovedIngredientsPageComponent,
     UnapprovedIngredientsPageComponent,
-    CreateIngredientComponent,
     CrudIngredientPageComponent,
-  ],
-  imports: [CommonModule, CoreModule, SharedModule],
-  exports: [
     CreateIngredientComponent,
+    GetIngredientComponent,
+    DeleteIngredientComponent,
+  ],
+  imports: [CommonModule, IngredientRoutingModule, CoreModule, SharedModule],
+  exports: [
     AllIngredientsPageComponent,
     ApprovedIngredientsPageComponent,
     UnapprovedIngredientsPageComponent,
     IngredientDetailsPageComponent,
     CrudIngredientPageComponent,
+    CreateIngredientComponent,
+    GetIngredientComponent,
+    DeleteIngredientComponent,
   ],
 })
 export class IngredientModule {}

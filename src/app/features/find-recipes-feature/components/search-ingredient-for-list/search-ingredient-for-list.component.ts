@@ -34,7 +34,7 @@ export class SearchIngredientForListComponent implements OnInit {
     });
   }
 
-  onAdd() {
+  onSubmit() {
     this.errorMessage = '';
 
     this.ingredientService.getIngredientByName(this.name).subscribe({

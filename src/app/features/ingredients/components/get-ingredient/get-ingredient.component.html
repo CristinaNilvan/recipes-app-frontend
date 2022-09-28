@@ -1,0 +1,18 @@
+<form
+  [formGroup]="getIngredientForm"
+  (ngSubmit)="onSubmit()"
+  class="form-group"
+>
+  <mat-form-field class="form-control" appearance="outline">
+    <mat-label>Ingredient name</mat-label>
+    <input formControlName="name" matInput placeholder="Ingredient name" />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="!getIngredientForm.valid"
+  >
+    Get
+  </button>
+</form>
