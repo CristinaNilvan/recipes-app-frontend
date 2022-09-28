@@ -16,12 +16,5 @@ a:active {
 }
 
 mat-toolbar {
-  background-color: brown;
   height: 50px;
-}
-
-@media (max-width: 959px) {
-  mat-toolbar {
-    border-radius: 0px;
-  }
 }

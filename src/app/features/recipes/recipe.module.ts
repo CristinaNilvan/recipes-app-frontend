@@ -15,6 +15,7 @@ import { CreateRecipeStepperComponent } from './components/create-recipe-stepper
 import { CreateRecipeIngredientComponent } from './components/create-recipe-ingredient/create-recipe-ingredient.component';
 import { CreateRecipeIngredientListComponent } from './components/create-recipe-ingredient-list/create-recipe-ingredient-list.component';
 import { RecipeIngredientFromListCardComponent } from './components/recipe-ingredient-from-list-card/recipe-ingredient-from-list-card.component';
+import { CrudRecipePageComponent } from './pages/crud-recipe-page/crud-recipe-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { RecipeIngredientFromListCardComponent } from './components/recipe-ingre
     CreateRecipeIngredientComponent,
     CreateRecipeIngredientListComponent,
     RecipeIngredientFromListCardComponent,
+    CrudRecipePageComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule, IngredientModule],
   exports: [
@@ -41,6 +43,7 @@ import { RecipeIngredientFromListCardComponent } from './components/recipe-ingre
     ApprovedRecipesPageComponent,
     UnapprovedRecipesPageComponent,
     RecipeDetailsPageComponent,
+    CrudRecipePageComponent,
   ],
 })
 export class RecipeModule {}

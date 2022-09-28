@@ -1,10 +1,6 @@
 @import "~normalize.css";
 @import url("https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat&family=Roboto&display=swap");
 
-html {
-  background-color: #fffffe;
-}
-
 html,
 body {
   height: auto;
@@ -13,4 +9,5 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: white;
 }

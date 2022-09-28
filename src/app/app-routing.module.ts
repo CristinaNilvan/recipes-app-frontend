@@ -10,12 +10,14 @@ import { CreateRecipeStepperComponent } from './features/recipes/components/crea
 import { CreateRecipeComponent } from './features/recipes/components/create-recipe/create-recipe.component';
 import { RecipeDetailsComponent } from './features/recipes/components/recipe-details/recipe-details.component';
 import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
+import { CrudRecipePageComponent } from './features/recipes/pages/crud-recipe-page/crud-recipe-page.component';
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'recipes', component: ApprovedRecipesPageComponent },
   { path: 'recipes/:id', component: RecipeDetailsComponent },
+  { path: 'crud-recipe', component: CrudRecipePageComponent },
   { path: 'ingredients', component: ApprovedIngredientsPageComponent },
   { path: 'ingredients/:id', component: IngredientDetailsComponent },
   { path: 'meal-planner', component: MealPlannerPageComponent },
