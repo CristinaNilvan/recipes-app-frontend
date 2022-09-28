@@ -26,16 +26,17 @@ export class RecipeDetailsPageComponent implements OnInit {
   constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {
-    this.recipeService
-      .getRecipeById(this.recipeId)
-      .subscribe((recipe) => (this.recipe = recipe));
-
+    // this.recipeService
+    //   .getRecipeById(this.recipeId)
+    //   .subscribe((recipe) => (this.recipe = recipe));
     // this.recipeService
     //   .createRecipe(this.rec)
     //   .subscribe((recipe) => console.log('create'));
-
     // this.recipeService
     //   .deleteRecipe(18)
     //   .subscribe((recipe) => console.log('delete'));
+    // this.recipeService
+    //   .approveRecipe(8)
+    //   .subscribe((recipe) => console.log('approved'));
   }
 }

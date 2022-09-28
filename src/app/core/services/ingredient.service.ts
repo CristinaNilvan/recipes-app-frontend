@@ -68,6 +68,11 @@ export class IngredientService {
     return this.httpService.patch(url, ingredient);
   }
 
+  approveIngredient(id: number): Observable<{}> {
+    const url = `${this.url}unapproved-ingredients/${id}`;
+    return this.httpService.patch(url, null);
+  }
+
   deleteIngredient(id: number): Observable<{}> {
     const url = `${this.url}${id}`;
     return this.httpService.delete(url);

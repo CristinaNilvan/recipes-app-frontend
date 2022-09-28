@@ -25,9 +25,9 @@ export class IngredientDetailsPageComponent implements OnInit {
   constructor(private ingredientService: IngredientService) {}
 
   ngOnInit(): void {
-    this.ingredientService
-      .getIngredientById(this.ingredientId)
-      .subscribe((ingredient) => (this.ingredient = ingredient));
+    // this.ingredientService
+    //   .getIngredientById(this.ingredientId)
+    //   .subscribe((ingredient) => (this.ingredient = ingredient));
     // this.ingredientService
     //   .createIngredient(this.ing)
     //   .subscribe((ingredient) => console.log('create'));
@@ -37,5 +37,8 @@ export class IngredientDetailsPageComponent implements OnInit {
     // this.ingredientService
     //   .patchIngredient(15, this.ingredient)
     //   .subscribe((ingredient) => console.log('patch'));
+    // this.ingredientService
+    //   .approveIngredient(13)
+    //   .subscribe((ingredient) => console.log('approved'));
   }
 }

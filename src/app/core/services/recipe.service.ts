@@ -105,6 +105,11 @@ export class RecipeService {
     return this.httpService.patch(url, recipe);
   }
 
+  approveRecipe(id: number): Observable<{}> {
+    const url = `${this.url}unapproved-recipes/${id}`;
+    return this.httpService.patch(url, null);
+  }
+
   deleteRecipe(id: number): Observable<{}> {
     const url = `${this.url}${id}`;
     return this.httpService.delete(url);
