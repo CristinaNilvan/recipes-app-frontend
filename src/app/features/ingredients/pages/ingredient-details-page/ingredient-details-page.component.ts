@@ -14,9 +14,9 @@ export class IngredientDetailsPageComponent implements OnInit {
   ingredientId: number = 1;
 
   ing: IngredientPost = {
-    name: 'Angular patch',
+    name: 'Ing3',
     category: IngredientCategory.Meat,
-    calories: null,
+    calories: 20,
     fats: null,
     carbs: null,
     proteins: null,
@@ -35,7 +35,7 @@ export class IngredientDetailsPageComponent implements OnInit {
     //   .deleteIngredient(16)
     //   .subscribe((ingredient) => console.log('delete'));
     // this.ingredientService
-    //   .patchIngredient(15, this.ingredient)
+    //   .patchIngredient(3, this.ing)
     //   .subscribe((ingredient) => console.log('patch'));
     // this.ingredientService
     //   .approveIngredient(13)

@@ -82,7 +82,6 @@ export class CreateRecipeStepperComponent implements OnInit {
 
     this.recipeService.createRecipe(formRecipe).subscribe((recipe) => {
       this.recipe = recipe;
-      console.log(this.recipe);
       this.addImageFromForm(this.recipe.id);
       this.addRecipeIngredients(this.recipe.id);
     });

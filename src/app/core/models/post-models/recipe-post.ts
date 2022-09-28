@@ -2,10 +2,10 @@ import { MealType } from '../../enums/meal-type';
 import { ServingTime } from '../../enums/serving-time';
 
 export interface RecipePost {
-  name: string;
-  author: string;
-  description: string;
-  mealType: MealType;
-  servingTime: ServingTime;
-  servings: number;
+  name: string | null;
+  author: string | null;
+  description: string | null;
+  mealType: MealType | null;
+  servingTime: ServingTime | null;
+  servings: number | null;
 }

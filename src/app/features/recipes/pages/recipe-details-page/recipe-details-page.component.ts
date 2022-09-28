@@ -15,12 +15,12 @@ export class RecipeDetailsPageComponent implements OnInit {
   recipeId: number = 1;
 
   rec: RecipePost = {
-    name: 'Angular2',
-    author: 'Cristina Nilvan',
-    description: 'Desccccc',
-    mealType: MealType.Normal,
-    servingTime: ServingTime.Breakfast,
-    servings: 1,
+    name: 'Ing12',
+    author: null,
+    description: null,
+    mealType: MealType.Vegan,
+    servingTime: ServingTime.Others,
+    servings: 5,
   };
 
   constructor(private recipeService: RecipeService) {}
@@ -38,5 +38,8 @@ export class RecipeDetailsPageComponent implements OnInit {
     // this.recipeService
     //   .approveRecipe(8)
     //   .subscribe((recipe) => console.log('approved'));
+    // this.recipeService
+    //   .patchRecipe(12, this.rec)
+    //   .subscribe((recipe) => console.log('patch'));
   }
 }
