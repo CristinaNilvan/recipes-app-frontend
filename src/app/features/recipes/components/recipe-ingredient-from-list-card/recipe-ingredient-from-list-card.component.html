@@ -1,0 +1,16 @@
+<mat-card class="card" *ngIf="recipeIngredient">
+  <mat-card-title-group>
+    <mat-card-title>{{ recipeIngredient.ingredient.name }}</mat-card-title>
+    <mat-card-subtitle>{{ getIngredientCategory() }}</mat-card-subtitle>
+    <img
+      *ngIf="recipeIngredient.ingredient.ingredientImage"
+      mat-card-sm-image
+      [src]="recipeIngredient.ingredient.ingredientImage.storageImageUrl"
+      alt="Ingredient"
+    />
+  </mat-card-title-group>
+
+  <mat-card-content>
+    {{ recipeIngredient.quantity }}
+  </mat-card-content>
+</mat-card>

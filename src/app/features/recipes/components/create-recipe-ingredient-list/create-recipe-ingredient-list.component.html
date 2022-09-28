@@ -14,6 +14,8 @@
 <section *ngIf="recipeIngredientList.length > 0">
   <h1>Ingredient list</h1>
   <div *ngFor="let recipeIngredient of recipeIngredientList">
-    <p>{{ recipeIngredient.quantity }}</p>
+    <app-recipe-ingredient-from-list-card
+      [recipeIngredient]="recipeIngredient"
+    ></app-recipe-ingredient-from-list-card>
   </div>
 </section>
