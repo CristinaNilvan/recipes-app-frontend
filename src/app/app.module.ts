@@ -11,6 +11,7 @@ import { SuggestRecipesModule } from './features/suggest-recipes-feature/suggest
 import { SharedModule } from './shared/shared.module';
 import { FindRecipesModule } from './features/find-recipes-feature/find-recipes.module';
 import { MealPlannerModule } from './features/meal-planner-feature/meal-planner.module';
+import { ApproveModule } from './features/approve-feature/approve.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { MealPlannerModule } from './features/meal-planner-feature/meal-planner.
     SuggestRecipesModule,
     FindRecipesModule,
     MealPlannerModule,
+    ApproveModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { ApproveIngredientComponent } from './features/approve-feature/components/approve-ingredient/approve-ingredient.component';
+import { ApproveRecipeComponent } from './features/approve-feature/components/approve-recipe/approve-recipe.component';
+import { ApprovePageComponent } from './features/approve-feature/pages/approve-page/approve-page.component';
 import { FoundRecipesPageComponent } from './features/find-recipes-feature/pages/found-recipes-page/found-recipes-page.component';
 import { CreateIngredientComponent } from './features/ingredients/components/create-ingredient/create-ingredient.component';
 import { DeleteIngredientComponent } from './features/ingredients/components/delete-ingredient/delete-ingredient.component';
@@ -34,6 +37,9 @@ const routes: Routes = [
   { path: 'meal-planner', component: MealPlannerPageComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
   { path: 'find-recipes', component: FoundRecipesPageComponent },
+  { path: 'approve', component: ApprovePageComponent },
+  { path: 'approve-ingredient', component: ApproveIngredientComponent },
+  { path: 'approve-recipe', component: ApproveRecipeComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

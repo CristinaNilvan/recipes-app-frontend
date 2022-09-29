@@ -1,0 +1,18 @@
+<form
+  [formGroup]="approveRecipeForm"
+  (ngSubmit)="onSubmit()"
+  class="form-group"
+>
+  <mat-form-field class="form-control" appearance="outline">
+    <mat-label>Recipe id</mat-label>
+    <input formControlName="id" matInput placeholder="Recipe id" />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="!approveRecipeForm.valid"
+  >
+    Approve
+  </button>
+</form>
