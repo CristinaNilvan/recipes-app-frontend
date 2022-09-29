@@ -18,6 +18,8 @@ import { RecipeIngredientFromListCardComponent } from './components/recipe-ingre
 import { CrudRecipePageComponent } from './pages/crud-recipe-page/crud-recipe-page.component';
 import { GetRecipeComponent } from './components/get-recipe/get-recipe.component';
 import { DeleteRecipeComponent } from './components/delete-recipe/delete-recipe.component';
+import { UpdateRecipeComponent } from './components/update-recipe/update-recipe.component';
+import { UpdateRecipeDetailsComponent } from './components/update-recipe-details/update-recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { DeleteRecipeComponent } from './components/delete-recipe/delete-recipe.
     CreateRecipeComponent,
     GetRecipeComponent,
     DeleteRecipeComponent,
+    UpdateRecipeComponent,
+    UpdateRecipeDetailsComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule, IngredientModule],
   exports: [
@@ -50,6 +54,8 @@ import { DeleteRecipeComponent } from './components/delete-recipe/delete-recipe.
     CrudRecipePageComponent,
     CreateRecipeComponent,
     GetRecipeComponent,
+    UpdateRecipeComponent,
+    UpdateRecipeDetailsComponent,
     DeleteRecipeComponent,
   ],
 })

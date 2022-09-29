@@ -79,7 +79,7 @@ export class CreateIngredientComponent implements OnInit {
   }
 
   addImageFromForm(id: number) {
-    const image = this.createIngredientForm.get('image')?.value;
+    const image = this.image;
     const formData: FormData = new FormData();
     formData.set('File', image);
 

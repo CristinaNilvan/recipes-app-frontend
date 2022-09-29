@@ -1,0 +1,117 @@
+<section class="content" *ngIf="recipe">
+  <div class="image-details">
+    <img
+      *ngIf="recipe.recipeImage"
+      [src]="recipe.recipeImage.storageImageUrl"
+      alt="Recipe"
+      class="recipe-image"
+    />
+
+    <p *ngIf="editMode">
+      <button type="button" mat-raised-button (click)="fileInput.click()">
+        Choose File
+      </button>
+      <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+    </p>
+  </div>
+
+  <section class="recipe-details">
+    <form [formGroup]="updateRecipeForm" class="form-group">
+      <div>
+        <h1>{{ recipe.name }}</h1>
+        <mat-form-field
+          *ngIf="editMode"
+          class="form-control"
+          appearance="outline"
+        >
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput placeholder="Recipe name" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <h2>{{ recipe.author }}</h2>
+        <mat-form-field
+          *ngIf="editMode"
+          class="form-control"
+          appearance="outline"
+        >
+          <mat-label>Author</mat-label>
+          <input formControlName="author" matInput placeholder="Your name" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>Meal type: {{ getRecipeMealType() }}</p>
+        <mat-form-field
+          *ngIf="editMode"
+          class="form-control"
+          appearance="outline"
+        >
+          <mat-label>Meal type</mat-label>
+          <mat-select formControlName="mealType">
+            <mat-option value="Normal">Normal</mat-option>
+            <mat-option value="Vegetarian">Vegetarian</mat-option>
+            <mat-option value="Vegan">Vegan</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>Serving Time: {{ getRecipeServingTime() }}</p>
+        <mat-form-field
+          *ngIf="editMode"
+          class="form-control"
+          appearance="outline"
+        >
+          <mat-label>Serving time</mat-label>
+          <mat-select formControlName="servingTime">
+            <mat-option value="Breakfast">Breakfast</mat-option>
+            <mat-option value="Lunch">Lunch</mat-option>
+            <mat-option value="Dinner">Dinner</mat-option>
+            <mat-option value="Others">Others</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>Servings: {{ recipe.servings }}</p>
+        <mat-form-field
+          *ngIf="editMode"
+          class="form-control"
+          appearance="outline"
+        >
+          <mat-label>Servings</mat-label>
+          <input formControlName="servings" matInput placeholder="Servings" />
+          <mat-hint>Must be two decimal!</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <p>Calories: {{ recipe.calories }}</p>
+      <p>Fats: {{ recipe.fats }}</p>
+      <p>Carbs: {{ recipe.carbs }}</p>
+      <p>Proteins: {{ recipe.proteins }}</p>
+
+      <div>
+        <p>{{ recipe.description }}</p>
+        <mat-form-field
+          *ngIf="editMode"
+          class="form-control"
+          appearance="outline"
+        >
+          <mat-label>Description</mat-label>
+          <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </section>
+
+  <section class="buttons">
+    <button mat-raised-button color="primary" (click)="toggleEditMode()">
+      {{ editMode ? "Disable edit mode" : "Enable edit mode" }}
+    </button>
+    <button mat-raised-button color="primary" (click)="saveChanges()">
+      Save changes
+    </button>
+  </section>
+</section>

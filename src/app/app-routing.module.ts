@@ -18,6 +18,8 @@ import { CreateRecipeStepperComponent } from './features/recipes/components/crea
 import { DeleteRecipeComponent } from './features/recipes/components/delete-recipe/delete-recipe.component';
 import { GetRecipeComponent } from './features/recipes/components/get-recipe/get-recipe.component';
 import { RecipeDetailsComponent } from './features/recipes/components/recipe-details/recipe-details.component';
+import { UpdateRecipeDetailsComponent } from './features/recipes/components/update-recipe-details/update-recipe-details.component';
+import { UpdateRecipeComponent } from './features/recipes/components/update-recipe/update-recipe.component';
 import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
 import { CrudRecipePageComponent } from './features/recipes/pages/crud-recipe-page/crud-recipe-page.component';
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
@@ -30,6 +32,8 @@ const routes: Routes = [
   { path: 'create-recipe', component: CreateRecipeStepperComponent },
   { path: 'get-recipe', component: GetRecipeComponent },
   { path: 'delete-recipe', component: DeleteRecipeComponent },
+  { path: 'update-recipe', component: UpdateRecipeComponent },
+  { path: 'update-recipe/:id', component: UpdateRecipeDetailsComponent },
   { path: 'ingredients', component: ApprovedIngredientsPageComponent },
   { path: 'ingredients/:id', component: IngredientDetailsComponent },
   { path: 'crud-ingredient', component: CrudIngredientPageComponent },

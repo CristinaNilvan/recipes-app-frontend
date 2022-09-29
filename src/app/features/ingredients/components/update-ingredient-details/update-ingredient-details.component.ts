@@ -19,8 +19,6 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   editMode: boolean = false;
   updateIngredientForm!: FormGroup;
   ingredient!: Ingredient;
-  ingredientCategory!: string;
-  ingredientCopy!: Ingredient;
 
   constructor(
     private route: ActivatedRoute,
@@ -52,10 +50,9 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   getIngredient() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.ingredientService.getIngredientById(id).subscribe((ingredient) => {
-      this.ingredient = ingredient;
-      this.ingredientCopy = Object.assign({}, ingredient);
-    });
+    this.ingredientService
+      .getIngredientById(id)
+      .subscribe((ingredient) => (this.ingredient = ingredient));
   }
 
   getIngredientCategory() {
@@ -96,9 +93,9 @@ export class UpdateIngredientDetailsComponent implements OnInit {
 
     this.ingredientService
       .patchIngredient(this.ingredient.id, patchIngredient)
-      .subscribe((x) => {
-        this.addImageFromForm(this.ingredient.id);
-      });
+      .subscribe();
+
+    if (this.image !== null) this.addImageFromForm(this.ingredient.id);
   }
 
   onFileChange(event: any) {
@@ -107,7 +104,7 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   }
 
   addImageFromForm(id: number) {
-    const image = this.updateIngredientForm.get('image')?.value;
+    const image = this.image;
     const formData: FormData = new FormData();
     formData.set('File', image);
 
@@ -136,5 +133,9 @@ export class UpdateIngredientDetailsComponent implements OnInit {
 
   get proteins(): string {
     return this.updateIngredientForm.get('proteins')?.value;
+  }
+
+  get image() {
+    return this.updateIngredientForm.get('image')?.value;
   }
 }
