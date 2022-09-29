@@ -23,6 +23,7 @@ export class IngredientDetailsComponent implements OnInit {
 
   getIngredient() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+
     this.ingredientService
       .getIngredientById(id)
       .subscribe((ingredient) => (this.ingredient = ingredient));

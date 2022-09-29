@@ -14,6 +14,8 @@ import { CrudIngredientPageComponent } from './pages/crud-ingredient-page/crud-i
 import { IngredientRoutingModule } from './ingredient-routing.module';
 import { GetIngredientComponent } from './components/get-ingredient/get-ingredient.component';
 import { DeleteIngredientComponent } from './components/delete-ingredient/delete-ingredient.component';
+import { UpdateIngredientComponent } from './components/update-ingredient/update-ingredient.component';
+import { UpdateIngredientDetailsComponent } from './components/update-ingredient-details/update-ingredient-details.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { DeleteIngredientComponent } from './components/delete-ingredient/delete
     CreateIngredientComponent,
     GetIngredientComponent,
     DeleteIngredientComponent,
+    UpdateIngredientComponent,
+    UpdateIngredientDetailsComponent,
   ],
   imports: [CommonModule, IngredientRoutingModule, CoreModule, SharedModule],
   exports: [
@@ -38,6 +42,8 @@ import { DeleteIngredientComponent } from './components/delete-ingredient/delete
     CrudIngredientPageComponent,
     CreateIngredientComponent,
     GetIngredientComponent,
+    UpdateIngredientComponent,
+    UpdateIngredientDetailsComponent,
     DeleteIngredientComponent,
   ],
 })

@@ -1,0 +1,43 @@
+.content {
+  background-color: white;
+  padding: 2%;
+}
+
+.ingredient-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60vh;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.image-details {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.ingredient-details {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+  padding: 2%;
+  margin-top: 2%;
+  background-color: #daddf1;
+}
+
+.buttons {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+  padding: 2%;
+  margin-top: 2%;
+}
+
+button {
+  margin: 1%;
+}

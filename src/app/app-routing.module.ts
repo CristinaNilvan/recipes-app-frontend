@@ -9,6 +9,8 @@ import { CreateIngredientComponent } from './features/ingredients/components/cre
 import { DeleteIngredientComponent } from './features/ingredients/components/delete-ingredient/delete-ingredient.component';
 import { GetIngredientComponent } from './features/ingredients/components/get-ingredient/get-ingredient.component';
 import { IngredientDetailsComponent } from './features/ingredients/components/ingredient-details/ingredient-details.component';
+import { UpdateIngredientDetailsComponent } from './features/ingredients/components/update-ingredient-details/update-ingredient-details.component';
+import { UpdateIngredientComponent } from './features/ingredients/components/update-ingredient/update-ingredient.component';
 import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/approved-ingredients-page/approved-ingredients-page.component';
 import { CrudIngredientPageComponent } from './features/ingredients/pages/crud-ingredient-page/crud-ingredient-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
@@ -33,6 +35,11 @@ const routes: Routes = [
   { path: 'crud-ingredient', component: CrudIngredientPageComponent },
   { path: 'create-ingredient', component: CreateIngredientComponent },
   { path: 'get-ingredient', component: GetIngredientComponent },
+  { path: 'update-ingredient', component: UpdateIngredientComponent },
+  {
+    path: 'update-ingredient/:id',
+    component: UpdateIngredientDetailsComponent,
+  },
   { path: 'delete-ingredient', component: DeleteIngredientComponent },
   { path: 'meal-planner', component: MealPlannerPageComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
