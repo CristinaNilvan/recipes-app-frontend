@@ -3,6 +3,11 @@
   padding: 2%;
 }
 
+.response-section {
+  background-color: white;
+  height: 100vh;
+}
+
 .ingredient-image {
   display: block;
   margin-left: auto;

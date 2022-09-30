@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Ingredient } from 'src/app/core/models/get-models/ingredient';
@@ -11,6 +12,7 @@ import { getIngredientCategoryValue } from '../../../../core/utils/ingredient-fu
 })
 export class IngredientDetailsComponent implements OnInit {
   ingredient!: Ingredient;
+  responseMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -22,11 +24,17 @@ export class IngredientDetailsComponent implements OnInit {
   }
 
   getIngredient() {
+    this.responseMessage = '';
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.ingredientService
-      .getIngredientById(id)
-      .subscribe((ingredient) => (this.ingredient = ingredient));
+    this.ingredientService.getIngredientById(id).subscribe({
+      next: (ingredient) => (this.ingredient = ingredient),
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Ingredient with id:${id} not found!`;
+        }
+      },
+    });
   }
 
   getIngredientCategory() {

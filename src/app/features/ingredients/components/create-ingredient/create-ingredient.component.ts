@@ -13,6 +13,7 @@ import { getIngredientCategoryKey } from '../../../../core/utils/ingredient-func
 export class CreateIngredientComponent implements OnInit {
   createIngredientForm!: FormGroup;
   ingredient!: Ingredient;
+  responseMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -52,6 +53,8 @@ export class CreateIngredientComponent implements OnInit {
   }
 
   onSubmit() {
+    this.responseMessage = '';
+
     const formIngredient: IngredientPost = {
       name: this.name,
       category: getIngredientCategoryKey(this.category),
@@ -61,12 +64,16 @@ export class CreateIngredientComponent implements OnInit {
       proteins: parseFloat(this.proteins),
     };
 
-    this.ingredientService
-      .createIngredient(formIngredient)
-      .subscribe((ingredient) => {
+    this.ingredientService.createIngredient(formIngredient).subscribe({
+      next: (ingredient) => {
         this.ingredient = ingredient;
-        this.addImageFromForm(this.ingredient.id);
-      });
+        this.addImageFromForm();
+      },
+      error: () =>
+        (this.responseMessage = 'Error while creating the ingredient!'),
+      complete: () =>
+        (this.responseMessage = 'Ingredient created successfully!'),
+    });
   }
 
   onClear() {
@@ -78,12 +85,14 @@ export class CreateIngredientComponent implements OnInit {
     this.createIngredientForm.get('image')?.setValue(image);
   }
 
-  addImageFromForm(id: number) {
-    const image = this.image;
+  addImageFromForm() {
+    // const image = this.image;
     const formData: FormData = new FormData();
-    formData.set('File', image);
+    formData.set('File', this.image);
 
-    this.ingredientService.addImageToIngredient(id, formData).subscribe();
+    this.ingredientService
+      .addImageToIngredient(this.ingredient.id, formData)
+      .subscribe();
   }
 
   get name() {

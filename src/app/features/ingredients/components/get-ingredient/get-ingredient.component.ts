@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,6 +13,7 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 export class GetIngredientComponent implements OnInit {
   getIngredientForm!: FormGroup;
   ingredient!: Ingredient;
+  responseMessage: string = '';
 
   constructor(
     private router: Router,
@@ -34,12 +36,17 @@ export class GetIngredientComponent implements OnInit {
   }
 
   onSubmit() {
-    this.ingredientService
-      .getIngredientByName(this.name)
-      .subscribe((ingredient) => {
+    this.ingredientService.getIngredientByName(this.name).subscribe({
+      next: (ingredient) => {
         this.ingredient = ingredient;
         this.navigateToIngredient();
-      });
+      },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Ingredient with name:${this.name} not found!`;
+        }
+      },
+    });
   }
 
   navigateToIngredient() {

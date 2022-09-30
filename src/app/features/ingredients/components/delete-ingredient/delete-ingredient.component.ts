@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/core/models/get-models/ingredient';
@@ -11,6 +12,7 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 export class DeleteIngredientComponent implements OnInit {
   deleteIngredientForm!: FormGroup;
   ingredient!: Ingredient;
+  responseMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,18 +34,28 @@ export class DeleteIngredientComponent implements OnInit {
   }
 
   onSubmit() {
-    this.ingredientService
-      .getIngredientByName(this.name)
-      .subscribe((ingredient) => {
+    this.responseMessage = '';
+
+    this.ingredientService.getIngredientByName(this.name).subscribe({
+      next: (ingredient) => {
         this.ingredient = ingredient;
         this.deleteIngredient();
-      });
+      },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Ingredient with name:${this.name} not found!`;
+        }
+      },
+    });
   }
 
   deleteIngredient() {
-    this.ingredientService
-      .deleteIngredient(this.ingredient.id)
-      .subscribe((x) => console.log('deleted'));
+    this.responseMessage = '';
+
+    this.ingredientService.deleteIngredient(this.ingredient.id).subscribe({
+      complete: () =>
+        (this.responseMessage = 'Ingredient deleted successfully!'),
+    });
   }
 
   get name() {

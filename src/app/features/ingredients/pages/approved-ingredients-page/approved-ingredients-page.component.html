@@ -4,4 +4,10 @@
   <app-ingredients-list
     [ingredients]="approvedIngredients"
   ></app-ingredients-list>
+
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
+  </section>
 </div>

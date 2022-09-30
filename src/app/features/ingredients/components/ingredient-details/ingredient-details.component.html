@@ -15,3 +15,9 @@
     <p>Proteins: {{ ingredient.proteins }}</p>
   </section>
 </section>
+
+<section class="response-section" *ngIf="responseMessage.length > 0">
+  <p>
+    {{ responseMessage }}
+  </p>
+</section>

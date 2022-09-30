@@ -114,4 +114,10 @@
       Save changes
     </button>
   </section>
+
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
+  </section>
 </section>

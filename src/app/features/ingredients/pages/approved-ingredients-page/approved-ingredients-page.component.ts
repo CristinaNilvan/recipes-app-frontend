@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
@@ -11,20 +12,37 @@ export class ApprovedIngredientsPageComponent implements OnInit {
   approvedIngredients: Ingredient[] = [];
   pageNumber: number = 1;
   pageSize: number = 5;
+  responseMessage: string = '';
 
   constructor(private ingredientService: IngredientService) {}
 
   ngOnInit(): void {
+    this.responseMessage = '';
+
     this.ingredientService
       .getApprovedIngredients(this.pageNumber, this.pageSize)
-      .subscribe((ingredients) => (this.approvedIngredients = ingredients));
+      .subscribe({
+        next: (ingredients) => (this.approvedIngredients = ingredients),
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.responseMessage = 'Ingredients not found!';
+          }
+        },
+      });
   }
 
   onScroll() {
+    this.responseMessage = '';
+
     this.ingredientService
       .getApprovedIngredients(++this.pageNumber, this.pageSize)
-      .subscribe((ingredients) =>
-        this.approvedIngredients.push(...ingredients)
-      );
+      .subscribe({
+        next: (ingredients) => this.approvedIngredients.push(...ingredients),
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.responseMessage = 'No more ingredients!';
+          }
+        },
+      });
   }
 }

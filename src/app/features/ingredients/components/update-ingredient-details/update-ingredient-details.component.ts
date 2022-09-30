@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -19,6 +20,7 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   editMode: boolean = false;
   updateIngredientForm!: FormGroup;
   ingredient!: Ingredient;
+  responseMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -50,9 +52,14 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   getIngredient() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.ingredientService
-      .getIngredientById(id)
-      .subscribe((ingredient) => (this.ingredient = ingredient));
+    this.ingredientService.getIngredientById(id).subscribe({
+      next: (ingredient) => (this.ingredient = ingredient),
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Ingredient with id:${id} not found!`;
+        }
+      },
+    });
   }
 
   getIngredientCategory() {
@@ -64,6 +71,8 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   }
 
   saveChanges() {
+    this.responseMessage = '';
+
     const patchIngredient: IngredientPost = {
       name:
         this.ingredient.name !== this.name && this.name !== ''
@@ -93,11 +102,15 @@ export class UpdateIngredientDetailsComponent implements OnInit {
 
     this.ingredientService
       .patchIngredient(this.ingredient.id, patchIngredient)
-      .subscribe();
-
-    if (this.image !== null) this.addImageFromForm(this.ingredient.id);
-
-    this.refresh();
+      .subscribe({
+        next: () => {
+          if (this.image !== null) this.addImageFromForm();
+        },
+        error: () =>
+          (this.responseMessage = 'Error while updating the ingredient!'),
+        complete: () =>
+          (this.responseMessage = 'Ingredient updated successfully!'),
+      });
   }
 
   onFileChange(event: any) {
@@ -105,12 +118,17 @@ export class UpdateIngredientDetailsComponent implements OnInit {
     this.updateIngredientForm.get('image')?.setValue(image);
   }
 
-  addImageFromForm(id: number) {
-    const image = this.image;
+  addImageFromForm() {
     const formData: FormData = new FormData();
-    formData.set('File', image);
+    formData.set('File', this.image);
 
-    this.ingredientService.addImageToIngredient(id, formData).subscribe();
+    this.ingredientService
+      .addImageToIngredient(this.ingredient.id, formData)
+      .subscribe({
+        //next: () => this.refresh(),
+        error: () =>
+          (this.responseMessage = 'Error while updating the ingredient image!'),
+      });
   }
 
   refresh(): void {
