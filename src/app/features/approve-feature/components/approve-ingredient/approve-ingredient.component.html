@@ -7,6 +7,13 @@
     <mat-label>Ingredient id</mat-label>
     <input formControlName="id" matInput placeholder="Ingredient id" />
   </mat-form-field>
+
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
+  </section>
+
   <button
     mat-raised-button
     color="accent"

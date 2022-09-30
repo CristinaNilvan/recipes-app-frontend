@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RecipeService } from 'src/app/core/services/recipe.service';
@@ -9,6 +10,7 @@ import { RecipeService } from 'src/app/core/services/recipe.service';
 })
 export class ApproveRecipeComponent implements OnInit {
   approveRecipeForm!: FormGroup;
+  responseMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,9 +27,15 @@ export class ApproveRecipeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.recipeService
-      .approveRecipe(parseInt(this.idFromForm))
-      .subscribe((x) => console.log('approved recipe ' + this.idFromForm));
+    this.recipeService.approveRecipe(parseInt(this.idFromForm)).subscribe({
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Recipe with id:${this.idFromForm} not found!`;
+        }
+      },
+      complete: () =>
+        (this.responseMessage = `Recipe with id:${this.idFromForm} approved!`),
+    });
   }
 
   get idFromForm() {

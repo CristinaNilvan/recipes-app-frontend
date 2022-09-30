@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
@@ -9,6 +10,7 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 })
 export class ApproveIngredientComponent implements OnInit {
   approveIngredientForm!: FormGroup;
+  responseMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,7 +29,15 @@ export class ApproveIngredientComponent implements OnInit {
   onSubmit() {
     this.ingredientService
       .approveIngredient(parseInt(this.idFromForm))
-      .subscribe((x) => console.log('approved ingredient ' + this.idFromForm));
+      .subscribe({
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.responseMessage = `Ingredient with id:${this.idFromForm} not found!`;
+          }
+        },
+        complete: () =>
+          (this.responseMessage = `Ingredient with id:${this.idFromForm} approved!`),
+      });
   }
 
   get idFromForm() {
