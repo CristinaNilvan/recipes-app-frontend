@@ -13,6 +13,7 @@ import { getIngredientCategoryKey } from '../../../../core/utils/ingredient-func
 export class CreateIngredientComponent implements OnInit {
   createIngredientForm!: FormGroup;
   ingredient!: Ingredient;
+  selectedImageName!: string;
   responseMessage: string = '';
 
   constructor(
@@ -76,17 +77,14 @@ export class CreateIngredientComponent implements OnInit {
     });
   }
 
-  onClear() {
-    this.createIngredientForm.reset();
-  }
-
   onFileChange(event: any) {
     const image = event.target.files[0];
+    this.selectedImageName = image.name;
+
     this.createIngredientForm.get('image')?.setValue(image);
   }
 
   addImageFromForm() {
-    // const image = this.image;
     const formData: FormData = new FormData();
     formData.set('File', this.image);
 

@@ -61,20 +61,19 @@
       Choose File
     </button>
     <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+    <span class="file-name" *ngIf="selectedImageName">{{
+      selectedImageName
+    }}</span>
   </p>
 
-  <p>
-    <button
-      mat-raised-button
-      color="accent"
-      [disabled]="!createIngredientForm.valid"
-      type="submit"
-    >
-      Create
-    </button>
-
-    <button mat-raised-button color="primary" (click)="onClear()">Clear</button>
-  </p>
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="!createIngredientForm.valid"
+    type="submit"
+  >
+    Create
+  </button>
 
   <section class="response-section" *ngIf="responseMessage.length > 0">
     <p>

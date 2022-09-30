@@ -20,6 +20,7 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   editMode: boolean = false;
   updateIngredientForm!: FormGroup;
   ingredient!: Ingredient;
+  selectedImageName!: string;
   responseMessage: string = '';
 
   constructor(
@@ -115,6 +116,8 @@ export class UpdateIngredientDetailsComponent implements OnInit {
 
   onFileChange(event: any) {
     const image = event.target.files[0];
+    this.selectedImageName = image.name;
+
     this.updateIngredientForm.get('image')?.setValue(image);
   }
 
