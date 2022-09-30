@@ -2,15 +2,6 @@
   (recipeIngredientEvent)="addRecipeIngredient($event)"
 ></app-create-recipe-ingredient>
 
-<p>
-  <button mat-raised-button color="primary" (click)="createList()">
-    Create ingredient list
-  </button>
-  <button mat-raised-button color="primary" (click)="clearList()">
-    Clear ingredient list
-  </button>
-</p>
-
 <section *ngIf="recipeIngredientList.length > 0">
   <h1>Ingredient list</h1>
   <div *ngFor="let recipeIngredient of recipeIngredientList">
@@ -19,3 +10,22 @@
     ></app-recipe-ingredient-from-list-card>
   </div>
 </section>
+
+<p>
+  <button
+    [disabled]="recipeIngredientList.length == 0"
+    mat-raised-button
+    color="primary"
+    (click)="createList()"
+  >
+    Create ingredient list
+  </button>
+  <button
+    [disabled]="recipeIngredientList.length == 0"
+    mat-raised-button
+    color="primary"
+    (click)="clearList()"
+  >
+    Clear ingredient list
+  </button>
+</p>
