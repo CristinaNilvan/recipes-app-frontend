@@ -1,0 +1,21 @@
+.container {
+  text-align: center;
+  height: 100vh;
+}
+
+.image-container {
+  background-color: white;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 80vh;
+}
+
+h1 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

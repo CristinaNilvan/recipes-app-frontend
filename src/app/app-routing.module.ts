@@ -5,6 +5,7 @@ import { ApproveIngredientComponent } from './features/approve-feature/component
 import { ApproveRecipeComponent } from './features/approve-feature/components/approve-recipe/approve-recipe.component';
 import { ApprovePageComponent } from './features/approve-feature/pages/approve-page/approve-page.component';
 import { FoundRecipesPageComponent } from './features/find-recipes-feature/pages/found-recipes-page/found-recipes-page.component';
+import { HomeComponent } from './features/home/components/home/home.component';
 import { CreateIngredientComponent } from './features/ingredients/components/create-ingredient/create-ingredient.component';
 import { DeleteIngredientComponent } from './features/ingredients/components/delete-ingredient/delete-ingredient.component';
 import { GetIngredientComponent } from './features/ingredients/components/get-ingredient/get-ingredient.component';
@@ -25,7 +26,8 @@ import { CrudRecipePageComponent } from './features/recipes/pages/crud-recipe-pa
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'recipes', component: ApprovedRecipesPageComponent },
   { path: 'recipes/:id', component: RecipeDetailsComponent },
   { path: 'crud-recipe', component: CrudRecipePageComponent },
