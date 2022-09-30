@@ -12,7 +12,7 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 export class SearchIngredientForListComponent implements OnInit {
   searchForm!: FormGroup;
   ingredient!: Ingredient;
-  errorMessage!: string;
+  responseMessage: string = '';
   @Output() ingredientEvent = new EventEmitter<Ingredient>();
 
   constructor(
@@ -35,7 +35,7 @@ export class SearchIngredientForListComponent implements OnInit {
   }
 
   onSubmit() {
-    this.errorMessage = '';
+    this.responseMessage = '';
 
     this.ingredientService.getIngredientByName(this.name).subscribe({
       next: (ingredient) => {
@@ -44,7 +44,7 @@ export class SearchIngredientForListComponent implements OnInit {
       },
       error: (error: HttpErrorResponse) => {
         if (error.status === 404) {
-          this.errorMessage = 'Not found';
+          this.responseMessage = `Ingredient with name:${this.name} not found!`;
         }
       },
     });

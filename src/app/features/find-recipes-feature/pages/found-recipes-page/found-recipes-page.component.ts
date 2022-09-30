@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
 import { RecipeService } from 'src/app/core/services/recipe.service';
@@ -9,16 +10,25 @@ import { RecipeService } from 'src/app/core/services/recipe.service';
 })
 export class FoundRecipesPageComponent implements OnInit {
   foundRecipes!: Recipe[];
-  ingredientIds!: number[];
+  ingredientIds: number[] = [];
+  responseMessage: string = '';
 
   constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {}
 
   findRecipes() {
-    this.recipeService
-      .getFoundRecipes(this.ingredientIds)
-      .subscribe((recipes) => (this.foundRecipes = recipes));
+    this.responseMessage = '';
+
+    this.recipeService.getFoundRecipes(this.ingredientIds).subscribe({
+      next: (recipes) => (this.foundRecipes = recipes),
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage =
+            "Can't find recipes with at least one of the ingredients!";
+        }
+      },
+    });
   }
 
   setIngredientIds(ingredientIds: number[]) {

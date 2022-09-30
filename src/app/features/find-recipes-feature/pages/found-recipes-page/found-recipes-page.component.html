@@ -1,14 +1,25 @@
-<div class="content">
+<section class="content">
   <app-create-ingredient-list
     (ingredientIdListEvent)="setIngredientIds($event)"
   ></app-create-ingredient-list>
 
-  <button mat-raised-button color="accent" (click)="findRecipes()">
+  <button
+    [disabled]="ingredientIds.length == 0"
+    mat-raised-button
+    color="accent"
+    (click)="findRecipes()"
+  >
     Find recipes
   </button>
-</div>
 
-<section *ngIf="foundRecipes">
-  <h1>Found recipes</h1>
-  <app-recipes-list [recipes]="foundRecipes"></app-recipes-list>
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
+  </section>
+
+  <section *ngIf="foundRecipes">
+    <h1>Found recipes</h1>
+    <app-recipes-list [recipes]="foundRecipes"></app-recipes-list>
+  </section>
 </section>

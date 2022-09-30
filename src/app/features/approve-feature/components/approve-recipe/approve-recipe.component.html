@@ -8,12 +8,6 @@
     <input formControlName="id" matInput placeholder="Recipe id" />
   </mat-form-field>
 
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
-      {{ responseMessage }}
-    </p>
-  </section>
-
   <button
     mat-raised-button
     color="accent"
@@ -21,4 +15,10 @@
   >
     Approve
   </button>
+
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
+  </section>
 </form>

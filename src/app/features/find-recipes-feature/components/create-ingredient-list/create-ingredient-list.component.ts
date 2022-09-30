@@ -18,7 +18,6 @@ export class CreateIngredientListComponent implements OnInit {
   addIngredient(newIngredient: Ingredient) {
     this.ingredientIdList.push(newIngredient.id);
     this.ingredientList.push(newIngredient);
-    console.log(this.ingredientIdList);
   }
 
   createList() {
