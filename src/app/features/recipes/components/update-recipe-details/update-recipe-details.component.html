@@ -92,6 +92,30 @@
       <p>Carbs: {{ recipe.carbs }}</p>
       <p>Proteins: {{ recipe.proteins }}</p>
 
+      <section>
+        <h3>Recipe ingredients</h3>
+        <div *ngFor="let recIng of recipe.recipeIngredients">
+          <app-recipe-ingredient-from-list-card
+            [recipeIngredient]="recIng"
+          ></app-recipe-ingredient-from-list-card>
+
+          <button
+            *ngIf="editMode"
+            mat-raised-button
+            color="primary"
+            (click)="deleteRecipeIngredient(recIng)"
+          >
+            Delete
+          </button>
+        </div>
+      </section>
+
+      <section *ngIf="editMode">
+        <app-create-recipe-ingredient-list
+          (recipeIngredientListEvent)="setRecipeIngredientList($event)"
+        ></app-create-recipe-ingredient-list>
+      </section>
+
       <div>
         <p>{{ recipe.description }}</p>
         <mat-form-field

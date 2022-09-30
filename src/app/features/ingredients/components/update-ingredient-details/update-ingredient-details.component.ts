@@ -96,6 +96,8 @@ export class UpdateIngredientDetailsComponent implements OnInit {
       .subscribe();
 
     if (this.image !== null) this.addImageFromForm(this.ingredient.id);
+
+    this.refresh();
   }
 
   onFileChange(event: any) {
@@ -109,6 +111,10 @@ export class UpdateIngredientDetailsComponent implements OnInit {
     formData.set('File', image);
 
     this.ingredientService.addImageToIngredient(id, formData).subscribe();
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   get name() {

@@ -120,9 +120,20 @@ export class RecipeService {
     return this.httpService.delete(url);
   }
 
-  addRecipeIngredientToRecipe(id: number, recipeIngredient: RecipeIngredient) {
+  addRecipeIngredientToRecipe(
+    id: number,
+    recipeIngredient: RecipeIngredient
+  ): Observable<Recipe> {
     const url = `${this.url}${id}/recipe-ingredients/${recipeIngredient.id}`;
     return this.httpService.post<Recipe>(url, recipeIngredient);
+  }
+
+  removeRecipeIngredientFromRecipe(
+    recipeId: number,
+    recipeIngredientId: number
+  ): Observable<Recipe> {
+    const url = `${this.url}${recipeId}/recipe-ingredients/${recipeIngredientId}`;
+    return this.httpService.delete<Recipe>(url);
   }
 
   addImageToRecipe(id: number, formData: FormData): Observable<{}> {

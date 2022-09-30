@@ -17,7 +17,7 @@
     <p>Carbs: {{ recipe.carbs }}</p>
     <p>Proteins: {{ recipe.proteins }}</p>
 
-    <section>
+    <!-- <section>
       <h3>Recipe ingredients</h3>
       <ul *ngFor="let recIng of recipe.recipeIngredients">
         <li>
@@ -25,6 +25,15 @@
           {{ recIng.quantity }}
         </li>
       </ul>
+    </section> -->
+
+    <section>
+      <h3>Recipe ingredients</h3>
+      <div *ngFor="let recIng of recipe.recipeIngredients">
+        <app-recipe-ingredient-from-list-card
+          [recipeIngredient]="recIng"
+        ></app-recipe-ingredient-from-list-card>
+      </div>
     </section>
 
     <p>{{ recipe.description }}</p>

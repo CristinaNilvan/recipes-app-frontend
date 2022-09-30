@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
+import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
 import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import {
@@ -20,6 +21,7 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   editMode: boolean = false;
   updateRecipeForm!: FormGroup;
   recipe!: Recipe;
+  recipeIngredientList: RecipeIngredient[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -103,6 +105,10 @@ export class UpdateRecipeDetailsComponent implements OnInit {
 
     this.recipeService.patchRecipe(this.recipe.id, patchRecipe).subscribe();
     if (this.image !== null) this.addImageFromForm(this.recipe.id);
+    if (this.recipeIngredientList.length > 0)
+      this.addRecipeIngredients(this.recipe.id);
+
+    this.refresh();
   }
 
   onFileChange(event: any) {
@@ -117,6 +123,36 @@ export class UpdateRecipeDetailsComponent implements OnInit {
     formData.set('File', image);
 
     this.recipeService.addImageToRecipe(id, formData).subscribe();
+  }
+
+  addRecipeIngredients(id: number) {
+    console.log('adding recipe ingredients');
+    this.recipeIngredientList.forEach((recipeIngredient) => {
+      this.addRecipeIngredient(id, recipeIngredient);
+      //this.refresh();
+    });
+  }
+
+  addRecipeIngredient(id: number, recipeIngredient: RecipeIngredient) {
+    console.log('adding recipe ingredient ' + recipeIngredient.id);
+    this.recipeService
+      .addRecipeIngredientToRecipe(id, recipeIngredient)
+      .subscribe();
+  }
+
+  deleteRecipeIngredient(recipeIngredient: RecipeIngredient) {
+    this.recipeService
+      .removeRecipeIngredientFromRecipe(this.recipe.id, recipeIngredient.id)
+      .subscribe();
+    // .subscribe((x) => this.refresh());
+  }
+
+  refresh(): void {
+    window.location.reload();
+  }
+
+  setRecipeIngredientList(recipeIngredientList: RecipeIngredient[]) {
+    this.recipeIngredientList = recipeIngredientList;
   }
 
   get name() {
