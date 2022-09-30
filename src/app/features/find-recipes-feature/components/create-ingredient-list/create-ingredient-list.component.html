@@ -12,10 +12,20 @@
 </section>
 
 <p>
-  <button mat-raised-button color="primary" (click)="createList()">
+  <button
+    [disabled]="ingredientList.length == 0"
+    mat-raised-button
+    color="primary"
+    (click)="createList()"
+  >
     Create list
   </button>
-  <button mat-raised-button color="primary" (click)="clearList()">
+  <button
+    [disabled]="ingredientList.length == 0"
+    mat-raised-button
+    color="primary"
+    (click)="clearList()"
+  >
     Clear list
   </button>
 </p>
