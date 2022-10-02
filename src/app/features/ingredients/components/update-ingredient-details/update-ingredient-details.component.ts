@@ -51,6 +51,7 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   }
 
   getIngredient() {
+    this.responseMessage = '';
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.ingredientService.getIngredientById(id).subscribe({
@@ -122,13 +123,13 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   }
 
   addImageFromForm() {
+    this.responseMessage = '';
     const formData: FormData = new FormData();
     formData.set('File', this.image);
 
     this.ingredientService
       .addImageToIngredient(this.ingredient.id, formData)
       .subscribe({
-        //next: () => this.refresh(),
         error: () =>
           (this.responseMessage = 'Error while updating the ingredient image!'),
       });

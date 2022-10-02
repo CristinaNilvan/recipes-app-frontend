@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,6 +13,7 @@ import { RecipeService } from 'src/app/core/services/recipe.service';
 export class UpdateRecipeComponent implements OnInit {
   updateRecipeForm!: FormGroup;
   recipe!: Recipe;
+  responseMessage: string = '';
 
   constructor(
     private router: Router,
@@ -43,11 +45,20 @@ export class UpdateRecipeComponent implements OnInit {
   }
 
   onSubmit() {
+    this.responseMessage = '';
+
     this.recipeService
       .getRecipeByNameAndAuthor(this.name, this.author)
-      .subscribe((recipe) => {
-        this.recipe = recipe;
-        this.navigateToRecipe();
+      .subscribe({
+        next: (recipe) => {
+          this.recipe = recipe;
+          this.navigateToRecipe();
+        },
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.responseMessage = `Recipe with name:${this.name} and author:${this.author} not found!`;
+          }
+        },
       });
   }
 

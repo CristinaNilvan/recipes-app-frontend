@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -21,7 +22,9 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   editMode: boolean = false;
   updateRecipeForm!: FormGroup;
   recipe!: Recipe;
+  selectedImageName!: string;
   recipeIngredientList: RecipeIngredient[] = [];
+  responseMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -58,11 +61,17 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   }
 
   getRecipe() {
+    this.responseMessage = '';
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.recipeService
-      .getRecipeById(id)
-      .subscribe((recipe) => (this.recipe = recipe));
+    this.recipeService.getRecipeById(id).subscribe({
+      next: (recipe) => (this.recipe = recipe),
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Recipe with id:${id} not found!`;
+        }
+      },
+    });
   }
 
   getRecipeMealType() {
@@ -78,6 +87,8 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   }
 
   saveChanges() {
+    this.responseMessage = '';
+
     const patchRecipe: RecipePost = {
       name:
         this.recipe.name !== this.name && this.name !== '' ? this.name : null,
@@ -103,41 +114,54 @@ export class UpdateRecipeDetailsComponent implements OnInit {
           : null,
     };
 
-    this.recipeService.patchRecipe(this.recipe.id, patchRecipe).subscribe();
-    if (this.image !== null) this.addImageFromForm(this.recipe.id);
-    if (this.recipeIngredientList.length > 0)
-      this.addRecipeIngredients(this.recipe.id);
-
-    this.refresh();
+    this.recipeService.patchRecipe(this.recipe.id, patchRecipe).subscribe({
+      next: () => {
+        if (this.image !== null) this.addImageFromForm();
+        if (this.recipeIngredientList.length > 0) this.addRecipeIngredients();
+      },
+      error: () => (this.responseMessage = 'Error while updating the recipe!'),
+      complete: () => (this.responseMessage = 'Recipe updated successfully!'),
+    });
   }
 
   onFileChange(event: any) {
     const image = event.target.files[0];
-    //this.image.setValue(image);!!!!
+    this.selectedImageName = image.name;
+
     this.updateRecipeForm.get('image')?.setValue(image);
   }
 
-  addImageFromForm(id: number) {
-    const image = this.image;
+  addImageFromForm() {
+    this.responseMessage = '';
     const formData: FormData = new FormData();
-    formData.set('File', image);
+    formData.set('File', this.image);
 
-    this.recipeService.addImageToRecipe(id, formData).subscribe();
+    this.recipeService.addImageToRecipe(this.recipe.id, formData).subscribe({
+      error: () =>
+        (this.responseMessage = 'Error while updating the recipe image!'),
+    });
   }
 
-  addRecipeIngredients(id: number) {
+  addRecipeIngredients() {
+    this.responseMessage = '';
     console.log('adding recipe ingredients');
+
     this.recipeIngredientList.forEach((recipeIngredient) => {
-      this.addRecipeIngredient(id, recipeIngredient);
-      //this.refresh();
+      this.addRecipeIngredient(this.recipe.id, recipeIngredient);
     });
   }
 
   addRecipeIngredient(id: number, recipeIngredient: RecipeIngredient) {
+    this.responseMessage = '';
     console.log('adding recipe ingredient ' + recipeIngredient.id);
+
     this.recipeService
       .addRecipeIngredientToRecipe(id, recipeIngredient)
-      .subscribe();
+      .subscribe({
+        error: () =>
+          (this.responseMessage =
+            'Error while adding the ingredients to the recipe!'),
+      });
   }
 
   deleteRecipeIngredient(recipeIngredient: RecipeIngredient) {

@@ -17,16 +17,6 @@
     <p>Carbs: {{ recipe.carbs }}</p>
     <p>Proteins: {{ recipe.proteins }}</p>
 
-    <!-- <section>
-      <h3>Recipe ingredients</h3>
-      <ul *ngFor="let recIng of recipe.recipeIngredients">
-        <li>
-          Ingredient name: {{ recIng.ingredient.name }} Quantity:
-          {{ recIng.quantity }}
-        </li>
-      </ul>
-    </section> -->
-
     <section>
       <h3>Recipe ingredients</h3>
       <div *ngFor="let recIng of recipe.recipeIngredients">
@@ -38,4 +28,10 @@
 
     <p>{{ recipe.description }}</p>
   </section>
+</section>
+
+<section class="response-section" *ngIf="responseMessage.length > 0">
+  <p>
+    {{ responseMessage }}
+  </p>
 </section>

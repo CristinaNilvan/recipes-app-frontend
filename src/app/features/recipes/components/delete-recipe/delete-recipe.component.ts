@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
@@ -11,6 +12,7 @@ import { RecipeService } from 'src/app/core/services/recipe.service';
 export class DeleteRecipeComponent implements OnInit {
   deleteRecipeForm!: FormGroup;
   recipe!: Recipe;
+  responseMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,18 +43,29 @@ export class DeleteRecipeComponent implements OnInit {
   }
 
   onSubmit() {
+    this.responseMessage = '';
+
     this.recipeService
       .getRecipeByNameAndAuthor(this.name, this.author)
-      .subscribe((recipe) => {
-        this.recipe = recipe;
-        this.deleteRecipe();
+      .subscribe({
+        next: (recipe) => {
+          this.recipe = recipe;
+          this.deleteRecipe();
+        },
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.responseMessage = `Recipe with name:${this.name} not found!`;
+          }
+        },
       });
   }
 
   deleteRecipe() {
-    this.recipeService
-      .deleteRecipe(this.recipe.id)
-      .subscribe((x) => console.log('deleted'));
+    this.responseMessage = '';
+
+    this.recipeService.deleteRecipe(this.recipe.id).subscribe({
+      complete: () => (this.responseMessage = 'Recipe deleted successfully!'),
+    });
   }
 
   get name() {

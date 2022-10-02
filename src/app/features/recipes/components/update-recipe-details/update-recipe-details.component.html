@@ -12,6 +12,9 @@
         Choose File
       </button>
       <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+      <span class="file-name" *ngIf="selectedImageName">{{
+        selectedImageName
+      }}</span>
     </p>
   </div>
 
@@ -137,5 +140,11 @@
     <button mat-raised-button color="primary" (click)="saveChanges()">
       Save changes
     </button>
+  </section>
+
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
   </section>
 </section>

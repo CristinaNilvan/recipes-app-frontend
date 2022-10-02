@@ -85,12 +85,16 @@ export class CreateIngredientComponent implements OnInit {
   }
 
   addImageFromForm() {
+    this.responseMessage = '';
     const formData: FormData = new FormData();
     formData.set('File', this.image);
 
     this.ingredientService
       .addImageToIngredient(this.ingredient.id, formData)
-      .subscribe();
+      .subscribe({
+        error: () =>
+          (this.responseMessage = 'Error while adding the ingredient image!'),
+      });
   }
 
   get name() {

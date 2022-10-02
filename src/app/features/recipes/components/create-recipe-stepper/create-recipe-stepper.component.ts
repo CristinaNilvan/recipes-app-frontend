@@ -103,12 +103,13 @@ export class CreateRecipeStepperComponent implements OnInit {
   }
 
   addImageFromForm() {
+    this.responseMessage = '';
     const formData: FormData = new FormData();
     formData.set('File', this.image);
 
     this.recipeService.addImageToRecipe(this.recipe.id, formData).subscribe({
       error: () =>
-        (this.responseMessage = 'Error while adding the image to the recipe!'),
+        (this.responseMessage = 'Error while adding the recipe image!'),
     });
   }
 
@@ -124,13 +125,14 @@ export class CreateRecipeStepperComponent implements OnInit {
   }
 
   addRecipeIngredient(id: number, recipeIngredient: RecipeIngredient) {
+    this.responseMessage = '';
     console.log('adding recipe ingredient ' + recipeIngredient.id);
+
     this.recipeService
       .addRecipeIngredientToRecipe(id, recipeIngredient)
       .subscribe({
         error: () =>
-          (this.responseMessage =
-            'Error while adding the ingredients to the recipe!'),
+          (this.responseMessage = 'Error while adding the recipe ingredients!'),
       });
   }
 

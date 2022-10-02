@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
@@ -14,6 +15,7 @@ import {
 })
 export class RecipeDetailsComponent implements OnInit {
   recipe!: Recipe;
+  responseMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -25,11 +27,17 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   getRecipe() {
+    this.responseMessage = '';
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.recipeService
-      .getRecipeById(id)
-      .subscribe((recipe) => (this.recipe = recipe));
+    this.recipeService.getRecipeById(id).subscribe({
+      next: (recipe) => (this.recipe = recipe),
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Recipe with id:${id} not found!`;
+        }
+      },
+    });
   }
 
   getRecipeMealType() {
