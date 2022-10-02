@@ -2,4 +2,10 @@
 
 <div infinite-scroll (scrolled)="onScroll()">
   <app-recipes-list [recipes]="approvedRecipes"></app-recipes-list>
+
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
+  </section>
 </div>
