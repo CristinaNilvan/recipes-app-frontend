@@ -69,6 +69,9 @@
           Choose File
         </button>
         <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+        <span class="file-name" *ngIf="selectedImageName">{{
+          selectedImageName
+        }}</span>
       </p>
 
       <div>
@@ -93,6 +96,7 @@
 
   <mat-step label="Done">
     <p>You are now done.</p>
+
     <button
       mat-raised-button
       color="accent"
@@ -101,8 +105,15 @@
     >
       Create recipe
     </button>
+
     <div>
       <button mat-button matStepperPrevious>Back</button>
     </div>
+
+    <section class="response-section" *ngIf="responseMessage.length > 0">
+      <p>
+        {{ responseMessage }}
+      </p>
+    </section>
   </mat-step>
 </mat-stepper>

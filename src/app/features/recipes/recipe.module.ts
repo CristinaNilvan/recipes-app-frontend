@@ -9,7 +9,6 @@ import { RecipeDetailsPageComponent } from './pages/recipe-details-page/recipe-d
 import { ApprovedRecipesPageComponent } from './pages/approved-recipes-page/approved-recipes-page.component';
 import { UnapprovedRecipesPageComponent } from './pages/unapproved-recipes-page/unapproved-recipes-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
 import { IngredientModule } from '../ingredients/ingredient.module';
 import { CreateRecipeStepperComponent } from './components/create-recipe-stepper/create-recipe-stepper.component';
 import { CreateRecipeIngredientComponent } from './components/create-recipe-ingredient/create-recipe-ingredient.component';
@@ -35,7 +34,6 @@ import { UpdateRecipeDetailsComponent } from './components/update-recipe-details
     CreateRecipeIngredientListComponent,
     RecipeIngredientFromListCardComponent,
     CrudRecipePageComponent,
-    CreateRecipeComponent,
     GetRecipeComponent,
     DeleteRecipeComponent,
     UpdateRecipeComponent,
@@ -45,14 +43,12 @@ import { UpdateRecipeDetailsComponent } from './components/update-recipe-details
   exports: [
     RecipeDetailsCardComponent,
     RecipesListComponent,
-    CreateRecipeComponent,
     CreateRecipeStepperComponent,
     AllRecipesPageComponent,
     ApprovedRecipesPageComponent,
     UnapprovedRecipesPageComponent,
     RecipeDetailsPageComponent,
     CrudRecipePageComponent,
-    CreateRecipeComponent,
     GetRecipeComponent,
     UpdateRecipeComponent,
     UpdateRecipeDetailsComponent,

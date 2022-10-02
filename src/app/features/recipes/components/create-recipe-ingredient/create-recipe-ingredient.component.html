@@ -28,4 +28,10 @@
   >
     Add recipe ingredient
   </button>
+
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
+  </section>
 </form>

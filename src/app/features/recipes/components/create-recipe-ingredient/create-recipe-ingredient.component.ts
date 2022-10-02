@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/core/models/get-models/ingredient';
@@ -15,6 +16,7 @@ export class CreateRecipeIngredientComponent implements OnInit {
   createRecipeIngredientForm!: FormGroup;
   ingredient!: Ingredient;
   recipeIngredient!: RecipeIngredient;
+  responseMessage: string = '';
   @Output() recipeIngredientEvent = new EventEmitter<RecipeIngredient>();
 
   constructor(
@@ -42,12 +44,19 @@ export class CreateRecipeIngredientComponent implements OnInit {
   }
 
   onSubmit() {
-    this.ingredientService
-      .getIngredientByName(this.nameFromForm)
-      .subscribe((ingredient) => {
+    this.responseMessage = '';
+
+    this.ingredientService.getIngredientByName(this.nameFromForm).subscribe({
+      next: (ingredient) => {
         this.ingredient = ingredient;
         this.createRecipeIngredient();
-      });
+      },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Ingredient with name:${this.nameFromForm} not found!`;
+        }
+      },
+    });
   }
 
   createRecipeIngredient() {
@@ -58,9 +67,14 @@ export class CreateRecipeIngredientComponent implements OnInit {
 
     this.recipeIngredientService
       .createRecipeIngredient(recipeIngredient)
-      .subscribe((recipeIngredient) => {
-        this.recipeIngredient = recipeIngredient;
-        this.emitRecipeIngredient();
+      .subscribe({
+        next: (recipeIngredient) => {
+          this.recipeIngredient = recipeIngredient;
+          this.emitRecipeIngredient();
+        },
+        error: () =>
+          (this.responseMessage =
+            'Error while creating the recipe ingredient!'),
       });
   }
 
