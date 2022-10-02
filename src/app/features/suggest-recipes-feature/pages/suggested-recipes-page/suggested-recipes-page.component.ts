@@ -64,10 +64,6 @@ export class SuggestedRecipesPageComponent implements OnInit {
       });
   }
 
-  onClear() {
-    this.suggestRecipesForm.reset();
-  }
-
   onScroll() {
     this.recipeService
       .getSuggestedRecipes(

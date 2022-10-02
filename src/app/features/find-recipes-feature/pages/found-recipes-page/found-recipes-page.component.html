@@ -17,9 +17,9 @@
       {{ responseMessage }}
     </p>
   </section>
+</section>
 
-  <section *ngIf="foundRecipes">
-    <h1>Found recipes</h1>
-    <app-recipes-list [recipes]="foundRecipes"></app-recipes-list>
-  </section>
+<section *ngIf="foundRecipes">
+  <h1>Found recipes</h1>
+  <app-recipes-list [recipes]="foundRecipes"></app-recipes-list>
 </section>

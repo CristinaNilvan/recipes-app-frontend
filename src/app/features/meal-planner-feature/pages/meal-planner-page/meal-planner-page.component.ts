@@ -51,10 +51,6 @@ export class MealPlannerPageComponent implements OnInit {
       });
   }
 
-  onClear() {
-    this.generateMealPlanForm.reset();
-  }
-
   get mealTypeFromForm(): string {
     return this.generateMealPlanForm.get('mealType')?.value;
   }
