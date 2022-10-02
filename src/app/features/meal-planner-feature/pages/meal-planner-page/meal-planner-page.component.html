@@ -22,18 +22,20 @@
     </mat-form-field>
   </p>
 
-  <p>
-    <button
-      mat-raised-button
-      color="accent"
-      [disabled]="!generateMealPlanForm.valid"
-      type="submit"
-    >
-      Generate
-    </button>
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="!generateMealPlanForm.valid"
+    type="submit"
+  >
+    Generate
+  </button>
 
-    <button mat-raised-button color="primary" (click)="onClear()">Clear</button>
-  </p>
+  <section class="response-section" *ngIf="responseMessage.length > 0">
+    <p>
+      {{ responseMessage }}
+    </p>
+  </section>
 </form>
 
 <section *ngIf="mealPlan">

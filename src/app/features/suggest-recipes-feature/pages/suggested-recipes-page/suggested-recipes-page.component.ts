@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
@@ -15,6 +16,7 @@ export class SuggestedRecipesPageComponent implements OnInit {
   pageSize: number = 5;
   ingredientName!: string;
   ingredientQuantity!: number;
+  responseMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,6 +42,7 @@ export class SuggestedRecipesPageComponent implements OnInit {
   }
 
   onSubmit() {
+    this.responseMessage = '';
     this.ingredientName = this.ingredientNameFromForm;
     this.ingredientQuantity = parseFloat(this.ingredientQuantityFromForm);
 
@@ -50,7 +53,15 @@ export class SuggestedRecipesPageComponent implements OnInit {
         this.ingredientName,
         this.ingredientQuantity
       )
-      .subscribe((recipes) => (this.suggestedRecipes = recipes));
+      .subscribe({
+        next: (recipes) => (this.suggestedRecipes = recipes),
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.responseMessage =
+              "Can't find recipes with a matching quantity!";
+          }
+        },
+      });
   }
 
   onClear() {
@@ -65,7 +76,14 @@ export class SuggestedRecipesPageComponent implements OnInit {
         this.ingredientName,
         this.ingredientQuantity
       )
-      .subscribe((recipes) => this.suggestedRecipes.push(...recipes));
+      .subscribe({
+        next: (recipes) => this.suggestedRecipes.push(...recipes),
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.responseMessage = 'No more recipes!!';
+          }
+        },
+      });
   }
 
   get ingredientNameFromForm() {

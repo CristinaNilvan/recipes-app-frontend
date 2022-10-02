@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MealType } from 'src/app/core/enums/meal-type';
@@ -16,6 +17,7 @@ export class MealPlannerPageComponent implements OnInit {
   mealPlan!: MealPlan;
   mealType!: MealType;
   calories!: number;
+  responseMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,12 +35,20 @@ export class MealPlannerPageComponent implements OnInit {
   }
 
   onSubmit() {
+    this.responseMessage = '';
     this.mealType = getRecipeMealTypeKey(this.mealTypeFromForm);
     this.calories = parseFloat(this.caloriesFromForm);
 
     this.recipeService
       .generateMealPlanFromRecipes(this.mealType, this.calories)
-      .subscribe((mealPlan) => (this.mealPlan = mealPlan));
+      .subscribe({
+        next: (mealPlan) => (this.mealPlan = mealPlan),
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.responseMessage = "Can't find recipes to generate meal plan!";
+          }
+        },
+      });
   }
 
   onClear() {
