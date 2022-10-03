@@ -13,6 +13,8 @@ import { AllRecipesAdminComponent } from './components/all-recipes-admin/all-rec
 import { ApprovedRecipesAdminComponent } from './components/approved-recipes-admin/approved-recipes-admin.component';
 import { UnapprovedRecipesAdminComponent } from './components/unapproved-recipes-admin/unapproved-recipes-admin.component';
 import { AdminFeaturesComponent } from './pages/admin-features/admin-features.component';
+import { ApproveRecipeComponent } from './components/approve-recipe/approve-recipe.component';
+import { ApproveIngredientComponent } from './components/approve-ingredient/approve-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { AdminFeaturesComponent } from './pages/admin-features/admin-features.co
     AllRecipesAdminComponent,
     ApprovedRecipesAdminComponent,
     UnapprovedRecipesAdminComponent,
+    ApproveIngredientComponent,
+    ApproveRecipeComponent,
     AdminFeaturesComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule],

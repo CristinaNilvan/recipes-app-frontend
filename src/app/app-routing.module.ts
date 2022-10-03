@@ -8,9 +8,6 @@ import { ApprovedIngredientsAdminComponent } from './features/admin-feature/comp
 import { ApprovedRecipesAdminComponent } from './features/admin-feature/components/approved-recipes-admin/approved-recipes-admin.component';
 import { UnapprovedIngredientsAdminComponent } from './features/admin-feature/components/unapproved-ingredients-admin/unapproved-ingredients-admin.component';
 import { UnapprovedRecipesAdminComponent } from './features/admin-feature/components/unapproved-recipes-admin/unapproved-recipes-admin.component';
-import { ApproveIngredientComponent } from './features/approve-feature/components/approve-ingredient/approve-ingredient.component';
-import { ApproveRecipeComponent } from './features/approve-feature/components/approve-recipe/approve-recipe.component';
-import { ApprovePageComponent } from './features/approve-feature/pages/approve-page/approve-page.component';
 import { FoundRecipesPageComponent } from './features/find-recipes-feature/pages/found-recipes-page/found-recipes-page.component';
 import { HomeComponent } from './features/home/components/home/home.component';
 import { CreateIngredientComponent } from './features/ingredients/components/create-ingredient/create-ingredient.component';
@@ -31,6 +28,8 @@ import { UpdateRecipeComponent } from './features/recipes/components/update-reci
 import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
 import { CrudRecipePageComponent } from './features/recipes/pages/crud-recipe-page/crud-recipe-page.component';
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
+import { ApproveIngredientComponent } from './features/admin-feature/components/approve-ingredient/approve-ingredient.component';
+import { ApproveRecipeComponent } from './features/admin-feature/components/approve-recipe/approve-recipe.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -57,7 +56,6 @@ const routes: Routes = [
   { path: 'meal-planner', component: MealPlannerPageComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
   { path: 'find-recipes', component: FoundRecipesPageComponent },
-  { path: 'approve', component: ApprovePageComponent },
   { path: 'approve-ingredient', component: ApproveIngredientComponent },
   { path: 'approve-recipe', component: ApproveRecipeComponent },
   { path: 'admin', component: AdminFeaturesComponent },

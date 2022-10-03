@@ -11,7 +11,6 @@ import { SuggestRecipesModule } from './features/suggest-recipes-feature/suggest
 import { SharedModule } from './shared/shared.module';
 import { FindRecipesModule } from './features/find-recipes-feature/find-recipes.module';
 import { MealPlannerModule } from './features/meal-planner-feature/meal-planner.module';
-import { ApproveModule } from './features/approve-feature/approve.module';
 import { HomeModule } from './features/home/home.module';
 import { AdminModule } from './features/admin-feature/admin.module';
 
@@ -29,7 +28,6 @@ import { AdminModule } from './features/admin-feature/admin.module';
     SuggestRecipesModule,
     FindRecipesModule,
     MealPlannerModule,
-    ApproveModule,
     AdminModule,
   ],
   providers: [],
