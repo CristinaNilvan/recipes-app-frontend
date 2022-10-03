@@ -19,12 +19,16 @@
     <span class="nav-caption">Find recipes</span>
   </a>
 
-  <a mat-list-item routerLink="/crud-recipe" (click)="onSidenavClose()">
-    <span class="nav-caption">Crud recipe</span>
+  <a mat-list-item routerLink="/recipe-perations" (click)="onSidenavClose()">
+    <span class="nav-caption">Recipe operations</span>
   </a>
 
-  <a mat-list-item routerLink="/crud-ingredient" (click)="onSidenavClose()">
-    <span class="nav-caption">Crud ingredient</span>
+  <a
+    mat-list-item
+    routerLink="/ingredient-operations"
+    (click)="onSidenavClose()"
+  >
+    <span class="nav-caption">Ingredient operations</span>
   </a>
 
   <a mat-list-item routerLink="/admin" class="admin" (click)="onSidenavClose()">
