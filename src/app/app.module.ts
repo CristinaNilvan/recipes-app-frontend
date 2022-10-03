@@ -12,8 +12,8 @@ import { SharedModule } from './shared/shared.module';
 import { FindRecipesModule } from './features/find-recipes-feature/find-recipes.module';
 import { MealPlannerModule } from './features/meal-planner-feature/meal-planner.module';
 import { ApproveModule } from './features/approve-feature/approve.module';
-import { HomeComponent } from './features/home/components/home/home.component';
 import { HomeModule } from './features/home/home.module';
+import { AdminModule } from './features/admin-feature/admin.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +30,7 @@ import { HomeModule } from './features/home/home.module';
     FindRecipesModule,
     MealPlannerModule,
     ApproveModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

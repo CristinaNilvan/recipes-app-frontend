@@ -1,7 +1,9 @@
+<h1>All Ingredients</h1>
+
 <div infinite-scroll (scrolled)="onScroll()">
-  <app-ingredients-list
-    [ingredients]="approvedIngredients"
-  ></app-ingredients-list>
+  <app-ingredients-list-admin
+    [ingredients]="allIngredients"
+  ></app-ingredients-list-admin>
 
   <section class="response-section" *ngIf="responseMessage.length > 0">
     <p>

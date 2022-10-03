@@ -1,0 +1,13 @@
+<mat-card class="card" *ngIf="ingredient">
+  <mat-card-title-group>
+    <mat-card-title>{{ ingredient.name }}</mat-card-title>
+    <mat-card-subtitle>{{ getIngredientCategory() }}</mat-card-subtitle>
+    <img
+      *ngIf="ingredient.ingredientImage"
+      mat-card-sm-image
+      [src]="ingredient.ingredientImage.storageImageUrl"
+      alt="Ingredient"
+    />
+  </mat-card-title-group>
+  <button mat-raised-button color="primary" (click)="onClick()">See</button>
+</mat-card>

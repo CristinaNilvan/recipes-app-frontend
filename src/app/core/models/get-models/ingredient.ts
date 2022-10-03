@@ -12,5 +12,7 @@ export interface Ingredient {
   proteins: number;
   approved: boolean;
   ingredientImage: IngredientImage;
+
+  //delete
   recipeIngredients: RecipeIngredient[];
 }
