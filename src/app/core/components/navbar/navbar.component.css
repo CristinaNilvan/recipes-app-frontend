@@ -18,3 +18,8 @@ a:active {
 mat-toolbar {
   height: 50px;
 }
+
+.admin {
+  background-color: #e91e63;
+  padding: 15%;
+}
