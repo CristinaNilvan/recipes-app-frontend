@@ -4,8 +4,8 @@
   class="form-group"
 >
   <mat-form-field class="form-control" appearance="outline">
-    <mat-label>Ingredient id</mat-label>
-    <input formControlName="id" matInput placeholder="Ingredient id" />
+    <mat-label>Ingredient name</mat-label>
+    <input formControlName="name" matInput placeholder="Ingredient name" />
   </mat-form-field>
 
   <button
@@ -22,3 +22,18 @@
     </p>
   </section>
 </form>
+
+<div infinite-scroll (scrolled)="onScroll()" class="ingredients">
+  <app-ingredients-list-admin
+    [ingredients]="unapprovedIngredients"
+  ></app-ingredients-list-admin>
+
+  <section
+    class="response-section"
+    *ngIf="ingredientsResponseMessage.length > 0"
+  >
+    <p>
+      {{ ingredientsResponseMessage }}
+    </p>
+  </section>
+</div>

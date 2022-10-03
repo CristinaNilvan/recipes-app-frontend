@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
 
 @Component({
@@ -10,7 +11,12 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 })
 export class ApproveIngredientComponent implements OnInit {
   approveIngredientForm!: FormGroup;
+  ingredient!: Ingredient;
+  unapprovedIngredients: Ingredient[] = [];
+  pageNumber: number = 1;
+  pageSize: number = 5;
   responseMessage: string = '';
+  ingredientsResponseMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -18,29 +24,75 @@ export class ApproveIngredientComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getIngredients();
+
     this.approveIngredientForm = this.formBuilder.group({
-      id: [
+      name: [
         '',
-        [Validators.required, Validators.pattern('^-?[0-9]+(?:.[0-9]{1,2})?$')],
+        [
+          Validators.required,
+          // Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"),
+          Validators.minLength(2),
+          Validators.maxLength(50),
+        ],
       ],
     });
   }
 
-  onSubmit() {
+  getIngredients() {
+    this.ingredientsResponseMessage = '';
+
     this.ingredientService
-      .approveIngredient(parseInt(this.idFromForm))
+      .getUnapprovedIngredients(this.pageNumber, this.pageSize)
       .subscribe({
+        next: (ingredients) => (this.unapprovedIngredients = ingredients),
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = `Ingredient with id:${this.idFromForm} not found!`;
+            this.ingredientsResponseMessage = 'Ingredients not found!';
           }
         },
-        complete: () =>
-          (this.responseMessage = `Ingredient with id:${this.idFromForm} approved!`),
       });
   }
 
-  get idFromForm() {
-    return this.approveIngredientForm.get('id')?.value;
+  onScroll() {
+    this.ingredientsResponseMessage = '';
+
+    this.ingredientService
+      .getUnapprovedIngredients(++this.pageNumber, this.pageSize)
+      .subscribe({
+        next: (ingredients) => this.unapprovedIngredients.push(...ingredients),
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.ingredientsResponseMessage = 'No more ingredients!';
+          }
+        },
+      });
+  }
+
+  onSubmit() {
+    this.responseMessage = '';
+
+    this.ingredientService.getIngredientByName(this.name).subscribe({
+      next: (ingredient) => {
+        this.ingredient = ingredient;
+        this.approveIngredient();
+      },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          this.responseMessage = `Ingredient with name:${this.name} not found!`;
+        }
+      },
+    });
+  }
+
+  approveIngredient() {
+    this.ingredientService.approveIngredient(this.ingredient.id).subscribe({
+      complete: () =>
+        (this.responseMessage = `Ingredient with id:${this.ingredient.id} approved!`),
+    });
+  }
+
+  get name() {
+    return this.approveIngredientForm.get('name')?.value;
   }
 }

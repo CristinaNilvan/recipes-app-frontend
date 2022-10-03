@@ -3,10 +3,19 @@
   (ngSubmit)="onSubmit()"
   class="form-group"
 >
-  <mat-form-field class="form-control" appearance="outline">
-    <mat-label>Recipe id</mat-label>
-    <input formControlName="id" matInput placeholder="Recipe id" />
-  </mat-form-field>
+  <p>
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Recipe name</mat-label>
+      <input formControlName="name" matInput placeholder="Recipe name" />
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Recipe author</mat-label>
+      <input formControlName="author" matInput placeholder="Recipe author" />
+    </mat-form-field>
+  </p>
 
   <button
     mat-raised-button
@@ -22,3 +31,15 @@
     </p>
   </section>
 </form>
+
+<div infinite-scroll (scrolled)="onScroll()" class="recipes">
+  <app-recipes-list-admin
+    [recipes]="unapprovedRecipes"
+  ></app-recipes-list-admin>
+
+  <section class="response-section" *ngIf="recipesResponseMessage.length > 0">
+    <p>
+      {{ recipesResponseMessage }}
+    </p>
+  </section>
+</div>

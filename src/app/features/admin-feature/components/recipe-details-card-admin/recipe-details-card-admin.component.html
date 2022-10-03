@@ -1,6 +1,6 @@
 <mat-card class="card" *ngIf="recipe">
   <mat-card-title-group>
-    <mat-card-title>{{ recipe.name }}</mat-card-title>
+    <mat-card-title>{{ recipe.name }} - {{ recipe.author }}</mat-card-title>
     <mat-card-subtitle
       >{{ getRecipeMealType() }} -
       {{ getRecipeServingTime() }}</mat-card-subtitle
