@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { AdminFeaturesComponent } from './features/admin-feature/pages/admin-features/admin-features.component';
+import { AllIngredientsAdminComponent } from './features/admin-feature/pages/all-ingredients-admin/all-ingredients-admin.component';
+import { AllRecipesAdminComponent } from './features/admin-feature/pages/all-recipes-admin/all-recipes-admin.component';
+import { ApprovedIngredientsAdminComponent } from './features/admin-feature/pages/approved-ingredients-admin/approved-ingredients-admin.component';
+import { ApprovedRecipesAdminComponent } from './features/admin-feature/pages/approved-recipes-admin/approved-recipes-admin.component';
+import { UnapprovedIngredientsAdminComponent } from './features/admin-feature/pages/unapproved-ingredients-admin/unapproved-ingredients-admin.component';
+import { UnapprovedRecipesAdminComponent } from './features/admin-feature/pages/unapproved-recipes-admin/unapproved-recipes-admin.component';
 import { ApproveIngredientComponent } from './features/approve-feature/components/approve-ingredient/approve-ingredient.component';
 import { ApproveRecipeComponent } from './features/approve-feature/components/approve-recipe/approve-recipe.component';
 import { ApprovePageComponent } from './features/approve-feature/pages/approve-page/approve-page.component';
@@ -53,6 +60,25 @@ const routes: Routes = [
   { path: 'approve', component: ApprovePageComponent },
   { path: 'approve-ingredient', component: ApproveIngredientComponent },
   { path: 'approve-recipe', component: ApproveRecipeComponent },
+  { path: 'admin', component: AdminFeaturesComponent },
+  { path: 'all-ingredients', component: AllIngredientsAdminComponent },
+  {
+    path: 'approved-ingredients',
+    component: ApprovedIngredientsAdminComponent,
+  },
+  {
+    path: 'unapproved-ingredients',
+    component: UnapprovedIngredientsAdminComponent,
+  },
+  { path: 'all-recipes', component: AllRecipesAdminComponent },
+  {
+    path: 'approved-recipes',
+    component: ApprovedRecipesAdminComponent,
+  },
+  {
+    path: 'unapproved-recipes',
+    component: UnapprovedRecipesAdminComponent,
+  },
   { path: '**', component: NotFoundComponent },
 ];
 

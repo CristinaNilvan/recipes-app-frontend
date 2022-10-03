@@ -1,5 +1,7 @@
+<h1>Approved Recipes</h1>
+
 <div infinite-scroll (scrolled)="onScroll()">
-  <app-recipes-list [recipes]="approvedRecipes"></app-recipes-list>
+  <app-recipes-list-admin [recipes]="approvedRecipes"></app-recipes-list-admin>
 
   <section class="response-section" *ngIf="responseMessage.length > 0">
     <p>

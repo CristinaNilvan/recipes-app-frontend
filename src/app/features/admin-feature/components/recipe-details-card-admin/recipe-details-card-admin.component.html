@@ -1,1 +1,18 @@
-<p>recipe-details-card-admin works!</p>
+<mat-card class="card" *ngIf="recipe">
+  <mat-card-title-group>
+    <mat-card-title>{{ recipe.name }}</mat-card-title>
+    <mat-card-subtitle
+      >{{ getRecipeMealType() }} -
+      {{ getRecipeServingTime() }}</mat-card-subtitle
+    >
+    <img
+      *ngIf="recipe.recipeImage"
+      mat-card-sm-image
+      [src]="recipe.recipeImage.storageImageUrl"
+      alt="Recipe"
+    />
+  </mat-card-title-group>
+  <button mat-raised-button color="primary" (click)="onClick()">
+    See more
+  </button>
+</mat-card>

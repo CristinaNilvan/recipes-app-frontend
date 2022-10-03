@@ -1,0 +1,12 @@
+.form-group {
+  background-color: white;
+  padding: 3%;
+}
+
+.form-control {
+  width: 35%;
+}
+
+button {
+  margin: 1%;
+}

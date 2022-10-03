@@ -9,6 +9,10 @@ import { RecipesListAdminComponent } from './components/recipes-list-admin/recip
 import { AllIngredientsAdminComponent } from './pages/all-ingredients-admin/all-ingredients-admin.component';
 import { ApprovedIngredientsAdminComponent } from './pages/approved-ingredients-admin/approved-ingredients-admin.component';
 import { UnapprovedIngredientsAdminComponent } from './pages/unapproved-ingredients-admin/unapproved-ingredients-admin.component';
+import { AllRecipesAdminComponent } from './pages/all-recipes-admin/all-recipes-admin.component';
+import { ApprovedRecipesAdminComponent } from './pages/approved-recipes-admin/approved-recipes-admin.component';
+import { UnapprovedRecipesAdminComponent } from './pages/unapproved-recipes-admin/unapproved-recipes-admin.component';
+import { AdminFeaturesComponent } from './pages/admin-features/admin-features.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,20 @@ import { UnapprovedIngredientsAdminComponent } from './pages/unapproved-ingredie
     AllIngredientsAdminComponent,
     ApprovedIngredientsAdminComponent,
     UnapprovedIngredientsAdminComponent,
+    AllRecipesAdminComponent,
+    ApprovedRecipesAdminComponent,
+    UnapprovedRecipesAdminComponent,
+    AdminFeaturesComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule],
-  exports: [AllIngredientsAdminComponent],
+  exports: [
+    AllIngredientsAdminComponent,
+    ApprovedIngredientsAdminComponent,
+    UnapprovedIngredientsAdminComponent,
+    AllRecipesAdminComponent,
+    ApprovedRecipesAdminComponent,
+    UnapprovedRecipesAdminComponent,
+    AdminFeaturesComponent,
+  ],
 })
 export class AdminModule {}
