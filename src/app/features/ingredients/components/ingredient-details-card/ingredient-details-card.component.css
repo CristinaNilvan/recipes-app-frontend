@@ -1,4 +1,25 @@
 .card {
-  width: 400px;
+  width: 20vw;
+  height: 500px;
   margin: 2%;
+}
+
+img {
+  height: 250px;
+}
+
+button {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 70vw;
+  }
+}
+
+@media only screen and (min-width: 610px) and (max-width: 900px) {
+  .card {
+    width: 40vw;
+  }
 }

@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <div fxHide.gt-xs>
+  <div fxHide.gt-md>
     <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -7,7 +7,7 @@
   <div>
     <a routerLink="/home">RecipesApp</a>
   </div>
-  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.lt-md>
     <ul fxLayout fxLayoutGap="15px" class="navigation-items">
       <li>
         <a routerLink="/recipes">Recipes</a>
