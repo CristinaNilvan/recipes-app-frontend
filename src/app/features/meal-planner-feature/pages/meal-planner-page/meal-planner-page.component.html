@@ -1,43 +1,61 @@
-<form
-  [formGroup]="generateMealPlanForm"
-  (ngSubmit)="onSubmit()"
-  class="form-group"
->
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Meal type</mat-label>
-      <mat-select formControlName="mealType">
-        <mat-option value="Normal">Normal</mat-option>
-        <mat-option value="Vegetarian">Vegetarian</mat-option>
-        <mat-option value="Vegan">Vegan</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </p>
+<section class="content" fxLayout="column">
+  <section fxLayoutAlign="center">
+    <form
+      [formGroup]="generateMealPlanForm"
+      (ngSubmit)="onSubmit()"
+      class="form-group"
+    >
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Meal type</mat-label>
+          <mat-select formControlName="mealType">
+            <mat-option value="Normal">Normal</mat-option>
+            <mat-option value="Vegetarian">Vegetarian</mat-option>
+            <mat-option value="Vegan">Vegan</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Calories</mat-label>
-      <input formControlName="calories" matInput placeholder="Calories" />
-      <mat-hint>Must be two decimal!</mat-hint>
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Calories</mat-label>
+          <input formControlName="calories" matInput placeholder="Calories" />
+          <mat-hint>Maximum two decimal places!</mat-hint>
+        </mat-form-field>
+      </p>
 
-  <button
-    mat-raised-button
-    color="accent"
-    [disabled]="!generateMealPlanForm.valid"
-    type="submit"
-  >
-    Generate
-  </button>
+      <section fxLayoutAlign="center">
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!generateMealPlanForm.valid"
+          type="submit"
+        >
+          Generate
+        </button>
 
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
-      {{ responseMessage }}
-    </p>
+        <button
+          mat-raised-button
+          [disabled]="!generated"
+          (click)="navigateToFragment()"
+        >
+          Navigate
+        </button>
+      </section>
+    </form>
   </section>
-</form>
 
-<section *ngIf="mealPlan">
+  <section
+    class="response-section"
+    fxLayoutAlign="center"
+    *ngIf="responseMessage.length > 0"
+  >
+    <h1>
+      {{ responseMessage }}
+    </h1>
+  </section>
+</section>
+
+<section id="mealPlan" *ngIf="mealPlan">
   <app-meal-plan-details [mealPlan]="mealPlan"></app-meal-plan-details>
 </section>

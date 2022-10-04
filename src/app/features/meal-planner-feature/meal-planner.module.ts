@@ -9,6 +9,6 @@ import { MealPlanDetailsComponent } from './components/meal-plan-details/meal-pl
 @NgModule({
   declarations: [MealPlannerPageComponent, MealPlanDetailsComponent],
   imports: [CommonModule, CoreModule, SharedModule, RecipeModule],
-  exports: [MealPlannerPageComponent],
+  exports: [MealPlannerPageComponent, MealPlanDetailsComponent],
 })
 export class MealPlannerModule {}

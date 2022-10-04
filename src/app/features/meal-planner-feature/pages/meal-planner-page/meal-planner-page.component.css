@@ -1,18 +1,37 @@
-.form {
-  background: url("src/assets/form-background.jpg") no-repeat scroll left center;
+.content {
+  background: url("src/assets/form-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 93vh;
 }
 
 .form-group {
-  /* background-color: #daddf1; */
-  /* border-radius: 15px; */
+  margin-top: 20vh;
+  border-radius: 25px;
   background-color: white;
+  width: 40%;
   padding: 3%;
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .form-control {
-  width: 35%;
+  width: 100%;
 }
 
 button {
-  margin: 1%;
+  margin: 5% 1% 1% 1%;
+  /* margin-top: 5%; */
+  width: 50%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .content {
+    height: 95vh;
+  }
+
+  .form-group {
+    padding: 5%;
+    width: 80%;
+  }
 }

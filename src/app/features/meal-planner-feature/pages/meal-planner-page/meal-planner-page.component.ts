@@ -1,9 +1,10 @@
+import { ViewportScroller } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MealType } from 'src/app/core/enums/meal-type';
 import { MealPlan } from 'src/app/core/models/get-models/meal-plan';
-import { Recipe } from 'src/app/core/models/get-models/recipe';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import { getRecipeMealTypeKey } from 'src/app/core/utils/recipe-functions';
 
@@ -13,6 +14,7 @@ import { getRecipeMealTypeKey } from 'src/app/core/utils/recipe-functions';
   styleUrls: ['./meal-planner-page.component.css'],
 })
 export class MealPlannerPageComponent implements OnInit {
+  generated: boolean = false;
   generateMealPlanForm!: FormGroup;
   mealPlan!: MealPlan;
   mealType!: MealType;
@@ -20,6 +22,8 @@ export class MealPlannerPageComponent implements OnInit {
   responseMessage: string = '';
 
   constructor(
+    private scroller: ViewportScroller,
+    private router: Router,
     private formBuilder: FormBuilder,
     private recipeService: RecipeService
   ) {}
@@ -42,7 +46,10 @@ export class MealPlannerPageComponent implements OnInit {
     this.recipeService
       .generateMealPlanFromRecipes(this.mealType, this.calories)
       .subscribe({
-        next: (mealPlan) => (this.mealPlan = mealPlan),
+        next: (mealPlan) => {
+          this.mealPlan = mealPlan;
+          this.generated = true;
+        },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
             this.responseMessage = "Can't find recipes to generate meal plan!";
@@ -57,5 +64,10 @@ export class MealPlannerPageComponent implements OnInit {
 
   get caloriesFromForm(): string {
     return this.generateMealPlanForm.get('calories')?.value;
+  }
+
+  navigateToFragment() {
+    // this.router.navigate([], { fragment: 'mealPlan' });
+    this.scroller.scrollToAnchor('mealPlan');
   }
 }

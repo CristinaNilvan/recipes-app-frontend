@@ -30,6 +30,7 @@ import { CrudRecipePageComponent } from './features/recipes/pages/crud-recipe-pa
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
 import { ApproveIngredientComponent } from './features/admin-feature/components/approve-ingredient/approve-ingredient.component';
 import { ApproveRecipeComponent } from './features/admin-feature/components/approve-recipe/approve-recipe.component';
+import { MealPlanDetailsComponent } from './features/meal-planner-feature/components/meal-plan-details/meal-plan-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -54,6 +55,7 @@ const routes: Routes = [
   },
   { path: 'delete-ingredient', component: DeleteIngredientComponent },
   { path: 'meal-planner', component: MealPlannerPageComponent },
+  // { path: 'meal-planner/meal-plan', component: MealPlanDetailsComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
   { path: 'find-recipes', component: FoundRecipesPageComponent },
   { path: 'approve-ingredient', component: ApproveIngredientComponent },

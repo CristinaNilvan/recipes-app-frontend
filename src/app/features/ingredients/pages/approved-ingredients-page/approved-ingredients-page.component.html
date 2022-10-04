@@ -3,8 +3,12 @@
     [ingredients]="approvedIngredients"
   ></app-ingredients-list>
 
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <h1 fxLayoutAlign="center">
+  <section
+    class="response-section"
+    fxLayoutAlign="center"
+    *ngIf="responseMessage.length > 0"
+  >
+    <h1>
       {{ responseMessage }}
     </h1>
   </section>
