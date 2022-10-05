@@ -25,6 +25,10 @@ button {
   width: 50%;
 }
 
+.meal-plan {
+  margin-top: 2%;
+}
+
 @media only screen and (max-width: 1000px) {
   .content {
     height: 95vh;

@@ -39,7 +39,7 @@
           [disabled]="!generated"
           (click)="navigateToFragment()"
         >
-          Navigate
+          Go to meal plan
         </button>
       </section>
     </form>
@@ -56,6 +56,6 @@
   </section>
 </section>
 
-<section id="mealPlan" *ngIf="mealPlan">
+<section class="meal-plan" id="mealPlan" *ngIf="mealPlan">
   <app-meal-plan-details [mealPlan]="mealPlan"></app-meal-plan-details>
 </section>
