@@ -58,26 +58,26 @@
       </section>
     </form>
   </section>
+</section>
 
-  <section
-    class="suggested-recipes"
-    id="suggestedRecipes"
-    *ngIf="suggestedRecipes"
-  >
-    <h1 fxLayoutAlign="center">Suggested recipes</h1>
+<section
+  class="suggested-recipes"
+  id="suggestedRecipes"
+  *ngIf="suggestedRecipes"
+>
+  <h1 fxLayoutAlign="center">Suggested recipes</h1>
 
-    <div infinite-scroll (scrolled)="onScroll()">
-      <app-recipes-list [recipes]="suggestedRecipes"></app-recipes-list>
+  <div infinite-scroll (scrolled)="onScroll()">
+    <app-recipes-list [recipes]="suggestedRecipes"></app-recipes-list>
 
-      <section
-        class="response-section"
-        fxLayoutAlign="center"
-        *ngIf="recipesResponseMessage.length > 0"
-      >
-        <h1>
-          {{ recipesResponseMessage }}
-        </h1>
-      </section>
-    </div>
-  </section>
+    <section
+      class="response-section"
+      fxLayoutAlign="center"
+      *ngIf="recipesResponseMessage.length > 0"
+    >
+      <h1>
+        {{ recipesResponseMessage }}
+      </h1>
+    </section>
+  </div>
 </section>

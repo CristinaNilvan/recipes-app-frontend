@@ -1,13 +1,17 @@
-<h1>Unapproved Ingredients</h1>
+<h1 fxLayoutAlign="center">Unapproved Ingredients</h1>
 
 <div infinite-scroll (scrolled)="onScroll()">
   <app-ingredients-list-admin
     [ingredients]="unapprovedIngredients"
   ></app-ingredients-list-admin>
 
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
+  <section
+    class="response-section"
+    fxLayoutAlign="center"
+    *ngIf="responseMessage.length > 0"
+  >
+    <h1>
       {{ responseMessage }}
-    </p>
+    </h1>
   </section>
 </div>

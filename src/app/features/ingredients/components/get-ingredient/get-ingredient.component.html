@@ -1,24 +1,34 @@
-<form
-  [formGroup]="getIngredientForm"
-  (ngSubmit)="onSubmit()"
-  class="form-group"
->
-  <mat-form-field class="form-control" appearance="outline">
-    <mat-label>Ingredient name</mat-label>
-    <input formControlName="name" matInput placeholder="Ingredient name" />
-  </mat-form-field>
+<section class="form-content">
+  <section fxLayoutAlign="center">
+    <form
+      [formGroup]="getIngredientForm"
+      (ngSubmit)="onSubmit()"
+      class="form-group"
+    >
+      <mat-form-field class="form-control" appearance="outline">
+        <mat-label>Ingredient name</mat-label>
+        <input formControlName="name" matInput placeholder="Ingredient name" />
+      </mat-form-field>
 
-  <button
-    mat-raised-button
-    color="accent"
-    [disabled]="!getIngredientForm.valid"
-  >
-    Get
-  </button>
+      <section fxLayoutAlign="center">
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!getIngredientForm.valid"
+        >
+          Get
+        </button>
+      </section>
 
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
-      {{ responseMessage }}
-    </p>
+      <section
+        class="response-section"
+        fxLayoutAlign="center"
+        *ngIf="responseMessage.length > 0"
+      >
+        <h1>
+          {{ responseMessage }}
+        </h1>
+      </section>
+    </form>
   </section>
-</form>
+</section>

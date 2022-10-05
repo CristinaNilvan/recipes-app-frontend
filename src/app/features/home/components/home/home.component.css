@@ -1,16 +1,10 @@
 .container {
   text-align: center;
-  height: 100vh;
-}
-
-.image-container {
-  background-color: white;
-}
-
-img {
-  object-fit: cover;
-  width: 100%;
-  height: 80vh;
+  background: url("src/assets/form-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 70vh;
 }
 
 h1 {
@@ -18,4 +12,5 @@ h1 {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 5vh;
 }

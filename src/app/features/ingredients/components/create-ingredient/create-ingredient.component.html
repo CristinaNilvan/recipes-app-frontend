@@ -1,83 +1,97 @@
-<form
-  [formGroup]="createIngredientForm"
-  (ngSubmit)="onSubmit()"
-  class="form-group"
->
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Name</mat-label>
-      <input formControlName="name" matInput placeholder="Ingredient name" />
-    </mat-form-field>
-  </p>
+<section class="form-content">
+  <section fxLayoutAlign="center">
+    <form
+      [formGroup]="createIngredientForm"
+      (ngSubmit)="onSubmit()"
+      class="form-group"
+    >
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input
+            formControlName="name"
+            matInput
+            placeholder="Ingredient name"
+          />
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Category</mat-label>
-      <mat-select formControlName="category">
-        <mat-option value="Meat">Meat</mat-option>
-        <mat-option value="Dairy">Dairy</mat-option>
-        <mat-option value="Fruit">Fruit</mat-option>
-        <mat-option value="Vegetable">Vegetable</mat-option>
-        <mat-option value="Herbs">Herbs</mat-option>
-        <mat-option value="Others">Others</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option value="Meat">Meat</mat-option>
+            <mat-option value="Dairy">Dairy</mat-option>
+            <mat-option value="Fruit">Fruit</mat-option>
+            <mat-option value="Vegetable">Vegetable</mat-option>
+            <mat-option value="Herbs">Herbs</mat-option>
+            <mat-option value="Others">Others</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Calories</mat-label>
-      <input formControlName="calories" matInput placeholder="Calories" />
-      <mat-hint>Must be two decimal!</mat-hint>
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Calories</mat-label>
+          <input formControlName="calories" matInput placeholder="Calories" />
+          <mat-hint>Maximum two decimal places!</mat-hint>
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Fats</mat-label>
-      <input formControlName="fats" matInput placeholder="Fats" />
-      <mat-hint>Must be two decimal!</mat-hint>
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Fats</mat-label>
+          <input formControlName="fats" matInput placeholder="Fats" />
+          <mat-hint>Maximum two decimal places!</mat-hint>
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Carbs</mat-label>
-      <input formControlName="carbs" matInput placeholder="Carbs" />
-      <mat-hint>Must be two decimal!</mat-hint>
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Carbs</mat-label>
+          <input formControlName="carbs" matInput placeholder="Carbs" />
+          <mat-hint>Maximum two decimal places!</mat-hint>
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Proteins</mat-label>
-      <input formControlName="proteins" matInput placeholder="Proteins" />
-      <mat-hint>Must be two decimal!</mat-hint>
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Proteins</mat-label>
+          <input formControlName="proteins" matInput placeholder="Proteins" />
+          <mat-hint>Maximum two decimal places!</mat-hint>
+        </mat-form-field>
+      </p>
 
-  <p>
-    <button type="button" mat-raised-button (click)="fileInput.click()">
-      Choose File
-    </button>
-    <input hidden (change)="onFileChange($event)" #fileInput type="file" />
-    <span class="file-name" *ngIf="selectedImageName">{{
-      selectedImageName
-    }}</span>
-  </p>
+      <p>
+        <button type="button" mat-raised-button (click)="fileInput.click()">
+          Choose File
+        </button>
+        <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+        <span class="file-name" *ngIf="selectedImageName">{{
+          selectedImageName
+        }}</span>
+      </p>
 
-  <button
-    mat-raised-button
-    color="accent"
-    [disabled]="!createIngredientForm.valid"
-    type="submit"
-  >
-    Create
-  </button>
+      <section>
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!createIngredientForm.valid"
+          type="submit"
+        >
+          Create
+        </button>
+      </section>
 
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
-      {{ responseMessage }}
-    </p>
+      <section
+        class="response-section"
+        fxLayoutAlign="center"
+        *ngIf="responseMessage.length > 0"
+      >
+        <h1>
+          {{ responseMessage }}
+        </h1>
+      </section>
+    </form>
   </section>
-</form>
+</section>
