@@ -5,16 +5,20 @@
       <input formControlName="name" matInput placeholder="Ingredient name" />
     </mat-form-field>
 
+    <section
+      class="response-section"
+      fxLayoutAlign="center"
+      *ngIf="responseMessage.length > 0"
+    >
+      <p>
+        {{ responseMessage }}
+      </p>
+    </section>
+
     <section fxLayoutAlign="center">
       <button mat-raised-button color="primary" [disabled]="!searchForm.valid">
         Add to list
       </button>
     </section>
-  </section>
-
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
-      {{ responseMessage }}
-    </p>
   </section>
 </form>

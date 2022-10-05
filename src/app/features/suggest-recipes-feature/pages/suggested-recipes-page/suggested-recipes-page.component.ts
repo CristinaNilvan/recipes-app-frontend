@@ -66,7 +66,7 @@ export class SuggestedRecipesPageComponent implements OnInit {
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
             this.responseMessage =
-              "Can't find recipes with a matching quantity!";
+              "Can't find recipes with this ingredient and quantity!";
           }
         },
       });
