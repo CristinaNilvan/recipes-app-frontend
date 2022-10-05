@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,6 +11,7 @@ import { RecipeService } from 'src/app/core/services/recipe.service';
   styleUrls: ['./suggested-recipes-page.component.css'],
 })
 export class SuggestedRecipesPageComponent implements OnInit {
+  suggested: boolean = false;
   suggestRecipesForm!: FormGroup;
   suggestedRecipes!: Recipe[];
   pageNumber: number = 1;
@@ -17,8 +19,10 @@ export class SuggestedRecipesPageComponent implements OnInit {
   ingredientName!: string;
   ingredientQuantity!: number;
   responseMessage: string = '';
+  recipesResponseMessage: string = '';
 
   constructor(
+    private scroller: ViewportScroller,
     private formBuilder: FormBuilder,
     private recipeService: RecipeService
   ) {}
@@ -43,6 +47,7 @@ export class SuggestedRecipesPageComponent implements OnInit {
 
   onSubmit() {
     this.responseMessage = '';
+    this.pageNumber = 1;
     this.ingredientName = this.ingredientNameFromForm;
     this.ingredientQuantity = parseFloat(this.ingredientQuantityFromForm);
 
@@ -54,7 +59,10 @@ export class SuggestedRecipesPageComponent implements OnInit {
         this.ingredientQuantity
       )
       .subscribe({
-        next: (recipes) => (this.suggestedRecipes = recipes),
+        next: (recipes) => {
+          this.suggestedRecipes = recipes;
+          this.suggested = true;
+        },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
             this.responseMessage =
@@ -64,7 +72,14 @@ export class SuggestedRecipesPageComponent implements OnInit {
       });
   }
 
+  navigateToFragment() {
+    this.scroller.scrollToAnchor('suggestedRecipes');
+    this.suggested = false;
+  }
+
   onScroll() {
+    this.recipesResponseMessage = '';
+
     this.recipeService
       .getSuggestedRecipes(
         ++this.pageNumber,
@@ -76,7 +91,7 @@ export class SuggestedRecipesPageComponent implements OnInit {
         next: (recipes) => this.suggestedRecipes.push(...recipes),
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = 'No more recipes!!';
+            this.recipesResponseMessage = 'No more recipes!';
           }
         },
       });

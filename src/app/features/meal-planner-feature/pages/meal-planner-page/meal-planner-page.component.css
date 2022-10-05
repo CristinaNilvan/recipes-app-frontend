@@ -1,4 +1,4 @@
-.content {
+.form-content {
   background: url("src/assets/form-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,8 +21,11 @@
 
 button {
   margin: 5% 1% 1% 1%;
-  /* margin-top: 5%; */
   width: 50%;
+}
+
+.response-section h1 {
+  margin-top: 2%;
 }
 
 .meal-plan {
@@ -30,7 +33,7 @@ button {
 }
 
 @media only screen and (max-width: 1000px) {
-  .content {
+  .form-content {
     height: 95vh;
   }
 

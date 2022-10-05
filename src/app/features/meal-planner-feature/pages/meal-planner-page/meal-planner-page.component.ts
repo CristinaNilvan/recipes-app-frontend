@@ -58,16 +58,16 @@ export class MealPlannerPageComponent implements OnInit {
       });
   }
 
+  navigateToFragment() {
+    // this.router.navigate([], { fragment: 'mealPlan' });
+    this.scroller.scrollToAnchor('mealPlan');
+  }
+
   get mealTypeFromForm(): string {
     return this.generateMealPlanForm.get('mealType')?.value;
   }
 
   get caloriesFromForm(): string {
     return this.generateMealPlanForm.get('calories')?.value;
-  }
-
-  navigateToFragment() {
-    // this.router.navigate([], { fragment: 'mealPlan' });
-    this.scroller.scrollToAnchor('mealPlan');
   }
 }
