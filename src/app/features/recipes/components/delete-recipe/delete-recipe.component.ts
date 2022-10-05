@@ -54,7 +54,7 @@ export class DeleteRecipeComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = `Recipe with name:${this.name} not found!`;
+            this.responseMessage = `Recipe with name:${this.name} or author:${this.author} not found!`;
           }
         },
       });

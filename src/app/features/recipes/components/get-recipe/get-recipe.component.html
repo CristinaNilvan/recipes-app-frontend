@@ -1,25 +1,47 @@
-<form [formGroup]="getRecipeForm" (ngSubmit)="onSubmit()" class="form-group">
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Recipe name</mat-label>
-      <input formControlName="name" matInput placeholder="Recipe name" />
-    </mat-form-field>
-  </p>
+<section class="form-content">
+  <section fxLayoutAlign="center">
+    <form
+      [formGroup]="getRecipeForm"
+      (ngSubmit)="onSubmit()"
+      class="form-group"
+    >
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Recipe name</mat-label>
+          <input formControlName="name" matInput placeholder="Recipe name" />
+        </mat-form-field>
+      </p>
 
-  <p>
-    <mat-form-field class="form-control" appearance="outline">
-      <mat-label>Recipe author</mat-label>
-      <input formControlName="author" matInput placeholder="Recipe author" />
-    </mat-form-field>
-  </p>
+      <p>
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Recipe author</mat-label>
+          <input
+            formControlName="author"
+            matInput
+            placeholder="Recipe author"
+          />
+        </mat-form-field>
+      </p>
 
-  <button mat-raised-button color="accent" [disabled]="!getRecipeForm.valid">
-    Get
-  </button>
+      <section fxLayoutAlign="center">
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!getRecipeForm.valid"
+        >
+          Get
+        </button>
+      </section>
 
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
-      {{ responseMessage }}
-    </p>
+      <section
+        class="response-section"
+        fxLayoutAlign="center"
+        *ngIf="responseMessage.length > 0"
+      >
+        <h1>
+          {{ responseMessage }}
+        </h1>
+      </section>
+    </form>
   </section>
-</form>
+</section>

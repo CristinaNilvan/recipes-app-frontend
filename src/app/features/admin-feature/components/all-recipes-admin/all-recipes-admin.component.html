@@ -1,11 +1,15 @@
-<h1>All Recipes</h1>
+<h1 fxLayoutAlign="center">All Recipes</h1>
 
 <div infinite-scroll (scrolled)="onScroll()">
   <app-recipes-list-admin [recipes]="allRecipes"></app-recipes-list-admin>
 
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
+  <section
+    class="response-section"
+    fxLayoutAlign="center"
+    *ngIf="responseMessage.length > 0"
+  >
+    <h1>
       {{ responseMessage }}
-    </p>
+    </h1>
   </section>
 </div>

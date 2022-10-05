@@ -56,7 +56,7 @@ export class UpdateRecipeComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = `Recipe with name:${this.name} and author:${this.author} not found!`;
+            this.responseMessage = `Recipe with name:${this.name} or author:${this.author} not found!`;
           }
         },
       });
