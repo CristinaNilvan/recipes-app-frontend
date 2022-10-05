@@ -1,12 +1,16 @@
 <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="form-group">
-  <mat-form-field class="form-control" appearance="outline">
-    <mat-label>Ingredient name</mat-label>
-    <input formControlName="name" matInput placeholder="Ingredient name" />
-  </mat-form-field>
+  <section fxLayout="column">
+    <mat-form-field class="form-control" appearance="outline">
+      <mat-label>Ingredient name</mat-label>
+      <input formControlName="name" matInput placeholder="Ingredient name" />
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" [disabled]="!searchForm.valid">
-    Add to list
-  </button>
+    <section fxLayoutAlign="center">
+      <button mat-raised-button color="primary" [disabled]="!searchForm.valid">
+        Add to list
+      </button>
+    </section>
+  </section>
 
   <section class="response-section" *ngIf="responseMessage.length > 0">
     <p>

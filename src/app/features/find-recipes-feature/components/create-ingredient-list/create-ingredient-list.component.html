@@ -3,29 +3,20 @@
 ></app-search-ingredient-for-list>
 
 <section *ngIf="ingredientList.length > 0">
-  <h1>Ingredient list</h1>
   <div *ngFor="let ingredient of ingredientList">
     <app-ingredient-from-list-card
+      fxLayoutAlign="center"
       [ingredient]="ingredient"
     ></app-ingredient-from-list-card>
   </div>
-</section>
 
-<p>
-  <button
-    [disabled]="ingredientList.length == 0"
-    mat-raised-button
-    color="primary"
-    (click)="createList()"
-  >
-    Create list
-  </button>
-  <button
-    [disabled]="ingredientList.length == 0"
-    mat-raised-button
-    color="primary"
-    (click)="clearList()"
-  >
-    Clear list
-  </button>
-</p>
+  <section fxLayout="row" fxLayout.xs="column">
+    <button mat-raised-button color="primary" (click)="createList()">
+      Create list
+    </button>
+
+    <button mat-raised-button color="primary" (click)="clearList()">
+      Clear list
+    </button>
+  </section>
+</section>

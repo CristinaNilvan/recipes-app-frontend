@@ -1,25 +1,43 @@
-<section class="content">
-  <app-create-ingredient-list
-    (ingredientIdListEvent)="setIngredientIds($event)"
-  ></app-create-ingredient-list>
+<section class="form-content">
+  <section fxLayoutAlign="center">
+    <section class="form-group" fxLayout="column">
+      <app-create-ingredient-list
+        (ingredientIdListEvent)="setIngredientIds($event)"
+      ></app-create-ingredient-list>
 
-  <button
-    [disabled]="ingredientIds.length == 0"
-    mat-raised-button
-    color="accent"
-    (click)="findRecipes()"
+      <section fxLayout="row" fxLayout.xs="column">
+        <button
+          mat-raised-button
+          [disabled]="ingredientIds.length == 0"
+          color="accent"
+          (click)="findRecipes()"
+        >
+          Find recipes
+        </button>
+
+        <button
+          mat-raised-button
+          [disabled]="!found"
+          (click)="navigateToFragment()"
+        >
+          Go to recipes
+        </button>
+      </section>
+    </section>
+  </section>
+
+  <section
+    class="response-section"
+    fxLayoutAlign="center"
+    *ngIf="responseMessage.length > 0"
   >
-    Find recipes
-  </button>
-
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
+    <h1>
       {{ responseMessage }}
-    </p>
+    </h1>
   </section>
 </section>
 
-<section *ngIf="foundRecipes">
-  <h1>Found recipes</h1>
+<section class="found-recipes" id="foundRecipes" *ngIf="foundRecipes">
+  <h1 fxLayoutAlign="center">Found recipes</h1>
   <app-recipes-list [recipes]="foundRecipes"></app-recipes-list>
 </section>

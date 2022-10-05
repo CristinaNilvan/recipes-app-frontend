@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
@@ -9,11 +10,15 @@ import { RecipeService } from 'src/app/core/services/recipe.service';
   styleUrls: ['./found-recipes-page.component.css'],
 })
 export class FoundRecipesPageComponent implements OnInit {
+  found: boolean = false;
   foundRecipes!: Recipe[];
   ingredientIds: number[] = [];
   responseMessage: string = '';
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(
+    private scroller: ViewportScroller,
+    private recipeService: RecipeService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -21,7 +26,10 @@ export class FoundRecipesPageComponent implements OnInit {
     this.responseMessage = '';
 
     this.recipeService.getFoundRecipes(this.ingredientIds).subscribe({
-      next: (recipes) => (this.foundRecipes = recipes),
+      next: (recipes) => {
+        this.foundRecipes = recipes;
+        this.found = true;
+      },
       error: (error: HttpErrorResponse) => {
         if (error.status === 404) {
           this.responseMessage =
@@ -31,7 +39,12 @@ export class FoundRecipesPageComponent implements OnInit {
     });
   }
 
+  navigateToFragment() {
+    this.scroller.scrollToAnchor('foundRecipes');
+  }
+
   setIngredientIds(ingredientIds: number[]) {
     this.ingredientIds = ingredientIds;
+    this.found = false;
   }
 }
