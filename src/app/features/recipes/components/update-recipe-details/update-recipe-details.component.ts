@@ -25,6 +25,7 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   selectedImageName!: string;
   recipeIngredientList: RecipeIngredient[] = [];
   responseMessage: string = '';
+  updateResponseMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -84,10 +85,11 @@ export class UpdateRecipeDetailsComponent implements OnInit {
 
   toggleEditMode() {
     this.editMode = !this.editMode;
+    this.updateResponseMessage = '';
   }
 
   saveChanges() {
-    this.responseMessage = '';
+    this.updateResponseMessage = '';
 
     const patchRecipe: RecipePost = {
       name:
@@ -119,8 +121,10 @@ export class UpdateRecipeDetailsComponent implements OnInit {
         if (this.image !== null) this.addImageFromForm();
         if (this.recipeIngredientList.length > 0) this.addRecipeIngredients();
       },
-      error: () => (this.responseMessage = 'Error while updating the recipe!'),
-      complete: () => (this.responseMessage = 'Recipe updated successfully!'),
+      error: () =>
+        (this.updateResponseMessage = 'Error while updating the recipe!'),
+      complete: () =>
+        (this.updateResponseMessage = 'Recipe updated successfully!'),
     });
   }
 
@@ -138,7 +142,7 @@ export class UpdateRecipeDetailsComponent implements OnInit {
 
     this.recipeService.addImageToRecipe(this.recipe.id, formData).subscribe({
       error: () =>
-        (this.responseMessage = 'Error while updating the recipe image!'),
+        (this.updateResponseMessage = 'Error while updating the recipe image!'),
     });
   }
 
@@ -159,7 +163,7 @@ export class UpdateRecipeDetailsComponent implements OnInit {
       .addRecipeIngredientToRecipe(id, recipeIngredient)
       .subscribe({
         error: () =>
-          (this.responseMessage =
+          (this.updateResponseMessage =
             'Error while adding the ingredients to the recipe!'),
       });
   }

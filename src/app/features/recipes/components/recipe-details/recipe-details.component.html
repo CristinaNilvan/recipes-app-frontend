@@ -1,37 +1,45 @@
 <section class="content" *ngIf="recipe">
-  <img
-    *ngIf="recipe.recipeImage"
-    [src]="recipe.recipeImage.storageImageUrl"
-    alt="Recipe"
-    class="recipe-image"
-  />
+  <section fxLayoutAlign="center">
+    <img
+      *ngIf="recipe.recipeImage"
+      [src]="recipe.recipeImage.storageImageUrl"
+      alt="Recipe"
+      class="recipe-image"
+    />
+  </section>
 
-  <section class="recipe-details">
-    <h1>{{ recipe.name }}</h1>
-    <h2>{{ recipe.author }}</h2>
-    <p>Meal type: {{ getRecipeMealType() }}</p>
-    <p>Serving Time: {{ getRecipeServingTime() }}</p>
-    <p>Servings: {{ recipe.servings }}</p>
-    <p>Calories: {{ recipe.calories }}</p>
-    <p>Fats: {{ recipe.fats }}</p>
-    <p>Carbs: {{ recipe.carbs }}</p>
-    <p>Proteins: {{ recipe.proteins }}</p>
+  <section fxLayoutAlign="center">
+    <section class="recipe-details">
+      <h1>{{ recipe.name }}</h1>
+      <h2>{{ recipe.author }}</h2>
+      <p>Meal type: {{ getRecipeMealType() }}</p>
+      <p>Serving Time: {{ getRecipeServingTime() }}</p>
+      <p>Servings: {{ recipe.servings }}</p>
+      <p>Calories: {{ recipe.calories }}</p>
+      <p>Fats: {{ recipe.fats }}</p>
+      <p>Carbs: {{ recipe.carbs }}</p>
+      <p>Proteins: {{ recipe.proteins }}</p>
 
-    <section>
-      <h3>Recipe ingredients</h3>
-      <div *ngFor="let recIng of recipe.recipeIngredients">
-        <app-recipe-ingredient-from-list-card
-          [recipeIngredient]="recIng"
-        ></app-recipe-ingredient-from-list-card>
-      </div>
+      <section>
+        <h3>Recipe ingredients</h3>
+        <div *ngFor="let recIng of recipe.recipeIngredients">
+          <app-recipe-ingredient-from-list-card
+            [recipeIngredient]="recIng"
+          ></app-recipe-ingredient-from-list-card>
+        </div>
+      </section>
+
+      <p>{{ recipe.description }}</p>
     </section>
-
-    <p>{{ recipe.description }}</p>
   </section>
 </section>
 
-<section class="response-section" *ngIf="responseMessage.length > 0">
-  <p>
+<section
+  class="response-section"
+  fxLayoutAlign="center"
+  *ngIf="responseMessage.length > 0"
+>
+  <h1>
     {{ responseMessage }}
-  </p>
+  </h1>
 </section>

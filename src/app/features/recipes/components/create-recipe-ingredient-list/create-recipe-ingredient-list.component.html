@@ -3,14 +3,24 @@
 ></app-create-recipe-ingredient>
 
 <section *ngIf="recipeIngredientList.length > 0">
-  <h1>Ingredient list</h1>
   <div *ngFor="let recipeIngredient of recipeIngredientList">
     <app-recipe-ingredient-from-list-card
       [recipeIngredient]="recipeIngredient"
     ></app-recipe-ingredient-from-list-card>
   </div>
+
+  <section fxLayout="row" fxLayout.xs="column">
+    <button mat-raised-button color="accent" (click)="createList()">
+      Create list
+    </button>
+
+    <button mat-raised-button color="accent" (click)="clearList()">
+      Clear list
+    </button>
+  </section>
 </section>
 
+<!-- 
 <p>
   <button
     [disabled]="recipeIngredientList.length == 0"
@@ -28,4 +38,4 @@
   >
     Clear ingredient list
   </button>
-</p>
+</p> -->

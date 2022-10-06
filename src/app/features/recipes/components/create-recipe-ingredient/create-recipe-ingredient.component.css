@@ -1,3 +1,12 @@
+.form-group {
+  width: 100%;
+}
+
+.form-control {
+  width: 50%;
+}
+
 button {
+  width: 25%;
   margin: 1%;
 }
