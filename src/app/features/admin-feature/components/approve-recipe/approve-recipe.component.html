@@ -23,18 +23,24 @@
         </mat-form-field>
       </p>
 
-      <button
-        mat-raised-button
-        color="accent"
-        [disabled]="!approveRecipeForm.valid"
-      >
-        Approve
-      </button>
+      <section fxLayoutAlign="center">
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!approveRecipeForm.valid"
+        >
+          Approve
+        </button>
+      </section>
 
-      <section class="response-section" *ngIf="responseMessage.length > 0">
-        <p>
+      <section
+        class="response-section"
+        fxLayoutAlign="center"
+        *ngIf="responseMessage.length > 0"
+      >
+        <h1>
           {{ responseMessage }}
-        </p>
+        </h1>
       </section>
     </form>
   </section>

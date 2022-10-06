@@ -1,126 +1,144 @@
 <section class="content" *ngIf="ingredient">
-  <div class="image-details">
+  <section fxLayoutAlign="center">
     <img
       *ngIf="ingredient.ingredientImage"
       [src]="ingredient.ingredientImage.storageImageUrl"
       alt="Ingredient"
       class="ingredient-image"
     />
+  </section>
 
-    <p *ngIf="editMode">
-      <button type="button" mat-raised-button (click)="fileInput.click()">
-        Choose File
+  <section fxLayoutAlign="center" *ngIf="editMode">
+    <button type="button" mat-raised-button (click)="fileInput.click()">
+      Choose File
+    </button>
+    <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+    <span class="file-name" *ngIf="selectedImageName">{{
+      selectedImageName
+    }}</span>
+  </section>
+
+  <section fxLayoutAlign="center">
+    <section class="ingredient-details">
+      <form [formGroup]="updateIngredientForm" class="form-group">
+        <div class="set">
+          <h1>{{ ingredient.name }}</h1>
+          <mat-form-field
+            *ngIf="editMode"
+            class="form-control"
+            appearance="outline"
+          >
+            <mat-label>Name</mat-label>
+            <input
+              formControlName="name"
+              matInput
+              placeholder="Ingredient name"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="set">
+          <p>Category: {{ getIngredientCategory() }}</p>
+          <mat-form-field
+            *ngIf="editMode"
+            class="form-control"
+            appearance="outline"
+          >
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option value="Meat">Meat</mat-option>
+              <mat-option value="Dairy">Dairy</mat-option>
+              <mat-option value="Fruit">Fruit</mat-option>
+              <mat-option value="Vegetable">Vegetable</mat-option>
+              <mat-option value="Herbs">Herbs</mat-option>
+              <mat-option value="Others">Others</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="set">
+          <p>Calories: {{ ingredient.calories }}</p>
+          <mat-form-field
+            *ngIf="editMode"
+            class="form-control"
+            appearance="outline"
+          >
+            <mat-label>Calories</mat-label>
+            <input formControlName="calories" matInput placeholder="Calories" />
+            <mat-hint>Maximum two decimal places!</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="set">
+          <p>Fats: {{ ingredient.fats }}</p>
+          <mat-form-field
+            *ngIf="editMode"
+            class="form-control"
+            appearance="outline"
+          >
+            <mat-label>Fats</mat-label>
+            <input formControlName="fats" matInput placeholder="Fats" />
+            <mat-hint>Maximum two decimal places!</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="set">
+          <p>Carbs: {{ ingredient.carbs }}</p>
+          <mat-form-field
+            *ngIf="editMode"
+            class="form-control"
+            appearance="outline"
+          >
+            <mat-label>Carbs</mat-label>
+            <input formControlName="carbs" matInput placeholder="Carbs" />
+            <mat-hint>Maximum two decimal places!</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="set">
+          <p>Proteins: {{ ingredient.proteins }}</p>
+          <mat-form-field
+            *ngIf="editMode"
+            class="form-control"
+            appearance="outline"
+          >
+            <mat-label>Proteins</mat-label>
+            <input formControlName="proteins" matInput placeholder="Proteins" />
+            <mat-hint>Maximum two decimal places!</mat-hint>
+          </mat-form-field>
+        </div>
+      </form>
+    </section>
+  </section>
+
+  <section
+    class="update-response-section"
+    fxLayoutAlign="center"
+    *ngIf="updateResponseMessage.length > 0"
+  >
+    <h1>
+      {{ updateResponseMessage }}
+    </h1>
+  </section>
+
+  <section fxLayoutAlign="center">
+    <section class="buttons" fxLayout="row">
+      <button mat-raised-button color="accent" (click)="toggleEditMode()">
+        {{ editMode ? "Disable edit mode" : "Enable edit mode" }}
       </button>
-      <input hidden (change)="onFileChange($event)" #fileInput type="file" />
-      <span class="file-name" *ngIf="selectedImageName">{{
-        selectedImageName
-      }}</span>
-    </p>
-  </div>
-
-  <section class="ingredient-details">
-    <form [formGroup]="updateIngredientForm" class="form-group">
-      <div>
-        <h1>{{ ingredient.name }}</h1>
-        <mat-form-field
-          *ngIf="editMode"
-          class="form-control"
-          appearance="outline"
-        >
-          <mat-label>Name</mat-label>
-          <input
-            formControlName="name"
-            matInput
-            placeholder="Ingredient name"
-          />
-        </mat-form-field>
-      </div>
-
-      <div>
-        <p>Category: {{ getIngredientCategory() }}</p>
-        <mat-form-field
-          *ngIf="editMode"
-          class="form-control"
-          appearance="outline"
-        >
-          <mat-label>Category</mat-label>
-          <mat-select formControlName="category">
-            <mat-option value="Meat">Meat</mat-option>
-            <mat-option value="Dairy">Dairy</mat-option>
-            <mat-option value="Fruit">Fruit</mat-option>
-            <mat-option value="Vegetable">Vegetable</mat-option>
-            <mat-option value="Herbs">Herbs</mat-option>
-            <mat-option value="Others">Others</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <p>Calories: {{ ingredient.calories }}</p>
-        <mat-form-field
-          *ngIf="editMode"
-          class="form-control"
-          appearance="outline"
-        >
-          <mat-label>Calories</mat-label>
-          <input formControlName="calories" matInput placeholder="Calories" />
-          <mat-hint>Must be two decimal!</mat-hint>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <p>Fats: {{ ingredient.fats }}</p>
-        <mat-form-field
-          *ngIf="editMode"
-          class="form-control"
-          appearance="outline"
-        >
-          <mat-label>Fats</mat-label>
-          <input formControlName="fats" matInput placeholder="Fats" />
-          <mat-hint>Must be two decimal!</mat-hint>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <p>Carbs: {{ ingredient.carbs }}</p>
-        <mat-form-field
-          *ngIf="editMode"
-          class="form-control"
-          appearance="outline"
-        >
-          <mat-label>Carbs</mat-label>
-          <input formControlName="carbs" matInput placeholder="Carbs" />
-          <mat-hint>Must be two decimal!</mat-hint>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <p>Proteins: {{ ingredient.proteins }}</p>
-        <mat-form-field
-          *ngIf="editMode"
-          class="form-control"
-          appearance="outline"
-        >
-          <mat-label>Proteins</mat-label>
-          <input formControlName="proteins" matInput placeholder="Proteins" />
-          <mat-hint>Must be two decimal!</mat-hint>
-        </mat-form-field>
-      </div>
-    </form>
+      <button mat-raised-button color="accent" (click)="saveChanges()">
+        Save changes
+      </button>
+    </section>
   </section>
+</section>
 
-  <section class="buttons">
-    <button mat-raised-button color="primary" (click)="toggleEditMode()">
-      {{ editMode ? "Disable edit mode" : "Enable edit mode" }}
-    </button>
-    <button mat-raised-button color="primary" (click)="saveChanges()">
-      Save changes
-    </button>
-  </section>
-
-  <section class="response-section" *ngIf="responseMessage.length > 0">
-    <p>
-      {{ responseMessage }}
-    </p>
-  </section>
+<section
+  class="response-section"
+  fxLayoutAlign="center"
+  *ngIf="responseMessage.length > 0"
+>
+  <h1>
+    {{ responseMessage }}
+  </h1>
 </section>

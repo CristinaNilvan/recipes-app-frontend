@@ -22,6 +22,7 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   ingredient!: Ingredient;
   selectedImageName!: string;
   responseMessage: string = '';
+  updateResponseMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -70,10 +71,11 @@ export class UpdateIngredientDetailsComponent implements OnInit {
 
   toggleEditMode() {
     this.editMode = !this.editMode;
+    this.updateResponseMessage = '';
   }
 
   saveChanges() {
-    this.responseMessage = '';
+    this.updateResponseMessage = '';
 
     const patchIngredient: IngredientPost = {
       name:
@@ -109,9 +111,9 @@ export class UpdateIngredientDetailsComponent implements OnInit {
           if (this.image !== null) this.addImageFromForm();
         },
         error: () =>
-          (this.responseMessage = 'Error while updating the ingredient!'),
+          (this.updateResponseMessage = 'Error while updating the ingredient!'),
         complete: () =>
-          (this.responseMessage = 'Ingredient updated successfully!'),
+          (this.updateResponseMessage = 'Ingredient updated successfully!'),
       });
   }
 
@@ -123,7 +125,7 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   }
 
   addImageFromForm() {
-    this.responseMessage = '';
+    this.updateResponseMessage = '';
     const formData: FormData = new FormData();
     formData.set('File', this.image);
 
@@ -131,7 +133,8 @@ export class UpdateIngredientDetailsComponent implements OnInit {
       .addImageToIngredient(this.ingredient.id, formData)
       .subscribe({
         error: () =>
-          (this.responseMessage = 'Error while updating the ingredient image!'),
+          (this.updateResponseMessage =
+            'Error while updating the ingredient image!'),
       });
   }
 
