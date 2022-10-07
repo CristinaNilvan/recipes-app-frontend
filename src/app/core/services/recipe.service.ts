@@ -122,10 +122,10 @@ export class RecipeService {
 
   addRecipeIngredientToRecipe(
     id: number,
-    recipeIngredient: RecipeIngredient
-  ): Observable<Recipe> {
-    const url = `${this.url}${id}/recipe-ingredients/${recipeIngredient.id}`;
-    return this.httpService.post<Recipe>(url, recipeIngredient);
+    recipeIngredientId: number
+  ): Observable<{}> {
+    const url = `${this.url}${id}/recipe-ingredients/${recipeIngredientId}`;
+    return this.httpService.post(url, null);
   }
 
   removeRecipeIngredientFromRecipe(

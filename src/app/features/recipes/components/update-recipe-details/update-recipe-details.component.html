@@ -87,7 +87,7 @@
           >
             <mat-label>Servings</mat-label>
             <input formControlName="servings" matInput placeholder="Servings" />
-            <mat-hint>Must be two decimal!</mat-hint>
+            <mat-hint>Maximum two decimal places!</mat-hint>
           </mat-form-field>
         </div>
 
@@ -107,7 +107,7 @@
               *ngIf="editMode"
               mat-raised-button
               color="accent"
-              (click)="deleteRecipeIngredient(recipeIngredient)"
+              (click)="addIdToDeleteList(recipeIngredient.id)"
             >
               Delete
             </button>

@@ -129,7 +129,7 @@ export class CreateRecipeStepperComponent implements OnInit {
     console.log('adding recipe ingredient ' + recipeIngredient.id);
 
     this.recipeService
-      .addRecipeIngredientToRecipe(id, recipeIngredient)
+      .addRecipeIngredientToRecipe(id, recipeIngredient.id)
       .subscribe({
         error: () =>
           (this.responseMessage = 'Error while adding the recipe ingredients!'),
