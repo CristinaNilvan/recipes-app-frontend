@@ -6,8 +6,8 @@
 }
 
 .form-group {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
   border-radius: 25px;
   background-color: white;
   width: 40%;
@@ -30,7 +30,7 @@ button {
 
 @media only screen and (max-width: 1000px) {
   .form-content {
-    height: 95vh;
+    min-height: 95vh;
   }
 
   button {

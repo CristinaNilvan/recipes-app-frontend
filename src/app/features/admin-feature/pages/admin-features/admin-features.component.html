@@ -1,119 +1,147 @@
-<section class="operations" fxLayoutAlign="center">
-  <section fxLayout="column">
-    <section class="operations-section">
-      <h1>Choose an ingredient operation</h1>
-      <p>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="onListAllIngredients()"
-        >
-          List all ingredients
-        </button>
-      </p>
-      <p>
-        <button
-          mat-raised-button
-          color="accent"
-          (click)="onListApprovedIngredients()"
-        >
-          List approved ingredients
-        </button>
-      </p>
-      <p>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="onListUnapprovedIngredients()"
-        >
-          List unapproved ingredients
-        </button>
-      </p>
-      <p>
-        <button mat-raised-button color="accent" (click)="onCreateIngredient()">
-          Create ingredient
-        </button>
-      </p>
-      <p>
-        <button mat-raised-button color="primary" (click)="onGetIngredient()">
-          Get ingredient
-        </button>
-      </p>
-      <p>
-        <button mat-raised-button color="accent" (click)="onUpdateIngredient()">
-          Update ingredient
-        </button>
-      </p>
-      <p>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="onDeleteIngredient()"
-        >
-          Delete ingredient
-        </button>
-      </p>
-    </section>
+<section class="content">
+  <section fxLayoutAlign="center">
+    <section class="operations">
+      <section fxLayout="column">
+        <section class="operations-section">
+          <h1>Choose an ingredient operation</h1>
+          <p>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onListAllIngredients()"
+            >
+              List all ingredients
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="onListApprovedIngredients()"
+            >
+              List approved ingredients
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onListUnapprovedIngredients()"
+            >
+              List unapproved ingredients
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="onCreateIngredient()"
+            >
+              Create ingredient
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onGetIngredient()"
+            >
+              Get ingredient
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="onUpdateIngredient()"
+            >
+              Update ingredient
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onDeleteIngredient()"
+            >
+              Delete ingredient
+            </button>
+          </p>
+        </section>
 
-    <section class="operations-section">
-      <h1>Choose a recipe operation</h1>
-      <p>
-        <button mat-raised-button color="primary" (click)="onListAllRecipes()">
-          List all recipes
-        </button>
-      </p>
-      <p>
-        <button
-          mat-raised-button
-          color="accent"
-          (click)="onListApprovedRecipes()"
-        >
-          List approved recipes
-        </button>
-      </p>
-      <p>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="onListUnapprovedRecipes()"
-        >
-          List unapproved recipes
-        </button>
-      </p>
-      <p>
-        <button mat-raised-button color="accent" (click)="onCreateRecipe()">
-          Create recipe
-        </button>
-      </p>
-      <p>
-        <button mat-raised-button color="primary" (click)="onGetRecipe()">
-          Get recipe
-        </button>
-      </p>
-      <p>
-        <button mat-raised-button color="accent" (click)="onUpdateRecipe()">
-          Update recipe
-        </button>
-      </p>
-      <p>
-        <button mat-raised-button color="primary" (click)="onDeleteRecipe()">
-          Delete recipe
-        </button>
-      </p>
-    </section>
+        <section class="operations-section">
+          <h1>Choose a recipe operation</h1>
+          <p>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onListAllRecipes()"
+            >
+              List all recipes
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="onListApprovedRecipes()"
+            >
+              List approved recipes
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onListUnapprovedRecipes()"
+            >
+              List unapproved recipes
+            </button>
+          </p>
+          <p>
+            <button mat-raised-button color="accent" (click)="onCreateRecipe()">
+              Create recipe
+            </button>
+          </p>
+          <p>
+            <button mat-raised-button color="primary" (click)="onGetRecipe()">
+              Get recipe
+            </button>
+          </p>
+          <p>
+            <button mat-raised-button color="accent" (click)="onUpdateRecipe()">
+              Update recipe
+            </button>
+          </p>
+          <p>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="onDeleteRecipe()"
+            >
+              Delete recipe
+            </button>
+          </p>
+        </section>
 
-    <section class="operations-section">
-      <h1>Approve new data</h1>
-      <p>
-        <button mat-raised-button color="primary" (click)="approveIngredient()">
-          Approve ingredient
-        </button>
-      </p>
-      <p>
-        <button mat-raised-button color="accent" (click)="approveRecipe()">
-          Approve recipe
-        </button>
-      </p>
+        <section class="operations-section">
+          <h1>Approve new data</h1>
+          <p>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="approveIngredient()"
+            >
+              Approve ingredient
+            </button>
+          </p>
+          <p>
+            <button mat-raised-button color="accent" (click)="approveRecipe()">
+              Approve recipe
+            </button>
+          </p>
+        </section>
+      </section>
     </section>
   </section>
 </section>

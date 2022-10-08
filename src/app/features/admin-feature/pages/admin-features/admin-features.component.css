@@ -1,9 +1,49 @@
+.content {
+  background: url("src/assets/form-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 93vh;
+}
+
 .operations {
   background-color: white;
+  margin-top: 3vh;
+  margin-bottom: 5vh;
   padding: 1%;
   text-align: center;
+  border-radius: 25px;
+  width: 30%;
+  padding: 3%;
+  background: rgba(255, 255, 255, 0.85);
 }
 
 button {
-  width: 100%;
+  width: 85%;
+}
+
+@media only screen and (max-width: 700px) {
+  .content {
+    min-height: 95vh;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .operations {
+    padding: 5%;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1000px) {
+  .content {
+    min-height: 95vh;
+  }
+
+  .operations {
+    padding: 5%;
+    width: 80%;
+  }
 }
