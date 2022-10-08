@@ -170,9 +170,9 @@ export class UpdateRecipeDetailsComponent implements OnInit {
       });
   }
 
-  addIdToDeleteList(recipeIngredientId: number) {
-    this.toDeleteRecipeIngredientIds.push(recipeIngredientId);
-  }
+  // addIdToDeleteList(recipeIngredientId: number) {
+  //   this.toDeleteRecipeIngredientIds.push(recipeIngredientId);
+  // }
 
   deleteRecipeIngredients() {
     console.log('deleting recipe ingredients');
@@ -193,6 +193,10 @@ export class UpdateRecipeDetailsComponent implements OnInit {
           (this.updateResponseMessage =
             'Error while deleting the ingredients from recipe!'),
       });
+  }
+
+  setToDeleteRecipeIngredientList(toDeleteRecipeIngredientIds: number[]) {
+    this.toDeleteRecipeIngredientIds = toDeleteRecipeIngredientIds;
   }
 
   setRecipeIngredientList(recipeIngredientList: RecipeIngredient[]) {

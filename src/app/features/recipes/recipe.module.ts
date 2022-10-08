@@ -17,6 +17,7 @@ import { DeleteRecipeComponent } from './components/delete-recipe/delete-recipe.
 import { UpdateRecipeComponent } from './components/update-recipe/update-recipe.component';
 import { UpdateRecipeDetailsComponent } from './components/update-recipe-details/update-recipe-details.component';
 import { RecipeIngredientsListComponent } from './components/recipe-ingredients-list/recipe-ingredients-list.component';
+import { UpdateRecipeIngredientsListComponent } from './components/update-recipe-ingredients-list/update-recipe-ingredients-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RecipeIngredientsListComponent } from './components/recipe-ingredients-
     UpdateRecipeComponent,
     UpdateRecipeDetailsComponent,
     RecipeIngredientsListComponent,
+    UpdateRecipeIngredientsListComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule, IngredientModule],
   exports: [

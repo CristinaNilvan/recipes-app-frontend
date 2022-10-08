@@ -1,0 +1,41 @@
+<section *ngIf="recipeIngredients.length > 0">
+  <h2>Recipe ingredients</h2>
+  <div *ngFor="let recipeIngredient of recipeIngredients">
+    <app-recipe-ingredient-from-list-card
+      fxLayoutAlign.lt-md="center"
+      [recipeIngredient]="recipeIngredient"
+    ></app-recipe-ingredient-from-list-card>
+
+    <div fxLayoutAlign.lt-md="center">
+      <button
+        *ngIf="editMode"
+        mat-raised-button
+        color="accent"
+        (click)="addToDeleteList(recipeIngredient)"
+      >
+        Delete recipe ingredient
+      </button>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="toDeleteRecipeIngredients.length > 0">
+  <h2>To delete</h2>
+
+  <div *ngFor="let recipeIngredient of toDeleteRecipeIngredients">
+    <app-recipe-ingredient-from-list-card
+      fxLayoutAlign.lt-md="center"
+      [recipeIngredient]="recipeIngredient"
+    ></app-recipe-ingredient-from-list-card>
+  </div>
+
+  <section fxLayout="row" fxLayout.xs="column">
+    <button mat-raised-button color="accent" (click)="createList()">
+      Create list
+    </button>
+
+    <button mat-raised-button color="accent" (click)="clearList()">
+      Clear list
+    </button>
+  </section>
+</section>

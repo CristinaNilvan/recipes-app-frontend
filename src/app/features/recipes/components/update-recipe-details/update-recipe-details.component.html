@@ -96,28 +96,17 @@
         <p>Carbs: {{ recipe.carbs }}</p>
         <p>Proteins: {{ recipe.proteins }}</p>
 
-        <section class="set" *ngIf="recipe.recipeIngredients.length > 0">
-          <h2>Recipe ingredients</h2>
-          <div *ngFor="let recipeIngredient of recipe.recipeIngredients">
-            <app-recipe-ingredient-from-list-card
-              fxLayoutAlign.lt-md="center"
-              [recipeIngredient]="recipeIngredient"
-            ></app-recipe-ingredient-from-list-card>
-
-            <div fxLayoutAlign.lt-md="center">
-              <button
-                *ngIf="editMode"
-                mat-raised-button
-                color="accent"
-                (click)="addIdToDeleteList(recipeIngredient.id)"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
+        <section class="recipe-ingredients-set">
+          <app-update-recipe-ingredients-list
+            [editMode]="editMode"
+            [recipeIngredients]="recipe.recipeIngredients"
+            (toDeleteRecipeIngredientListEvent)="
+              setToDeleteRecipeIngredientList($event)
+            "
+          ></app-update-recipe-ingredients-list>
         </section>
 
-        <section class="set" *ngIf="editMode">
+        <section class="recipe-ingredients-set" *ngIf="editMode">
           <app-create-recipe-ingredient-list
             (recipeIngredientListEvent)="setRecipeIngredientList($event)"
           ></app-create-recipe-ingredient-list>

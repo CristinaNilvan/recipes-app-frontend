@@ -46,7 +46,12 @@ button {
 }
 
 .set {
-  margin-bottom: 4%;
+  margin-bottom: 2%;
+}
+
+.recipe-ingredients-set {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .update-response-section h1 {
@@ -73,7 +78,11 @@ button {
   }
 
   p {
-    padding: 2%;
+    padding: 1%;
+  }
+
+  .set {
+    margin-bottom: 4%;
   }
 
   .form-control {
