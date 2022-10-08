@@ -1,4 +1,4 @@
-<mat-card class="card" *ngIf="ingredient">
+<!-- <mat-card class="card" *ngIf="ingredient">
   <mat-card-header>
     <mat-card-title>{{ ingredient.name }}</mat-card-title>
     <mat-card-subtitle> {{ getIngredientCategory() }} </mat-card-subtitle>
@@ -23,4 +23,31 @@
       Go to ingredient
     </button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img
+        *ngIf="ingredient.ingredientImage"
+        mat-card-image
+        [src]="ingredient.ingredientImage.storageImageUrl"
+        alt="Ingredient"
+      />
+    </div>
+    <div class="flip-card-back">
+      <div class="ingredient-details">
+        <h1>{{ ingredient.name }}</h1>
+        <p>Category: {{ getIngredientCategory() }}</p>
+        <p>Calories: {{ ingredient.calories }}</p>
+        <p>Fats: {{ ingredient.fats }}</p>
+        <p>Carbs: {{ ingredient.carbs }}</p>
+        <p>Proteins: {{ ingredient.proteins }}</p>
+
+        <button mat-flat-button color="accent" (click)="onClick()">
+          Go to ingredient
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

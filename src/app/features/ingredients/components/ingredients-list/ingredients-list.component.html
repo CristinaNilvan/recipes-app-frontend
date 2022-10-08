@@ -1,4 +1,9 @@
-<div class="ingredient-cards" fxLayout="row wrap" fxLayoutAlign="space-around">
+<div
+  class="ingredient-cards"
+  fxLayout="row wrap"
+  fxLayoutGap="30px"
+  fxLayoutAlign="center"
+>
   <div *ngFor="let ingredient of ingredients">
     <app-ingredient-details-card
       [ingredient]="ingredient"

@@ -11,7 +11,7 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 export class ApprovedIngredientsPageComponent implements OnInit {
   approvedIngredients: Ingredient[] = [];
   pageNumber: number = 1;
-  pageSize: number = 5;
+  pageSize: number = 10;
   responseMessage: string = '';
 
   constructor(private ingredientService: IngredientService) {}
