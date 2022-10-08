@@ -11,7 +11,6 @@ import { CreateRecipeStepperComponent } from './components/create-recipe-stepper
 import { CreateRecipeIngredientComponent } from './components/create-recipe-ingredient/create-recipe-ingredient.component';
 import { CreateRecipeIngredientListComponent } from './components/create-recipe-ingredient-list/create-recipe-ingredient-list.component';
 import { RecipeIngredientFromListCardComponent } from './components/recipe-ingredient-from-list-card/recipe-ingredient-from-list-card.component';
-import { CrudRecipePageComponent } from './pages/crud-recipe-page/crud-recipe-page.component';
 import { GetRecipeComponent } from './components/get-recipe/get-recipe.component';
 import { DeleteRecipeComponent } from './components/delete-recipe/delete-recipe.component';
 import { UpdateRecipeComponent } from './components/update-recipe/update-recipe.component';
@@ -29,7 +28,6 @@ import { UpdateRecipeIngredientsListComponent } from './components/update-recipe
     CreateRecipeIngredientComponent,
     CreateRecipeIngredientListComponent,
     RecipeIngredientFromListCardComponent,
-    CrudRecipePageComponent,
     GetRecipeComponent,
     DeleteRecipeComponent,
     UpdateRecipeComponent,
@@ -43,7 +41,6 @@ import { UpdateRecipeIngredientsListComponent } from './components/update-recipe
     RecipesListComponent,
     CreateRecipeStepperComponent,
     ApprovedRecipesPageComponent,
-    CrudRecipePageComponent,
     GetRecipeComponent,
     UpdateRecipeComponent,
     UpdateRecipeDetailsComponent,
