@@ -48,7 +48,7 @@ export class ApproveIngredientComponent implements OnInit {
         next: (ingredients) => (this.unapprovedIngredients = ingredients),
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.ingredientsResponseMessage = 'No ingredients to approve!';
+            this.ingredientsResponseMessage = 'No more ingredients!';
           }
         },
       });

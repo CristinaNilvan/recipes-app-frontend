@@ -57,7 +57,7 @@ export class ApproveRecipeComponent implements OnInit {
         next: (recipes) => (this.unapprovedRecipes = recipes),
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.recipesResponseMessage = 'No recipes to approve!';
+            this.recipesResponseMessage = 'No more recipes!';
           }
         },
       });
