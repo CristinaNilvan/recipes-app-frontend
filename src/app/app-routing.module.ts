@@ -30,55 +30,57 @@ import { CrudRecipePageComponent } from './features/recipes/pages/crud-recipe-pa
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
 import { ApproveIngredientComponent } from './features/admin-feature/components/approve-ingredient/approve-ingredient.component';
 import { ApproveRecipeComponent } from './features/admin-feature/components/approve-recipe/approve-recipe.component';
-import { MealPlanDetailsComponent } from './features/meal-planner-feature/components/meal-plan-details/meal-plan-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'recipes', component: ApprovedRecipesPageComponent },
   { path: 'recipes/:id', component: RecipeDetailsComponent },
-  { path: 'recipe-operations', component: CrudRecipePageComponent },
   { path: 'create-recipe', component: CreateRecipeStepperComponent },
-  { path: 'get-recipe', component: GetRecipeComponent },
-  { path: 'delete-recipe', component: DeleteRecipeComponent },
-  { path: 'update-recipe', component: UpdateRecipeComponent },
-  { path: 'update-recipe/:id', component: UpdateRecipeDetailsComponent },
   { path: 'ingredients', component: ApprovedIngredientsPageComponent },
   { path: 'ingredients/:id', component: IngredientDetailsComponent },
-  { path: 'ingredient-operations', component: CrudIngredientPageComponent },
   { path: 'create-ingredient', component: CreateIngredientComponent },
-  { path: 'get-ingredient', component: GetIngredientComponent },
-  { path: 'update-ingredient', component: UpdateIngredientComponent },
-  {
-    path: 'update-ingredient/:id',
-    component: UpdateIngredientDetailsComponent,
-  },
-  { path: 'delete-ingredient', component: DeleteIngredientComponent },
   { path: 'meal-planner', component: MealPlannerPageComponent },
-  // { path: 'meal-planner/meal-plan', component: MealPlanDetailsComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
   { path: 'find-recipes', component: FoundRecipesPageComponent },
-  { path: 'approve-ingredient', component: ApproveIngredientComponent },
-  { path: 'approve-recipe', component: ApproveRecipeComponent },
+
   { path: 'admin', component: AdminFeaturesComponent },
-  { path: 'all-ingredients', component: AllIngredientsAdminComponent },
+  { path: 'admin/all-ingredients', component: AllIngredientsAdminComponent },
   {
-    path: 'approved-ingredients',
+    path: 'admin/approved-ingredients',
     component: ApprovedIngredientsAdminComponent,
   },
   {
-    path: 'unapproved-ingredients',
+    path: 'admin/unapproved-ingredients',
     component: UnapprovedIngredientsAdminComponent,
   },
-  { path: 'all-recipes', component: AllRecipesAdminComponent },
+  { path: 'admin/ingredients/:id', component: IngredientDetailsComponent },
+  { path: 'admin/create-ingredient', component: CreateIngredientComponent },
+  { path: 'admin/get-ingredient', component: GetIngredientComponent },
+  { path: 'admin/update-ingredient', component: UpdateIngredientComponent },
   {
-    path: 'approved-recipes',
+    path: 'admin/update-ingredient/:id',
+    component: UpdateIngredientDetailsComponent,
+  },
+  { path: 'admin/delete-ingredient', component: DeleteIngredientComponent },
+  { path: 'admin/approve-ingredient', component: ApproveIngredientComponent },
+
+  { path: 'admin/all-recipes', component: AllRecipesAdminComponent },
+  {
+    path: 'admin/approved-recipes',
     component: ApprovedRecipesAdminComponent,
   },
   {
-    path: 'unapproved-recipes',
+    path: 'admin/unapproved-recipes',
     component: UnapprovedRecipesAdminComponent,
   },
+  { path: 'admin/recipes/:id', component: RecipeDetailsComponent },
+  { path: 'admin/create-recipe', component: CreateRecipeStepperComponent },
+  { path: 'admin/get-recipe', component: GetRecipeComponent },
+  { path: 'admin/update-recipe', component: UpdateRecipeComponent },
+  { path: 'admin/update-recipe/:id', component: UpdateRecipeDetailsComponent },
+  { path: 'admin/delete-recipe', component: DeleteRecipeComponent },
+  { path: 'admin/approve-recipe', component: ApproveRecipeComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

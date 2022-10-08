@@ -12,66 +12,66 @@ export class AdminFeaturesComponent implements OnInit {
   ngOnInit(): void {}
 
   onListAllIngredients() {
-    this.router.navigate(['/all-ingredients']);
+    this.router.navigate(['/admin/all-ingredients']);
   }
 
   onListApprovedIngredients() {
-    this.router.navigate(['/approved-ingredients']);
+    this.router.navigate(['/admin/approved-ingredients']);
   }
 
   onListUnapprovedIngredients() {
-    this.router.navigate(['/unapproved-ingredients']);
+    this.router.navigate(['/admin/unapproved-ingredients']);
   }
 
   onCreateIngredient() {
-    this.router.navigate(['/create-ingredient']);
+    this.router.navigate(['/admin/create-ingredient']);
   }
 
   onGetIngredient() {
-    this.router.navigate(['/get-ingredient']);
+    this.router.navigate(['/admin/get-ingredient']);
   }
 
   onUpdateIngredient() {
-    this.router.navigate(['/update-ingredient']);
+    this.router.navigate(['/admin/update-ingredient']);
   }
 
   onDeleteIngredient() {
-    this.router.navigate(['/delete-ingredient']);
+    this.router.navigate(['/admin/delete-ingredient']);
   }
 
   onListAllRecipes() {
-    this.router.navigate(['/all-recipes']);
+    this.router.navigate(['/admin/all-recipes']);
   }
 
   onListApprovedRecipes() {
-    this.router.navigate(['/approved-recipes']);
+    this.router.navigate(['/admin/approved-recipes']);
   }
 
   onListUnapprovedRecipes() {
-    this.router.navigate(['/unapproved-recipes']);
+    this.router.navigate(['/admin/unapproved-recipes']);
   }
 
   onCreateRecipe() {
-    this.router.navigate(['/create-recipe']);
+    this.router.navigate(['/admin/create-recipe']);
   }
 
   onGetRecipe() {
-    this.router.navigate(['/get-recipe']);
+    this.router.navigate(['/admin/get-recipe']);
   }
 
   onUpdateRecipe() {
-    this.router.navigate(['/update-recipe']);
+    this.router.navigate(['/admin/update-recipe']);
   }
 
   onDeleteRecipe() {
-    this.router.navigate(['/delete-recipe']);
+    this.router.navigate(['/admin/delete-recipe']);
   }
 
   approveIngredient() {
-    this.router.navigate(['/approve-ingredient']);
+    this.router.navigate(['/admin/approve-ingredient']);
   }
 
   approveRecipe() {
-    this.router.navigate(['/approve-recipe']);
+    this.router.navigate(['/admin/approve-recipe']);
   }
 }

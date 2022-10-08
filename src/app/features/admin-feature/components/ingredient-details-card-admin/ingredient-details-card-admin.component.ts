@@ -16,7 +16,7 @@ export class IngredientDetailsCardAdminComponent implements OnInit {
   ngOnInit(): void {}
 
   onClick() {
-    const route = `/ingredients/${this.ingredient.id}`;
+    const route = `admin/ingredients/${this.ingredient.id}`;
     this.router.navigate([route]);
   }
 
