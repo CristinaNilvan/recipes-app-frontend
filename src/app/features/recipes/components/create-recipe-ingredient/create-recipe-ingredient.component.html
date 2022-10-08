@@ -24,12 +24,14 @@
       </p>
     </section>
 
-    <button
-      mat-raised-button
-      color="accent"
-      [disabled]="!createRecipeIngredientForm.valid"
-    >
-      Add recipe ingredient
-    </button>
+    <section fxLayoutAlign.lt-md="center">
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="!createRecipeIngredientForm.valid"
+      >
+        Add recipe ingredient
+      </button>
+    </section>
   </section>
 </form>

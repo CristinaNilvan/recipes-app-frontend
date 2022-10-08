@@ -5,6 +5,7 @@
 <section *ngIf="recipeIngredientList.length > 0">
   <div *ngFor="let recipeIngredient of recipeIngredientList">
     <app-recipe-ingredient-from-list-card
+      fxLayoutAlign.lt-md="center"
       [recipeIngredient]="recipeIngredient"
     ></app-recipe-ingredient-from-list-card>
   </div>

@@ -21,10 +21,11 @@
       <p>Proteins: {{ recipe.proteins }}</p>
 
       <section>
-        <h3>Recipe ingredients</h3>
-        <div *ngFor="let recIng of recipe.recipeIngredients">
+        <h2>Recipe ingredients</h2>
+        <div *ngFor="let recipeIngredient of recipe.recipeIngredients">
           <app-recipe-ingredient-from-list-card
-            [recipeIngredient]="recIng"
+            fxLayoutAlign.lt-md="center"
+            [recipeIngredient]="recipeIngredient"
           ></app-recipe-ingredient-from-list-card>
         </div>
       </section>

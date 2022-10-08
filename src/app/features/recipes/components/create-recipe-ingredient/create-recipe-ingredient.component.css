@@ -1,12 +1,13 @@
-.form-group {
-  width: 100%;
-}
-
 .form-control {
-  width: 50%;
+  width: 40%;
 }
 
 button {
-  width: 25%;
   margin: 1%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .form-control {
+    width: 100%;
+  }
 }

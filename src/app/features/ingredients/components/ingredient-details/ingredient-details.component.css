@@ -21,3 +21,18 @@
   background-color: white;
   height: 93vh;
 }
+
+@media only screen and (max-width: 1000px) {
+  .content {
+    height: 100vh;
+  }
+
+  .ingredient-image {
+    width: 100%;
+  }
+
+  .ingredient-details {
+    width: 100%;
+    padding: 5%;
+  }
+}

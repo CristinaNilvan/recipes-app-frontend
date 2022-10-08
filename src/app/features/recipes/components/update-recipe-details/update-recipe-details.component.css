@@ -17,6 +17,14 @@
   background-color: #b2ebf2;
 }
 
+.form-control {
+  width: 40%;
+}
+
+.form-control-textarea {
+  width: 100%;
+}
+
 .buttons {
   margin: 1%;
 }
@@ -36,4 +44,31 @@ button {
 .response-section {
   background-color: white;
   height: 93vh;
+}
+
+@media only screen and (max-width: 1000px) {
+  .content {
+    height: 100vh;
+  }
+
+  .recipe-image {
+    width: 100%;
+  }
+
+  .recipe-details {
+    width: 100%;
+    padding: 5%;
+  }
+
+  p {
+    padding: 2%;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  .buttons {
+    margin: 3%;
+  }
 }

@@ -97,20 +97,23 @@
         <p>Proteins: {{ recipe.proteins }}</p>
 
         <section class="set">
-          <h3>Recipe ingredients</h3>
+          <h2>Recipe ingredients</h2>
           <div *ngFor="let recipeIngredient of recipe.recipeIngredients">
             <app-recipe-ingredient-from-list-card
+              fxLayoutAlign.lt-md="center"
               [recipeIngredient]="recipeIngredient"
             ></app-recipe-ingredient-from-list-card>
 
-            <button
-              *ngIf="editMode"
-              mat-raised-button
-              color="accent"
-              (click)="addIdToDeleteList(recipeIngredient.id)"
-            >
-              Delete
-            </button>
+            <div fxLayoutAlign.lt-md="center">
+              <button
+                *ngIf="editMode"
+                mat-raised-button
+                color="accent"
+                (click)="addIdToDeleteList(recipeIngredient.id)"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </section>
 
@@ -124,7 +127,7 @@
           <p>{{ recipe.description }}</p>
           <mat-form-field
             *ngIf="editMode"
-            class="form-control"
+            class="form-control-textarea"
             appearance="outline"
           >
             <mat-label>Description</mat-label>
