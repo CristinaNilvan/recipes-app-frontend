@@ -50,7 +50,7 @@ export class GetIngredientComponent implements OnInit {
   }
 
   navigateToIngredient() {
-    const route = `/ingredients/${this.ingredient.id}`;
+    const route = `admin/ingredients/${this.ingredient.id}`;
     this.router.navigate([route]);
   }
 

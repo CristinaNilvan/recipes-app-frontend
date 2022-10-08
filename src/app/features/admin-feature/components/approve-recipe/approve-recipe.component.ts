@@ -57,7 +57,7 @@ export class ApproveRecipeComponent implements OnInit {
         next: (recipes) => (this.unapprovedRecipes = recipes),
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.recipesResponseMessage = 'Recipes not found!';
+            this.recipesResponseMessage = 'No recipes to approve!';
           }
         },
       });
@@ -82,7 +82,7 @@ export class ApproveRecipeComponent implements OnInit {
     this.responseMessage = '';
 
     this.recipeService
-      .getRecipeByNameAndAuthor(this.name, this.author)
+      .getRecipeByNameAndAuthor(this.name.trim(), this.author.trim())
       .subscribe({
         next: (recipe) => {
           this.recipe = recipe;
@@ -90,7 +90,7 @@ export class ApproveRecipeComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = `Recipe with name:${this.name} an author:${this.author} not found!`;
+            this.responseMessage = `Recipe with name:${this.name} or author:${this.author} not found!`;
           }
         },
       });

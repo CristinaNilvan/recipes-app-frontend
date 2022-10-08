@@ -48,7 +48,7 @@ export class ApproveIngredientComponent implements OnInit {
         next: (ingredients) => (this.unapprovedIngredients = ingredients),
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.ingredientsResponseMessage = 'Ingredients not found!';
+            this.ingredientsResponseMessage = 'No ingredients to approve!';
           }
         },
       });
@@ -72,7 +72,7 @@ export class ApproveIngredientComponent implements OnInit {
   onSubmit() {
     this.responseMessage = '';
 
-    this.ingredientService.getIngredientByName(this.name).subscribe({
+    this.ingredientService.getIngredientByName(this.name.trim()).subscribe({
       next: (ingredient) => {
         this.ingredient = ingredient;
         this.approveIngredient();

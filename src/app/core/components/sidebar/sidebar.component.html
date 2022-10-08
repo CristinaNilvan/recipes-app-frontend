@@ -3,8 +3,16 @@
     <span class="nav-caption">Recipes</span>
   </a>
 
+  <a mat-list-item routerLink="/create-recipe" (click)="onSidenavClose()">
+    <span class="nav-caption">Create recipe</span>
+  </a>
+
   <a mat-list-item routerLink="/ingredients" (click)="onSidenavClose()">
     <span class="nav-caption">Ingredients</span>
+  </a>
+
+  <a mat-list-item routerLink="/create-ingredient" (click)="onSidenavClose()">
+    <span class="nav-caption">Create ingredient</span>
   </a>
 
   <a mat-list-item routerLink="/meal-planner" (click)="onSidenavClose()">
@@ -18,18 +26,6 @@
   <a mat-list-item routerLink="/find-recipes" (click)="onSidenavClose()">
     <span class="nav-caption">Find recipes</span>
   </a>
-
-  <!-- <a mat-list-item routerLink="/recipe-operations" (click)="onSidenavClose()">
-    <span class="nav-caption">Recipe operations</span>
-  </a>
-
-  <a
-    mat-list-item
-    routerLink="/ingredient-operations"
-    (click)="onSidenavClose()"
-  >
-    <span class="nav-caption">Ingredient operations</span>
-  </a> -->
 
   <a mat-list-item routerLink="/admin" class="admin" (click)="onSidenavClose()">
     <span class="nav-caption">Admin</span>
