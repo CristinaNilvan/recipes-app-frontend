@@ -1,4 +1,4 @@
-<mat-card class="card" *ngIf="recipe">
+<!-- <mat-card class="card" *ngIf="recipe">
   <mat-card-header>
     <mat-card-title>{{ recipe.name }}</mat-card-title>
     <mat-card-subtitle> {{ recipe.author }} </mat-card-subtitle>
@@ -24,4 +24,32 @@
   <mat-card-actions>
     <button mat-button color="accent" (click)="onClick()">Go to recipe</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img
+        *ngIf="recipe.recipeImage"
+        mat-card-image
+        [src]="recipe.recipeImage.storageImageUrl"
+        alt="Recipe"
+      />
+    </div>
+    <div class="flip-card-back">
+      <div class="recipe-details">
+        <h1>{{ recipe.name }}</h1>
+        <p>{{ getRecipeMealType() }} - {{ getRecipeServingTime() }}</p>
+        <p>Servings: {{ recipe.servings }}</p>
+        <p>Calories: {{ recipe.calories }}</p>
+        <p>Fats: {{ recipe.fats }}</p>
+        <p>Carbs: {{ recipe.carbs }}</p>
+        <p>Proteins: {{ recipe.proteins }}</p>
+
+        <button mat-flat-button color="accent" (click)="onClick()">
+          Go to recipe
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

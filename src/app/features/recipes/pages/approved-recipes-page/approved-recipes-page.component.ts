@@ -11,7 +11,7 @@ import { RecipeService } from '../../../../core/services/recipe.service';
 export class ApprovedRecipesPageComponent implements OnInit {
   approvedRecipes: Recipe[] = [];
   pageNumber: number = 1;
-  pageSize: number = 5;
+  pageSize: number = 10;
   responseMessage: string = '';
 
   constructor(private recipeService: RecipeService) {}

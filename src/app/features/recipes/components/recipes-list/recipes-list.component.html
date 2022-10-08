@@ -1,4 +1,9 @@
-<div class="recipe-cards" fxLayout="row wrap" fxLayoutAlign="space-around">
+<div
+  class="recipe-cards"
+  fxLayout="row wrap"
+  fxLayoutGap="30px"
+  fxLayoutAlign="center"
+>
   <div *ngFor="let recipe of recipes">
     <app-recipe-details-card [recipe]="recipe"></app-recipe-details-card>
   </div>
