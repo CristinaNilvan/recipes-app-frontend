@@ -96,7 +96,7 @@
         <p>Carbs: {{ recipe.carbs }}</p>
         <p>Proteins: {{ recipe.proteins }}</p>
 
-        <section class="set">
+        <section class="set" *ngIf="recipe.recipeIngredients.length > 0">
           <h2>Recipe ingredients</h2>
           <div *ngFor="let recipeIngredient of recipe.recipeIngredients">
             <app-recipe-ingredient-from-list-card
@@ -124,7 +124,7 @@
         </section>
 
         <div class="set">
-          <p>{{ recipe.description }}</p>
+          <p class="description">{{ recipe.description }}</p>
           <mat-form-field
             *ngIf="editMode"
             class="form-control-textarea"
@@ -135,6 +135,10 @@
           </mat-form-field>
         </div>
       </form>
+
+      <section class="approved-status" *ngIf="!recipe.approved">
+        <p>This recipe has not been approved yet!</p>
+      </section>
     </section>
   </section>
 

@@ -13,6 +13,6 @@ export interface Ingredient {
   approved: boolean;
   ingredientImage: IngredientImage;
 
-  //delete
-  recipeIngredients: RecipeIngredient[];
+  // //delete
+  // recipeIngredients: RecipeIngredient[];
 }

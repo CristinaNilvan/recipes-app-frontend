@@ -8,21 +8,21 @@ import { IngredientPost } from '../models/post-models/ingredient-post';
   providedIn: 'root',
 })
 export class IngredientService {
-  url = '/api/ingredients/';
+  baseUrl = '/api/ingredients/';
 
   constructor(private httpService: HttpClient) {}
 
   createIngredient(ingredient: IngredientPost): Observable<Ingredient> {
-    return this.httpService.post<Ingredient>(this.url, ingredient);
+    return this.httpService.post<Ingredient>(this.baseUrl, ingredient);
   }
 
   getIngredientById(id: number): Observable<Ingredient> {
-    const url = `${this.url}${id}`;
+    const url = `${this.baseUrl}${id}`;
     return this.httpService.get<Ingredient>(url);
   }
 
   getIngredientByName(name: string): Observable<Ingredient> {
-    const url = `${this.url}${name}`;
+    const url = `${this.baseUrl}${name}`;
     return this.httpService.get<Ingredient>(url);
   }
 
@@ -30,7 +30,7 @@ export class IngredientService {
     pageNumber: number,
     pageSize: number
   ): Observable<Ingredient[]> {
-    const url = this.url + 'all-ingredients';
+    const url = this.baseUrl + 'all-ingredients';
 
     const params = new HttpParams()
       .set('PageNumber', pageNumber)
@@ -43,18 +43,20 @@ export class IngredientService {
     pageNumber: number,
     pageSize: number
   ): Observable<Ingredient[]> {
+    const url = this.baseUrl + 'approved-ingredients';
+
     const params = new HttpParams()
       .set('PageNumber', pageNumber)
       .set('PageSize', pageSize);
 
-    return this.httpService.get<Ingredient[]>(this.url, { params });
+    return this.httpService.get<Ingredient[]>(url, { params });
   }
 
   getUnapprovedIngredients(
     pageNumber: number,
     pageSize: number
   ): Observable<Ingredient[]> {
-    const url = this.url + 'unapproved-ingredients';
+    const url = this.baseUrl + 'unapproved-ingredients';
 
     const params = new HttpParams()
       .set('PageNumber', pageNumber)
@@ -64,22 +66,22 @@ export class IngredientService {
   }
 
   patchIngredient(id: number, ingredient: IngredientPost): Observable<{}> {
-    const url = `${this.url}${id}`;
+    const url = `${this.baseUrl}${id}`;
     return this.httpService.patch(url, ingredient);
   }
 
   approveIngredient(id: number): Observable<{}> {
-    const url = `${this.url}unapproved-ingredients/${id}`;
+    const url = `${this.baseUrl}unapproved-ingredients/${id}`;
     return this.httpService.patch(url, null);
   }
 
   deleteIngredient(id: number): Observable<{}> {
-    const url = `${this.url}${id}`;
+    const url = `${this.baseUrl}${id}`;
     return this.httpService.delete(url);
   }
 
   addImageToIngredient(id: number, formData: FormData): Observable<{}> {
-    const url = `${this.url}${id}/image`;
+    const url = `${this.baseUrl}${id}/image`;
     return this.httpService.post(url, formData);
   }
 }

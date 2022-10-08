@@ -21,6 +21,10 @@
   width: 40%;
 }
 
+.approved-status {
+  font-style: italic;
+}
+
 .buttons {
   margin: 1%;
 }

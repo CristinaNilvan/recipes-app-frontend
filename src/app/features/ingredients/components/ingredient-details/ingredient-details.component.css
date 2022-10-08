@@ -17,6 +17,10 @@
   background-color: #b2ebf2;
 }
 
+.approved-status {
+  font-style: italic;
+}
+
 .response-section {
   background-color: white;
   height: 93vh;

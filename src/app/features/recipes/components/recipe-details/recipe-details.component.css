@@ -18,7 +18,15 @@
 }
 
 .title {
-  font-size: 4.5vh;
+  font-size: 4.3vh;
+}
+
+.description {
+  margin-top: 3%;
+}
+
+.approved-status {
+  font-style: italic;
 }
 
 .response-section {

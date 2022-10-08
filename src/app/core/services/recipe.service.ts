@@ -11,31 +11,31 @@ import { RecipePost } from '../models/post-models/recipe-post';
   providedIn: 'root',
 })
 export class RecipeService {
-  url = '/api/recipes/';
+  baseUrl = '/api/recipes/';
 
   constructor(private httpService: HttpClient) {}
 
   createRecipe(recipe: RecipePost): Observable<Recipe> {
-    return this.httpService.post<Recipe>(this.url, recipe);
+    return this.httpService.post<Recipe>(this.baseUrl, recipe);
   }
 
   getRecipeById(id: number): Observable<Recipe> {
-    const url = `${this.url}${id}`;
+    const url = `${this.baseUrl}${id}`;
     return this.httpService.get<Recipe>(url);
   }
 
   getRecipeByNameAndAuthor(name: string, author: string): Observable<Recipe> {
-    const url = `${this.url}${name}&${author}`;
+    const url = `${this.baseUrl}${name}&${author}`;
     return this.httpService.get<Recipe>(url);
   }
 
   getRecipesByName(name: string): Observable<Recipe> {
-    const url = `${this.url}${name}`;
+    const url = `${this.baseUrl}${name}`;
     return this.httpService.get<Recipe>(url);
   }
 
   getAllRecipes(pageNumber: number, pageSize: number): Observable<Recipe[]> {
-    const url = this.url + 'all-recipes';
+    const url = this.baseUrl + 'all-recipes';
 
     const params = new HttpParams()
       .set('PageNumber', pageNumber)
@@ -48,18 +48,20 @@ export class RecipeService {
     pageNumber: number,
     pageSize: number
   ): Observable<Recipe[]> {
+    const url = this.baseUrl + 'approved-recipes';
+
     const params = new HttpParams()
       .set('PageNumber', pageNumber)
       .set('PageSize', pageSize);
 
-    return this.httpService.get<Recipe[]>(this.url, { params });
+    return this.httpService.get<Recipe[]>(url, { params });
   }
 
   getUnapprovedRecipes(
     pageNumber: number,
     pageSize: number
   ): Observable<Recipe[]> {
-    const url = this.url + 'unapproved-recipes';
+    const url = this.baseUrl + 'unapproved-recipes';
 
     const params = new HttpParams()
       .set('PageNumber', pageNumber)
@@ -69,7 +71,7 @@ export class RecipeService {
   }
 
   getFoundRecipes(ids: number[]): Observable<Recipe[]> {
-    const url = this.url + 'find-recipes';
+    const url = this.baseUrl + 'find-recipes';
     const params = new HttpParams().appendAll({ ingredientIds: ids });
 
     return this.httpService.get<Recipe[]>(url, { params });
@@ -81,7 +83,7 @@ export class RecipeService {
     ingredientName: string,
     ingredientQuantity: number
   ): Observable<Recipe[]> {
-    const url = this.url + 'suggest-recipes';
+    const url = this.baseUrl + 'suggest-recipes';
 
     const params = new HttpParams()
       .set('PageNumber', pageNumber)
@@ -96,7 +98,7 @@ export class RecipeService {
     mealType: MealType,
     calories: number
   ): Observable<MealPlan> {
-    const url = this.url + 'generate-meal-plan';
+    const url = this.baseUrl + 'generate-meal-plan';
 
     const params = new HttpParams()
       .set('MealType', mealType)
@@ -106,17 +108,17 @@ export class RecipeService {
   }
 
   patchRecipe(id: number, recipe: RecipePost): Observable<{}> {
-    const url = `${this.url}${id}`;
+    const url = `${this.baseUrl}${id}`;
     return this.httpService.patch(url, recipe);
   }
 
   approveRecipe(id: number): Observable<{}> {
-    const url = `${this.url}unapproved-recipes/${id}`;
+    const url = `${this.baseUrl}unapproved-recipes/${id}`;
     return this.httpService.patch(url, null);
   }
 
   deleteRecipe(id: number): Observable<{}> {
-    const url = `${this.url}${id}`;
+    const url = `${this.baseUrl}${id}`;
     return this.httpService.delete(url);
   }
 
@@ -124,7 +126,7 @@ export class RecipeService {
     id: number,
     recipeIngredientId: number
   ): Observable<{}> {
-    const url = `${this.url}${id}/recipe-ingredients/${recipeIngredientId}`;
+    const url = `${this.baseUrl}${id}/recipe-ingredients/${recipeIngredientId}`;
     return this.httpService.post(url, null);
   }
 
@@ -132,12 +134,12 @@ export class RecipeService {
     recipeId: number,
     recipeIngredientId: number
   ): Observable<Recipe> {
-    const url = `${this.url}${recipeId}/recipe-ingredients/${recipeIngredientId}`;
+    const url = `${this.baseUrl}${recipeId}/recipe-ingredients/${recipeIngredientId}`;
     return this.httpService.delete<Recipe>(url);
   }
 
   addImageToRecipe(id: number, formData: FormData): Observable<{}> {
-    const url = `${this.url}${id}/image`;
+    const url = `${this.baseUrl}${id}/image`;
     return this.httpService.post(url, formData);
   }
 }

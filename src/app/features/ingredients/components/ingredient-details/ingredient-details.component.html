@@ -16,6 +16,10 @@
       <p>Fats: {{ ingredient.fats }}</p>
       <p>Carbs: {{ ingredient.carbs }}</p>
       <p>Proteins: {{ ingredient.proteins }}</p>
+
+      <section class="approved-status" *ngIf="!ingredient.approved">
+        <p>This ingredient has not been approved yet!</p>
+      </section>
     </section>
   </section>
 </section>

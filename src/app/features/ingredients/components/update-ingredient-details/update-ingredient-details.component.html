@@ -108,6 +108,10 @@
           </mat-form-field>
         </div>
       </form>
+
+      <section class="approved-status" *ngIf="!ingredient.approved">
+        <p>This ingredient has not been approved yet!</p>
+      </section>
     </section>
   </section>
 

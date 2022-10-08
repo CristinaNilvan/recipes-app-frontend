@@ -24,7 +24,11 @@
         [recipeIngredients]="recipe.recipeIngredients"
       ></app-recipe-ingredients-list>
 
-      <p>{{ recipe.description }}</p>
+      <p class="description">{{ recipe.description }}</p>
+
+      <section class="approved-status" *ngIf="!recipe.approved">
+        <p>This recipe has not been approved yet!</p>
+      </section>
     </section>
   </section>
 </section>
