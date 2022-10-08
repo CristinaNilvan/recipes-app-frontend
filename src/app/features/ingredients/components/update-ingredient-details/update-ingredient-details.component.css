@@ -1,6 +1,7 @@
 .content {
   background-color: white;
   padding: 2%;
+  min-height: 94vh;
 }
 
 .ingredient-image {
@@ -43,14 +44,10 @@ button {
 
 .response-section {
   background-color: white;
-  height: 93vh;
+  min-height: 94vh;
 }
 
 @media only screen and (max-width: 1000px) {
-  .content {
-    height: 100vh;
-  }
-
   .ingredient-image {
     width: 100%;
   }
