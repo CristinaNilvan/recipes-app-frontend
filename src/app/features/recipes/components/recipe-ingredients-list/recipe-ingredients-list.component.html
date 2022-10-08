@@ -1,0 +1,7 @@
+<h2>Recipe ingredients</h2>
+<div *ngFor="let recipeIngredient of recipeIngredients">
+  <app-recipe-ingredient-from-list-card
+    fxLayoutAlign.lt-md="center"
+    [recipeIngredient]="recipeIngredient"
+  ></app-recipe-ingredient-from-list-card>
+</div>

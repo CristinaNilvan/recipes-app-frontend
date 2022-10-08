@@ -10,7 +10,7 @@
 
   <section fxLayoutAlign="center">
     <section class="recipe-details">
-      <h1>{{ recipe.name }}</h1>
+      <h1 class="title">{{ recipe.name }}</h1>
       <h2>{{ recipe.author }}</h2>
       <p>Meal type: {{ getRecipeMealType() }}</p>
       <p>Serving Time: {{ getRecipeServingTime() }}</p>
@@ -20,15 +20,9 @@
       <p>Carbs: {{ recipe.carbs }}</p>
       <p>Proteins: {{ recipe.proteins }}</p>
 
-      <section>
-        <h2>Recipe ingredients</h2>
-        <div *ngFor="let recipeIngredient of recipe.recipeIngredients">
-          <app-recipe-ingredient-from-list-card
-            fxLayoutAlign.lt-md="center"
-            [recipeIngredient]="recipeIngredient"
-          ></app-recipe-ingredient-from-list-card>
-        </div>
-      </section>
+      <app-recipe-ingredients-list
+        [recipeIngredients]="recipe.recipeIngredients"
+      ></app-recipe-ingredients-list>
 
       <p>{{ recipe.description }}</p>
     </section>

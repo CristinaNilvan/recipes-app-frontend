@@ -17,6 +17,10 @@
   background-color: #b2ebf2;
 }
 
+.title {
+  font-size: 4.5vh;
+}
+
 .form-control {
   width: 40%;
 }
@@ -48,7 +52,7 @@ button {
 
 @media only screen and (max-width: 1000px) {
   .content {
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .recipe-image {
