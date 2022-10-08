@@ -3,8 +3,8 @@ import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredie
 
 @Component({
   selector: 'app-update-recipe-ingredients-list',
-  templateUrl: './update-recipe-ingredients-list.component.html',
-  styleUrls: ['./update-recipe-ingredients-list.component.css'],
+  templateUrl: './update-recipe-ingredient-list.component.html',
+  styleUrls: ['./update-recipe-ingredient-list.component.css'],
 })
 export class UpdateRecipeIngredientsListComponent implements OnInit {
   @Input() recipeIngredients!: RecipeIngredient[];
