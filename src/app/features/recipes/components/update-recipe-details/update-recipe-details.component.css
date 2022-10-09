@@ -51,7 +51,7 @@ button {
 }
 
 .recipe-ingredients-set {
-  /* width: 60%; */
+  width: 55%;
   margin-top: 5%;
   margin-bottom: 5%;
 }
@@ -62,7 +62,7 @@ button {
 
 .response-section {
   background-color: white;
-  height: 93vh;
+  height: 94vh;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -89,5 +89,9 @@ button {
 
   .buttons {
     margin: 3%;
+  }
+
+  .recipe-ingredients-set {
+    width: 100%;
   }
 }

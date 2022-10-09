@@ -2,7 +2,10 @@
   (recipeIngredientEvent)="addRecipeIngredient($event)"
 ></app-create-recipe-ingredient>
 
-<section class="recipe-ingredients" *ngIf="recipeIngredientList.length > 0">
+<section
+  class="recipe-ingredients"
+  *ngIf="recipeIngredientList.length > 0 && editMode"
+>
   <div *ngFor="let recipeIngredient of recipeIngredientList">
     <app-recipe-ingredient-from-list-card
       fxLayoutAlign="center"

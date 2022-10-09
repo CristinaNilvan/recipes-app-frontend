@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
 import { RecipeIngredientService } from 'src/app/core/services/recipe-ingredient.service';
 
@@ -8,6 +8,7 @@ import { RecipeIngredientService } from 'src/app/core/services/recipe-ingredient
   styleUrls: ['./create-recipe-ingredient-list.component.css'],
 })
 export class CreateRecipeIngredientListComponent implements OnInit {
+  @Input() editMode!: boolean;
   recipeIngredientList: RecipeIngredient[] = [];
   @Output() recipeIngredientListEvent = new EventEmitter<RecipeIngredient[]>();
 

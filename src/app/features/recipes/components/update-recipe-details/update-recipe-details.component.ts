@@ -170,10 +170,6 @@ export class UpdateRecipeDetailsComponent implements OnInit {
       });
   }
 
-  // addIdToDeleteList(recipeIngredientId: number) {
-  //   this.toDeleteRecipeIngredientIds.push(recipeIngredientId);
-  // }
-
   deleteRecipeIngredients() {
     console.log('deleting recipe ingredients');
 

@@ -2,10 +2,10 @@
   background-color: white;
   min-height: 94vh;
 }
-
 .form-group {
   background-color: white;
   width: 40%;
+  padding: 1%;
 }
 
 .form-control {

@@ -108,8 +108,9 @@
           ></app-update-recipe-ingredients-list>
         </section>
 
-        <section class="recipe-ingredients-set" *ngIf="editMode">
+        <section class="recipe-ingredients-set">
           <app-create-recipe-ingredient-list
+            [editMode]="editMode"
             (recipeIngredientListEvent)="setRecipeIngredientList($event)"
           ></app-create-recipe-ingredient-list>
         </section>
