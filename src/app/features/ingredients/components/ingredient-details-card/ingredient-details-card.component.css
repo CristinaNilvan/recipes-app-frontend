@@ -77,3 +77,15 @@ button {
 .ingredient-details {
   padding: 8%;
 }
+
+@media only screen and (max-width: 300px) {
+  .flip-card {
+    width: 250px;
+    height: 300px;
+  }
+
+  .flip-card-front img {
+    width: 250px;
+    height: 300px;
+  }
+}

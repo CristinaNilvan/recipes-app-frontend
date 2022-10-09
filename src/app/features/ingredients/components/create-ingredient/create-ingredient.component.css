@@ -30,12 +30,17 @@ button {
 }
 
 @media only screen and (max-width: 1000px) {
-  button {
-    width: 100%;
-  }
-
   .form-group {
+    border-radius: 5px;
     padding: 5%;
     width: 80%;
+  }
+
+  .form-control {
+    margin: 2%;
+  }
+
+  button {
+    width: 100%;
   }
 }
