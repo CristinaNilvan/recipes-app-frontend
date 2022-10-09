@@ -18,16 +18,20 @@
       />
     </mat-form-field>
 
-    <section class="response-section" *ngIf="responseMessage.length > 0">
+    <section
+      class="response-section"
+      fxLayoutAlign="center"
+      *ngIf="responseMessage.length > 0"
+    >
       <p>
         {{ responseMessage }}
       </p>
     </section>
 
-    <section fxLayoutAlign.lt-md="center">
+    <section fxLayoutAlign="center">
       <button
         mat-raised-button
-        color="accent"
+        color="primary"
         [disabled]="!createRecipeIngredientForm.valid"
       >
         Add recipe ingredient

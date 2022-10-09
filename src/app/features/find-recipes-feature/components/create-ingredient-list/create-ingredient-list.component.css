@@ -7,12 +7,16 @@ button {
   margin: 1%;
 }
 
+.ingredients {
+  margin-top: 2%;
+}
+
 @media only screen and (max-width: 750px) {
-  .form-group {
+  button {
     width: 100%;
   }
 
-  button {
-    width: 100%;
+  .ingredients {
+    margin-top: 5%;
   }
 }

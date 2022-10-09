@@ -2,20 +2,20 @@
   (recipeIngredientEvent)="addRecipeIngredient($event)"
 ></app-create-recipe-ingredient>
 
-<section *ngIf="recipeIngredientList.length > 0">
+<section class="recipe-ingredients" *ngIf="recipeIngredientList.length > 0">
   <div *ngFor="let recipeIngredient of recipeIngredientList">
     <app-recipe-ingredient-from-list-card
-      fxLayoutAlign.lt-md="center"
+      fxLayoutAlign="center"
       [recipeIngredient]="recipeIngredient"
     ></app-recipe-ingredient-from-list-card>
   </div>
 
   <section fxLayout="row" fxLayout.xs="column">
-    <button mat-raised-button color="accent" (click)="createList()">
+    <button mat-raised-button color="primary" (click)="createList()">
       Create list
     </button>
 
-    <button mat-raised-button color="accent" (click)="clearList()">
+    <button mat-raised-button color="primary" (click)="clearList()">
       Clear list
     </button>
   </section>

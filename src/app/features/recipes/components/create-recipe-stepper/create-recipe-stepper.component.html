@@ -1,119 +1,159 @@
-<mat-stepper
-  class="example-stepper"
-  [orientation]="(stepperOrientation | async)!"
->
-  <mat-step [stepControl]="recipeDetailsForm" label="Fill out recipe details">
-    <form [formGroup]="recipeDetailsForm">
-      <p>
-        <mat-form-field class="form-control" appearance="outline">
-          <mat-label>Name</mat-label>
-          <input formControlName="name" matInput placeholder="Recipe name" />
-        </mat-form-field>
-      </p>
+<section class="content">
+  <mat-stepper class="stepper" [orientation]="(stepperOrientation | async)!">
+    <mat-step [stepControl]="recipeDetailsForm" label="Fill out recipe details">
+      <section fxLayoutAlign="center">
+        <form [formGroup]="recipeDetailsForm" class="form-group">
+          <p>
+            <mat-form-field class="form-control" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input
+                formControlName="name"
+                matInput
+                placeholder="Recipe name"
+              />
+            </mat-form-field>
+          </p>
 
-      <p>
-        <mat-form-field class="form-control" appearance="outline">
-          <mat-label>Author</mat-label>
-          <input formControlName="author" matInput placeholder="Your name" />
-        </mat-form-field>
-      </p>
+          <p>
+            <mat-form-field class="form-control" appearance="outline">
+              <mat-label>Author</mat-label>
+              <input
+                formControlName="author"
+                matInput
+                placeholder="Your name"
+              />
+            </mat-form-field>
+          </p>
 
-      <p>
-        <mat-form-field class="form-control" appearance="outline">
-          <mat-label>Description</mat-label>
-          <textarea formControlName="description" matInput></textarea>
-        </mat-form-field>
-      </p>
+          <p>
+            <mat-form-field class="form-control" appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea formControlName="description" matInput></textarea>
+            </mat-form-field>
+          </p>
 
-      <p>
-        <mat-form-field class="form-control" appearance="outline">
-          <mat-label>Meal type</mat-label>
-          <mat-select formControlName="mealType">
-            <mat-option value="Normal">Normal</mat-option>
-            <mat-option value="Vegetarian">Vegetarian</mat-option>
-            <mat-option value="Vegan">Vegan</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </p>
+          <p>
+            <mat-form-field class="form-control" appearance="outline">
+              <mat-label>Meal type</mat-label>
+              <mat-select formControlName="mealType">
+                <mat-option value="Normal">Normal</mat-option>
+                <mat-option value="Vegetarian">Vegetarian</mat-option>
+                <mat-option value="Vegan">Vegan</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
 
-      <p>
-        <mat-form-field class="form-control" appearance="outline">
-          <mat-label>Serving time</mat-label>
-          <mat-select formControlName="servingTime">
-            <mat-option value="Breakfast">Breakfast</mat-option>
-            <mat-option value="Lunch">Lunch</mat-option>
-            <mat-option value="Dinner">Dinner</mat-option>
-            <mat-option value="Others">Others</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </p>
+          <p>
+            <mat-form-field class="form-control" appearance="outline">
+              <mat-label>Serving time</mat-label>
+              <mat-select formControlName="servingTime">
+                <mat-option value="Breakfast">Breakfast</mat-option>
+                <mat-option value="Lunch">Lunch</mat-option>
+                <mat-option value="Dinner">Dinner</mat-option>
+                <mat-option value="Others">Others</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
 
-      <p>
-        <mat-form-field class="form-control" appearance="outline">
-          <mat-label>Servings</mat-label>
-          <input formControlName="servings" matInput placeholder="Servings" />
-          <mat-hint>Must be two decimal!</mat-hint>
-        </mat-form-field>
-      </p>
+          <p>
+            <mat-form-field class="form-control" appearance="outline">
+              <mat-label>Servings</mat-label>
+              <input
+                formControlName="servings"
+                matInput
+                placeholder="Servings"
+              />
+              <mat-hint>Must be two decimal!</mat-hint>
+            </mat-form-field>
+          </p>
 
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
+          <section fxLayoutAlign="center">
+            <button mat-button matStepperNext>Next</button>
+          </section>
+        </form>
+      </section>
+    </mat-step>
 
-  <mat-step [stepControl]="recipeImageForm" label="Choose a photo">
-    <form [formGroup]="recipeImageForm">
-      <p>
-        <button type="button" mat-raised-button (click)="fileInput.click()">
-          Choose File
-        </button>
-        <input hidden (change)="onFileChange($event)" #fileInput type="file" />
-        <span class="file-name" *ngIf="selectedImageName">{{
-          selectedImageName
-        }}</span>
-      </p>
+    <mat-step [stepControl]="recipeImageForm" label="Choose a photo">
+      <section fxLayoutAlign="center">
+        <form [formGroup]="recipeImageForm" class="form-group">
+          <section fxLayout="column">
+            <section fxLayoutAlign="center">
+              <button
+                type="button"
+                mat-raised-button
+                (click)="fileInput.click()"
+              >
+                Choose File
+              </button>
+              <input
+                hidden
+                (change)="onFileChange($event)"
+                #fileInput
+                type="file"
+              />
+            </section>
 
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
+            <span
+              fxLayoutAlign="center"
+              class="file-name"
+              *ngIf="selectedImageName"
+              >{{ selectedImageName }}</span
+            >
+          </section>
 
-  <mat-step label="Add ingredients">
-    <p>
-      <app-create-recipe-ingredient-list
-        (recipeIngredientListEvent)="setRecipeIngredientList($event)"
-      ></app-create-recipe-ingredient-list>
-    </p>
+          <div fxLayout="row" fxLayout.xs="column">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </section>
+    </mat-step>
 
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
-    </div>
-  </mat-step>
+    <mat-step label="Add ingredients">
+      <section fxLayoutAlign="center">
+        <section class="form-group">
+          <app-create-recipe-ingredient-list
+            (recipeIngredientListEvent)="setRecipeIngredientList($event)"
+          ></app-create-recipe-ingredient-list>
 
-  <mat-step label="Done">
-    <p>You are now done.</p>
+          <div fxLayout="row" fxLayout.xs="column">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </section>
+      </section>
+    </mat-step>
 
-    <button
-      mat-raised-button
-      color="accent"
-      [disabled]="!recipeDetailsForm.valid && !recipeImageForm.valid"
-      (click)="onSubmit()"
-    >
-      Create recipe
-    </button>
+    <mat-step label="Done">
+      <section fxLayoutAlign="center">
+        <section class="form-group">
+          <section fxLayoutAlign="center">
+            <button
+              mat-raised-button
+              color="accent"
+              [disabled]="!recipeDetailsForm.valid && !recipeImageForm.valid"
+              (click)="onSubmit()"
+            >
+              Create recipe
+            </button>
+          </section>
 
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-    </div>
+          <section fxLayoutAlign="center">
+            <button mat-button matStepperPrevious>Back</button>
+          </section>
 
-    <section class="response-section" *ngIf="responseMessage.length > 0">
-      <p>
-        {{ responseMessage }}
-      </p>
-    </section>
-  </mat-step>
-</mat-stepper>
+          <section
+            class="response-section"
+            fxLayoutAlign="center"
+            *ngIf="responseMessage.length > 0"
+          >
+            <h1>
+              {{ responseMessage }}
+            </h1>
+          </section>
+        </section>
+      </section>
+    </mat-step>
+  </mat-stepper>
+</section>

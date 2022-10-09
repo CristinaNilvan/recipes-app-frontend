@@ -2,7 +2,7 @@
   (ingredientEvent)="addIngredient($event)"
 ></app-search-ingredient-for-list>
 
-<section *ngIf="ingredientList.length > 0">
+<section class="ingredients" *ngIf="ingredientList.length > 0">
   <div *ngFor="let ingredient of ingredientList">
     <app-ingredient-from-list-card
       fxLayoutAlign="center"

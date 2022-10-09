@@ -1,3 +1,42 @@
-.mat-form-field {
-  margin-top: 16px;
+.content {
+  background-color: white;
+  min-height: 94vh;
+}
+
+.form-group {
+  background-color: white;
+  width: 40%;
+}
+
+.form-control {
+  width: 100%;
+}
+
+button {
+  margin: 5% 1% 1% 1%;
+  width: 50%;
+}
+
+.navigation-button {
+  width: 50%;
+}
+
+.response-section h1 {
+  margin-top: 5%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .form-group {
+    border-radius: 5px;
+    padding: 5%;
+    width: 80%;
+  }
+
+  .form-control {
+    margin: 2%;
+  }
+
+  button {
+    width: 100%;
+  }
 }
