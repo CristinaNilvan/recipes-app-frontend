@@ -13,6 +13,7 @@ import {
 })
 export class RecipeDetailsCardComponent implements OnInit {
   @Input() recipe!: Recipe;
+  flipped: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -29,5 +30,9 @@ export class RecipeDetailsCardComponent implements OnInit {
 
   getRecipeServingTime() {
     return getRecipeServingTimeValue(this.recipe.servingTime);
+  }
+
+  toggleFlip() {
+    this.flipped = !this.flipped;
   }
 }

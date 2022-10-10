@@ -10,6 +10,7 @@ import { getIngredientCategoryValue } from '../../../../core/utils/ingredient-fu
 })
 export class IngredientDetailsCardComponent implements OnInit {
   @Input() ingredient!: Ingredient;
+  flipped: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -22,5 +23,9 @@ export class IngredientDetailsCardComponent implements OnInit {
 
   getIngredientCategory() {
     return getIngredientCategoryValue(this.ingredient.category);
+  }
+
+  toggleFlip() {
+    this.flipped = !this.flipped;
   }
 }

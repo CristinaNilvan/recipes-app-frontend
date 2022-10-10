@@ -26,8 +26,8 @@
 </mat-card> -->
 
 <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
+  <div class="flip-card-inner" (click)="toggleFlip()">
+    <div class="flip-card-front" *ngIf="!flipped">
       <img
         *ngIf="ingredient.ingredientImage"
         mat-card-image
@@ -36,7 +36,7 @@
       />
     </div>
 
-    <div class="flip-card-back">
+    <div class="flip-card-back" *ngIf="flipped">
       <div class="ingredient-details">
         <h1>{{ ingredient.name }}</h1>
         <p>Category: {{ getIngredientCategory() }}</p>
