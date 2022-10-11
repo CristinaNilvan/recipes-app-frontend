@@ -1,23 +1,26 @@
 <section class="content" *ngIf="mealPlan">
-  <section fxLayoutAlign="center">
-    <section
-      class="recipe-cards"
-      fxLayout="row"
-      fxLayout.lt-md="column"
-      fxLayoutGap="15px"
-    >
+  <section
+    fxLayout="row wrap"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="15px"
+    fxLayoutAlign="center"
+  >
+    <section>
       <app-recipe-details-card
+        fxLayoutAlign.lt-sm="center"
         [recipe]="mealPlan.breakfast"
       ></app-recipe-details-card>
-
-      <app-recipe-details-card
-        [recipe]="mealPlan.lunch"
-      ></app-recipe-details-card>
-
-      <app-recipe-details-card
-        [recipe]="mealPlan.dinner"
-      ></app-recipe-details-card>
     </section>
+
+    <app-recipe-details-card
+      fxLayoutAlign.lt-sm="center"
+      [recipe]="mealPlan.lunch"
+    ></app-recipe-details-card>
+
+    <app-recipe-details-card
+      fxLayoutAlign.lt-sm="center"
+      [recipe]="mealPlan.dinner"
+    ></app-recipe-details-card>
   </section>
 
   <section fxLayoutAlign="center">

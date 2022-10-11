@@ -31,8 +31,7 @@ button {
 
 @media only screen and (max-width: 1000px) {
   .form-group {
-    border-radius: 5px;
-    padding: 5%;
+    padding: 7%;
     width: 80%;
   }
 

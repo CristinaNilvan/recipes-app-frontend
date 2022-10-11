@@ -1,10 +1,14 @@
 <div
   class="recipe-cards"
   fxLayout="row wrap"
+  fxLayout.lt-sm="column"
   fxLayoutGap="30px"
   fxLayoutAlign="center"
 >
   <div *ngFor="let recipe of recipes">
-    <app-recipe-details-card [recipe]="recipe"></app-recipe-details-card>
+    <app-recipe-details-card
+      fxLayoutAlign.lt-sm="center"
+      [recipe]="recipe"
+    ></app-recipe-details-card>
   </div>
 </div>

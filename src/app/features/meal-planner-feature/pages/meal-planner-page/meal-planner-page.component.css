@@ -32,13 +32,43 @@ button {
   margin-top: 3%;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 300px) {
   button {
     width: 100%;
   }
 
   .form-group {
-    padding: 5%;
+    padding: 8%;
+    width: 80%;
+  }
+
+  .calories-field {
+    margin-bottom: 10%;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+  button {
+    width: 100%;
+  }
+
+  .form-group {
+    padding: 8%;
+    width: 80%;
+  }
+
+  .calories-field {
+    margin-bottom: 4%;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 1000px) {
+  button {
+    width: 100%;
+  }
+
+  .form-group {
+    padding: 8%;
     width: 80%;
   }
 }

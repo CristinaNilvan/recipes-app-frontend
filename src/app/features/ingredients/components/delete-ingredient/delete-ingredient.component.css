@@ -34,7 +34,8 @@ button {
   }
 
   .form-group {
-    padding: 5%;
+    margin-top: 30vh;
+    padding: 6%;
     width: 80%;
   }
 }
