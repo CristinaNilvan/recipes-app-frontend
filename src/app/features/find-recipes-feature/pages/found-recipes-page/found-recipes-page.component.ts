@@ -39,8 +39,9 @@ export class FoundRecipesPageComponent implements OnInit {
     });
   }
 
-  navigateToFragment() {
+  navigateToFragment(event: any) {
     this.scroller.scrollToAnchor('foundRecipes');
+    event.preventDefault();
   }
 
   setIngredientIds(ingredientIds: number[]) {

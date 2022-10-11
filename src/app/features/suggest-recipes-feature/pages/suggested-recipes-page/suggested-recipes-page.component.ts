@@ -72,9 +72,9 @@ export class SuggestedRecipesPageComponent implements OnInit {
       });
   }
 
-  navigateToFragment() {
+  navigateToFragment(event: any) {
     this.scroller.scrollToAnchor('suggestedRecipes');
-    this.suggested = false;
+    event.preventDefault();
   }
 
   onScroll() {

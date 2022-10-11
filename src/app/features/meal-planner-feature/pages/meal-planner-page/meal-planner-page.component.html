@@ -37,9 +37,9 @@
         </button>
 
         <button
+          (click)="navigateToFragment($event)"
           mat-raised-button
           [disabled]="!generated"
-          (click)="navigateToFragment()"
         >
           Go to meal plan
         </button>
