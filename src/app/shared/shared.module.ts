@@ -10,6 +10,9 @@ import { CreateRecipeIngredientListComponent } from './components/recipe-ingredi
 import { RecipeIngredientFromListCardComponent } from './components/recipe-ingredients/recipe-ingredient-from-list-card/recipe-ingredient-from-list-card.component';
 import { RecipeIngredientsListComponent } from './components/recipe-ingredients/recipe-ingredients-list/recipe-ingredients-list.component';
 import { RecipeDetailsCardComponent } from './components/recipes/recipe-details-card/recipe-details-card.component';
+import { CreateIngredientComponent } from './components/ingredients/create-ingredient/create-ingredient.component';
+import { CreateRecipeStepperComponent } from './components/recipes/create-recipe-stepper/create-recipe-stepper.component';
+import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 
 const modules = [
   CommonModule,
@@ -28,7 +31,11 @@ const modules = [
     RecipeIngredientFromListCardComponent,
     RecipeIngredientsListComponent,
 
+    CreateIngredientComponent,
+
     RecipeDetailsCardComponent,
+    RecipesListComponent,
+    CreateRecipeStepperComponent,
   ],
   imports: modules,
   exports: [
@@ -39,7 +46,11 @@ const modules = [
     RecipeIngredientFromListCardComponent,
     RecipeIngredientsListComponent,
 
+    CreateIngredientComponent,
+
     RecipeDetailsCardComponent,
+    RecipesListComponent,
+    CreateRecipeStepperComponent,
   ],
 })
 export class SharedModule {}

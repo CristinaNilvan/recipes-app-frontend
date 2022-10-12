@@ -6,7 +6,6 @@ import { CoreModule } from 'src/app/core/core.module';
 import { IngredientDetailsComponent } from './components/ingredient-details/ingredient-details.component';
 import { ApprovedIngredientsPageComponent } from './pages/approved-ingredients-page/approved-ingredients-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CreateIngredientComponent } from './components/create-ingredient/create-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -14,9 +13,8 @@ import { CreateIngredientComponent } from './components/create-ingredient/create
     IngredientDetailsCardComponent,
     IngredientDetailsComponent,
     ApprovedIngredientsPageComponent,
-    CreateIngredientComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule],
-  exports: [ApprovedIngredientsPageComponent, CreateIngredientComponent],
+  exports: [ApprovedIngredientsPageComponent],
 })
 export class IngredientModule {}

@@ -10,7 +10,7 @@ import { UnapprovedIngredientsAdminComponent } from './features/admin-feature/co
 import { UnapprovedRecipesAdminComponent } from './features/admin-feature/components/recipes/unapproved-recipes-admin/unapproved-recipes-admin.component';
 import { FoundRecipesPageComponent } from './features/find-recipes-feature/pages/found-recipes-page/found-recipes-page.component';
 import { HomeComponent } from './features/home/components/home/home.component';
-import { CreateIngredientComponent } from './features/ingredients/components/create-ingredient/create-ingredient.component';
+import { CreateIngredientComponent } from './shared/components/ingredients/create-ingredient/create-ingredient.component';
 import { DeleteIngredientComponent } from './features/admin-feature/components/ingredients/delete-ingredient/delete-ingredient.component';
 import { GetIngredientComponent } from './features/admin-feature/components/ingredients/get-ingredient/get-ingredient.component';
 import { IngredientDetailsComponent } from './features/ingredients/components/ingredient-details/ingredient-details.component';
@@ -18,7 +18,7 @@ import { UpdateIngredientDetailsComponent } from './features/admin-feature/compo
 import { UpdateIngredientComponent } from './features/admin-feature/components/ingredients/update-ingredient/update-ingredient.component';
 import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/approved-ingredients-page/approved-ingredients-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
-import { CreateRecipeStepperComponent } from './features/recipes/components/create-recipe-stepper/create-recipe-stepper.component';
+import { CreateRecipeStepperComponent } from './shared/components/recipes/create-recipe-stepper/create-recipe-stepper.component';
 import { DeleteRecipeComponent } from './features/admin-feature/components/recipes/delete-recipe/delete-recipe.component';
 import { GetRecipeComponent } from './features/admin-feature/components/recipes/get-recipe/get-recipe.component';
 import { RecipeDetailsComponent } from './features/recipes/components/recipe-details/recipe-details.component';
