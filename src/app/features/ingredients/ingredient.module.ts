@@ -7,10 +7,6 @@ import { IngredientDetailsComponent } from './components/ingredient-details/ingr
 import { ApprovedIngredientsPageComponent } from './pages/approved-ingredients-page/approved-ingredients-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateIngredientComponent } from './components/create-ingredient/create-ingredient.component';
-import { GetIngredientComponent } from './components/get-ingredient/get-ingredient.component';
-import { DeleteIngredientComponent } from './components/delete-ingredient/delete-ingredient.component';
-import { UpdateIngredientComponent } from './components/update-ingredient/update-ingredient.component';
-import { UpdateIngredientDetailsComponent } from './components/update-ingredient-details/update-ingredient-details.component';
 
 @NgModule({
   declarations: [
@@ -19,19 +15,8 @@ import { UpdateIngredientDetailsComponent } from './components/update-ingredient
     IngredientDetailsComponent,
     ApprovedIngredientsPageComponent,
     CreateIngredientComponent,
-    GetIngredientComponent,
-    DeleteIngredientComponent,
-    UpdateIngredientComponent,
-    UpdateIngredientDetailsComponent,
   ],
   imports: [CommonModule, CoreModule, SharedModule],
-  exports: [
-    ApprovedIngredientsPageComponent,
-    CreateIngredientComponent,
-    GetIngredientComponent,
-    UpdateIngredientComponent,
-    UpdateIngredientDetailsComponent,
-    DeleteIngredientComponent,
-  ],
+  exports: [ApprovedIngredientsPageComponent, CreateIngredientComponent],
 })
 export class IngredientModule {}

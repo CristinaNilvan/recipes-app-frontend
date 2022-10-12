@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { AdminFeaturesComponent } from './features/admin-feature/pages/admin-features/admin-features.component';
-import { AllIngredientsAdminComponent } from './features/admin-feature/components/all-ingredients-admin/all-ingredients-admin.component';
-import { AllRecipesAdminComponent } from './features/admin-feature/components/all-recipes-admin/all-recipes-admin.component';
-import { ApprovedIngredientsAdminComponent } from './features/admin-feature/components/approved-ingredients-admin/approved-ingredients-admin.component';
-import { ApprovedRecipesAdminComponent } from './features/admin-feature/components/approved-recipes-admin/approved-recipes-admin.component';
-import { UnapprovedIngredientsAdminComponent } from './features/admin-feature/components/unapproved-ingredients-admin/unapproved-ingredients-admin.component';
-import { UnapprovedRecipesAdminComponent } from './features/admin-feature/components/unapproved-recipes-admin/unapproved-recipes-admin.component';
+import { AllIngredientsAdminComponent } from './features/admin-feature/components/ingredients/all-ingredients-admin/all-ingredients-admin.component';
+import { AllRecipesAdminComponent } from './features/admin-feature/components/recipes/all-recipes-admin/all-recipes-admin.component';
+import { ApprovedIngredientsAdminComponent } from './features/admin-feature/components/ingredients/approved-ingredients-admin/approved-ingredients-admin.component';
+import { ApprovedRecipesAdminComponent } from './features/admin-feature/components/recipes/approved-recipes-admin/approved-recipes-admin.component';
+import { UnapprovedIngredientsAdminComponent } from './features/admin-feature/components/ingredients/unapproved-ingredients-admin/unapproved-ingredients-admin.component';
+import { UnapprovedRecipesAdminComponent } from './features/admin-feature/components/recipes/unapproved-recipes-admin/unapproved-recipes-admin.component';
 import { FoundRecipesPageComponent } from './features/find-recipes-feature/pages/found-recipes-page/found-recipes-page.component';
 import { HomeComponent } from './features/home/components/home/home.component';
 import { CreateIngredientComponent } from './features/ingredients/components/create-ingredient/create-ingredient.component';
-import { DeleteIngredientComponent } from './features/ingredients/components/delete-ingredient/delete-ingredient.component';
-import { GetIngredientComponent } from './features/ingredients/components/get-ingredient/get-ingredient.component';
+import { DeleteIngredientComponent } from './features/admin-feature/components/ingredients/delete-ingredient/delete-ingredient.component';
+import { GetIngredientComponent } from './features/admin-feature/components/ingredients/get-ingredient/get-ingredient.component';
 import { IngredientDetailsComponent } from './features/ingredients/components/ingredient-details/ingredient-details.component';
-import { UpdateIngredientDetailsComponent } from './features/ingredients/components/update-ingredient-details/update-ingredient-details.component';
-import { UpdateIngredientComponent } from './features/ingredients/components/update-ingredient/update-ingredient.component';
+import { UpdateIngredientDetailsComponent } from './features/admin-feature/components/ingredients/update-ingredient-details/update-ingredient-details.component';
+import { UpdateIngredientComponent } from './features/admin-feature/components/ingredients/update-ingredient/update-ingredient.component';
 import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/approved-ingredients-page/approved-ingredients-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
 import { CreateRecipeStepperComponent } from './features/recipes/components/create-recipe-stepper/create-recipe-stepper.component';
@@ -26,8 +26,8 @@ import { UpdateRecipeDetailsComponent } from './features/recipes/components/upda
 import { UpdateRecipeComponent } from './features/recipes/components/update-recipe/update-recipe.component';
 import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
-import { ApproveIngredientComponent } from './features/admin-feature/components/approve-ingredient/approve-ingredient.component';
-import { ApproveRecipeComponent } from './features/admin-feature/components/approve-recipe/approve-recipe.component';
+import { ApproveIngredientComponent } from './features/admin-feature/components/ingredients/approve-ingredient/approve-ingredient.component';
+import { ApproveRecipeComponent } from './features/admin-feature/components/recipes/approve-recipe/approve-recipe.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
