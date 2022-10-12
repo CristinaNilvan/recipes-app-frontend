@@ -19,11 +19,11 @@ import { UpdateIngredientComponent } from './features/admin-feature/components/i
 import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/approved-ingredients-page/approved-ingredients-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
 import { CreateRecipeStepperComponent } from './features/recipes/components/create-recipe-stepper/create-recipe-stepper.component';
-import { DeleteRecipeComponent } from './features/recipes/components/delete-recipe/delete-recipe.component';
-import { GetRecipeComponent } from './features/recipes/components/get-recipe/get-recipe.component';
+import { DeleteRecipeComponent } from './features/admin-feature/components/recipes/delete-recipe/delete-recipe.component';
+import { GetRecipeComponent } from './features/admin-feature/components/recipes/get-recipe/get-recipe.component';
 import { RecipeDetailsComponent } from './features/recipes/components/recipe-details/recipe-details.component';
-import { UpdateRecipeDetailsComponent } from './features/recipes/components/update-recipe-details/update-recipe-details.component';
-import { UpdateRecipeComponent } from './features/recipes/components/update-recipe/update-recipe.component';
+import { UpdateRecipeDetailsComponent } from './features/admin-feature/components/recipes/update-recipe-details/update-recipe-details.component';
+import { UpdateRecipeComponent } from './features/admin-feature/components/recipes/update-recipe/update-recipe.component';
 import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
 import { ApproveIngredientComponent } from './features/admin-feature/components/ingredients/approve-ingredient/approve-ingredient.component';

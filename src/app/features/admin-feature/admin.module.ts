@@ -19,6 +19,11 @@ import { DeleteIngredientComponent } from './components/ingredients/delete-ingre
 import { GetIngredientComponent } from './components/ingredients/get-ingredient/get-ingredient.component';
 import { UpdateIngredientDetailsComponent } from './components/ingredients/update-ingredient-details/update-ingredient-details.component';
 import { UpdateIngredientComponent } from './components/ingredients/update-ingredient/update-ingredient.component';
+import { GetRecipeComponent } from './components/recipes/get-recipe/get-recipe.component';
+import { DeleteRecipeComponent } from './components/recipes/delete-recipe/delete-recipe.component';
+import { UpdateRecipeComponent } from './components/recipes/update-recipe/update-recipe.component';
+import { UpdateRecipeDetailsComponent } from './components/recipes/update-recipe-details/update-recipe-details.component';
+import { UpdateRecipeIngredientsListComponent } from './components/recipes/update-recipe-ingredient-list/update-recipe-ingredient-list.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +41,11 @@ import { UpdateIngredientComponent } from './components/ingredients/update-ingre
     AllRecipesAdminComponent,
     ApprovedRecipesAdminComponent,
     UnapprovedRecipesAdminComponent,
+    GetRecipeComponent,
+    UpdateRecipeComponent,
+    UpdateRecipeDetailsComponent,
+    UpdateRecipeIngredientsListComponent,
+    DeleteRecipeComponent,
     ApproveIngredientComponent,
     ApproveRecipeComponent,
     AdminFeaturesComponent,
@@ -53,6 +63,11 @@ import { UpdateIngredientComponent } from './components/ingredients/update-ingre
     AllRecipesAdminComponent,
     ApprovedRecipesAdminComponent,
     UnapprovedRecipesAdminComponent,
+    GetRecipeComponent,
+    UpdateRecipeComponent,
+    UpdateRecipeDetailsComponent,
+    DeleteRecipeComponent,
+
     AdminFeaturesComponent,
   ],
 })
