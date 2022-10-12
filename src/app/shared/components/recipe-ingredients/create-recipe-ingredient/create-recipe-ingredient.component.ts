@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
@@ -13,6 +13,7 @@ import { RecipeIngredientService } from 'src/app/core/services/recipe-ingredient
   styleUrls: ['./create-recipe-ingredient.component.css'],
 })
 export class CreateRecipeIngredientComponent implements OnInit {
+  @Input() editMode!: boolean;
   createRecipeIngredientForm!: FormGroup;
   ingredient!: Ingredient;
   recipeIngredient!: RecipeIngredient;

@@ -7,7 +7,6 @@ import { map } from 'rxjs/operators';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
 import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
 import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
-import { RecipeIngredientService } from 'src/app/core/services/recipe-ingredient.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import {
   getRecipeMealTypeKey,

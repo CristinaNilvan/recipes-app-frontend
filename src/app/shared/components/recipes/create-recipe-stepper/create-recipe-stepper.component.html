@@ -114,6 +114,7 @@
       <section fxLayoutAlign="center">
         <section class="form-group">
           <app-create-recipe-ingredient-list
+            [editMode]="true"
             (recipeIngredientListEvent)="setRecipeIngredientList($event)"
           ></app-create-recipe-ingredient-list>
 
