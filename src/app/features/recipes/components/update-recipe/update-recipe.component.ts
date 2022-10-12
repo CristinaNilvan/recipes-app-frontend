@@ -63,7 +63,7 @@ export class UpdateRecipeComponent implements OnInit {
   }
 
   navigateToRecipe() {
-    const route = `/update-recipe/${this.recipe.id}`;
+    const route = `/admin/update-recipe/${this.recipe.id}`;
     this.router.navigate([route]);
   }
 

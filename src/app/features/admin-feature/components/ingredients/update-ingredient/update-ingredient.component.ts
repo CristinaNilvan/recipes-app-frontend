@@ -50,7 +50,7 @@ export class UpdateIngredientComponent implements OnInit {
   }
 
   navigateToIngredient() {
-    const route = `/update-ingredient/${this.ingredient.id}`;
+    const route = `/admin/update-ingredient/${this.ingredient.id}`;
     this.router.navigate([route]);
   }
 
