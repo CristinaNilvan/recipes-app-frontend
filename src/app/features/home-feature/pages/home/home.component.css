@@ -1,0 +1,16 @@
+.container {
+  text-align: center;
+  background: url("src/assets/background_image.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  height: 70vh;
+}
+
+h1 {
+  font-size: 5vh;
+}
+
+.features {
+  margin: 4%;
+}

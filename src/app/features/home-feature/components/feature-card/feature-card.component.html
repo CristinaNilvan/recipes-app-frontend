@@ -1,0 +1,9 @@
+<div class="card" *ngIf="feature">
+  <img [src]="feature.imageName" alt="Feature" />
+  <div class="container">
+    <h4>
+      <b>{{ feature.title }}</b>
+    </h4>
+    <p>{{ feature.description }}</p>
+  </div>
+</div>

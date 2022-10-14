@@ -6,14 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { RecipesModule } from './features/recipes/recipes.module';
+import { IngredientsModule } from './features/ingredients/ingredients.module';
 import { CoreModule } from './core/core.module';
 import { SuggestRecipesModule } from './features/suggest-recipes-feature/suggest-recipes.module';
 import { SharedModule } from './shared/shared.module';
 import { FindRecipesModule } from './features/find-recipes-feature/find-recipes.module';
 import { MealPlannerModule } from './features/meal-planner-feature/meal-planner.module';
-import { HomeModule } from './features/home/home.module';
+import { HomeModule } from './features/home-feature/home.module';
 import { AdminModule } from './features/admin-feature/admin.module';
-import { IngredientsModule } from './features/ingredients/ingredients.module';
 
 @NgModule({
   declarations: [AppComponent],

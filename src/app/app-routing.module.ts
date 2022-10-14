@@ -9,7 +9,7 @@ import { ApprovedRecipesAdminComponent } from './features/admin-feature/componen
 import { UnapprovedIngredientsAdminComponent } from './features/admin-feature/components/ingredients/unapproved-ingredients-admin/unapproved-ingredients-admin.component';
 import { UnapprovedRecipesAdminComponent } from './features/admin-feature/components/recipes/unapproved-recipes-admin/unapproved-recipes-admin.component';
 import { FoundRecipesPageComponent } from './features/find-recipes-feature/pages/found-recipes-page/found-recipes-page.component';
-import { HomeComponent } from './features/home/components/home/home.component';
+import { HomeComponent } from './features/home-feature/pages/home/home.component';
 import { CreateIngredientComponent } from './shared/components/ingredients/create-ingredient/create-ingredient.component';
 import { DeleteIngredientComponent } from './features/admin-feature/components/ingredients/delete-ingredient/delete-ingredient.component';
 import { GetIngredientComponent } from './features/admin-feature/components/ingredients/get-ingredient/get-ingredient.component';
