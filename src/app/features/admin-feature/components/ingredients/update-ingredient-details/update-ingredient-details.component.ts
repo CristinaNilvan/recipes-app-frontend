@@ -10,6 +10,7 @@ import {
   getIngredientCategoryKey,
   getIngredientCategoryValue,
 } from 'src/app/core/utils/ingredient-functions';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-update-ingredient-details',
@@ -23,11 +24,13 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   selectedImageName!: string;
   responseMessage: string = '';
   updateResponseMessage: string = '';
+  durationInSeconds = 5;
 
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private ingredientService: IngredientService
+    private ingredientService: IngredientService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -112,8 +115,10 @@ export class UpdateIngredientDetailsComponent implements OnInit {
         },
         error: () =>
           (this.updateResponseMessage = 'Error while updating the ingredient!'),
-        complete: () =>
-          (this.updateResponseMessage = 'Ingredient updated successfully!'),
+        complete: () => {
+          this.updateResponseMessage = 'Ingredient updated successfully!';
+          this.openSnackBar(this.updateResponseMessage);
+        },
       });
   }
 
@@ -168,5 +173,11 @@ export class UpdateIngredientDetailsComponent implements OnInit {
 
   get image() {
     return this.updateIngredientForm.get('image')?.value;
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+    });
   }
 }

@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const modules = [
   CommonModule,
@@ -32,6 +33,7 @@ const modules = [
   MatSelectModule,
   MatStepperModule,
   MatProgressBarModule,
+  MatSnackBarModule,
 ];
 
 @NgModule({

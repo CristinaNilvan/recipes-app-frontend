@@ -4,11 +4,10 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
 import { CoreModule } from 'src/app/core/core.module';
 import { ApprovedRecipesPageComponent } from './pages/approved-recipes-page/approved-recipes-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { IngredientModule } from '../ingredients/ingredient.module';
 
 @NgModule({
   declarations: [RecipeDetailsComponent, ApprovedRecipesPageComponent],
-  imports: [CommonModule, CoreModule, SharedModule, IngredientModule],
+  imports: [CommonModule, CoreModule, SharedModule],
   exports: [ApprovedRecipesPageComponent],
 })
-export class RecipeModule {}
+export class RecipesModule {}
