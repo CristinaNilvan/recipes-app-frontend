@@ -2,7 +2,8 @@
   background: url("src/assets/form-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: 50% 50%;
+  background-attachment: fixed;
   height: 65vh;
 }
 
@@ -29,13 +30,17 @@ button {
 }
 
 @media only screen and (max-width: 1000px) {
-  button {
-    width: 100%;
+  .form-content {
+    background-position: 70% 70%;
   }
 
   .form-group {
     margin-top: 20vh;
     padding: 6%;
     width: 80%;
+  }
+
+  button {
+    width: 100%;
   }
 }
