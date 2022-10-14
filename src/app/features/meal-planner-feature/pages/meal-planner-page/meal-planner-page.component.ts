@@ -2,7 +2,6 @@ import { ViewportScroller } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { MealType } from 'src/app/core/enums/meal-type';
 import { MealPlan } from 'src/app/core/models/get-models/meal-plan';
 import { RecipeService } from 'src/app/core/services/recipe.service';
@@ -23,7 +22,6 @@ export class MealPlannerPageComponent implements OnInit {
 
   constructor(
     private scroller: ViewportScroller,
-    private router: Router,
     private formBuilder: FormBuilder,
     private recipeService: RecipeService
   ) {}
@@ -59,7 +57,6 @@ export class MealPlannerPageComponent implements OnInit {
   }
 
   navigateToFragment(event: any) {
-    // this.router.navigate([], { fragment: 'mealPlan' });
     this.scroller.scrollToAnchor('mealPlan');
     event.preventDefault();
   }
