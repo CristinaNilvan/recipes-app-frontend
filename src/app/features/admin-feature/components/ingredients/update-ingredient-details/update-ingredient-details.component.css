@@ -10,6 +10,10 @@
   border-radius: 10px;
 }
 
+.choose-file {
+  margin: 1%;
+}
+
 .ingredient-details {
   width: 50%;
   padding: 2%;

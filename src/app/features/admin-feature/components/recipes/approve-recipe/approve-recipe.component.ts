@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class ApproveRecipeComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -90,7 +92,8 @@ export class ApproveRecipeComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = `Recipe with name:${this.name} or author:${this.author} not found!`;
+            this.responseMessage = `Recipe with name: ${this.name} or author: ${this.author} not found!`;
+            this.notifierService.showNotification(this.responseMessage);
           }
         },
       });
@@ -98,8 +101,10 @@ export class ApproveRecipeComponent implements OnInit {
 
   approveRecipe() {
     this.recipeService.approveRecipe(this.recipe.id).subscribe({
-      complete: () =>
-        (this.responseMessage = `Recipe with id:${this.recipe.id} approved!`),
+      complete: () => {
+        this.responseMessage = `Recipe with name: ${this.name} or author: ${this.author} approved!`;
+        this.notifierService.showNotification(this.responseMessage);
+      },
     });
   }
 

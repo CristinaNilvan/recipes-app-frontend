@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class DeleteRecipeComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -46,7 +48,7 @@ export class DeleteRecipeComponent implements OnInit {
     this.responseMessage = '';
 
     this.recipeService
-      .getRecipeByNameAndAuthor(this.name, this.author)
+      .getRecipeByNameAndAuthor(this.name.trim(), this.author.trim())
       .subscribe({
         next: (recipe) => {
           this.recipe = recipe;
@@ -54,7 +56,8 @@ export class DeleteRecipeComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = `Recipe with name:${this.name} or author:${this.author} not found!`;
+            this.responseMessage = `Recipe with name: ${this.name} or author: ${this.author} not found!`;
+            this.notifierService.showNotification(this.responseMessage);
           }
         },
       });
@@ -64,7 +67,10 @@ export class DeleteRecipeComponent implements OnInit {
     this.responseMessage = '';
 
     this.recipeService.deleteRecipe(this.recipe.id).subscribe({
-      complete: () => (this.responseMessage = 'Recipe deleted successfully!'),
+      complete: () => {
+        this.responseMessage = 'Recipe deleted successfully!';
+        this.notifierService.showNotification(this.responseMessage);
+      },
     });
   }
 

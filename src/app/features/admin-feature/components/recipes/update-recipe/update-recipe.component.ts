@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class UpdateRecipeComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +50,7 @@ export class UpdateRecipeComponent implements OnInit {
     this.responseMessage = '';
 
     this.recipeService
-      .getRecipeByNameAndAuthor(this.name, this.author)
+      .getRecipeByNameAndAuthor(this.name.trim(), this.author.trim())
       .subscribe({
         next: (recipe) => {
           this.recipe = recipe;
@@ -56,7 +58,8 @@ export class UpdateRecipeComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = `Recipe with name:${this.name} or author:${this.author} not found!`;
+            this.responseMessage = `Recipe with name: ${this.name} or author: ${this.author} not found!`;
+            this.notifierService.showNotification(this.responseMessage);
           }
         },
       });

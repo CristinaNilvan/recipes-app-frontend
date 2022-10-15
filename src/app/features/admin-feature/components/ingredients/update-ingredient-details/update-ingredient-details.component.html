@@ -9,14 +9,20 @@
   </section>
 
   <section fxLayoutAlign="center" *ngIf="editMode">
-    <section fxLayout="row">
-      <button type="button" mat-raised-button (click)="fileInput.click()">
-        Choose File
-      </button>
-      <input hidden (change)="onFileChange($event)" #fileInput type="file" />
-      <span class="file-name" *ngIf="selectedImageName">{{
-        selectedImageName
-      }}</span>
+    <section class="choose-file" fxLayout="column">
+      <section fxLayoutAlign="center">
+        <button type="button" mat-raised-button (click)="fileInput.click()">
+          Choose File
+        </button>
+        <input hidden (change)="onFileChange($event)" #fileInput type="file" />
+      </section>
+
+      <span
+        fxLayoutAlign="center"
+        class="file-name"
+        *ngIf="selectedImageName"
+        >{{ selectedImageName }}</span
+      >
     </section>
   </section>
 

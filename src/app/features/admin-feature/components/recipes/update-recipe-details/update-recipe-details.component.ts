@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
 import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
 import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import {
   getRecipeMealTypeKey,
@@ -31,7 +32,8 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +72,7 @@ export class UpdateRecipeDetailsComponent implements OnInit {
       next: (recipe) => (this.recipe = recipe),
       error: (error: HttpErrorResponse) => {
         if (error.status === 404) {
-          this.responseMessage = `Recipe with id:${id} not found!`;
+          this.responseMessage = `Recipe with id: ${id} not found!`;
         }
       },
     });
@@ -124,10 +126,14 @@ export class UpdateRecipeDetailsComponent implements OnInit {
         if (this.toDeleteRecipeIngredientIds.length > 0)
           this.deleteRecipeIngredients();
       },
-      error: () =>
-        (this.updateResponseMessage = 'Error while updating the recipe!'),
-      complete: () =>
-        (this.updateResponseMessage = 'Recipe updated successfully!'),
+      error: () => {
+        this.updateResponseMessage = 'Error while updating the recipe!';
+        this.notifierService.showNotification(this.updateResponseMessage);
+      },
+      complete: () => {
+        this.updateResponseMessage = 'Recipe updated successfully!';
+        this.notifierService.showNotification(this.updateResponseMessage);
+      },
     });
   }
 
@@ -144,14 +150,14 @@ export class UpdateRecipeDetailsComponent implements OnInit {
     formData.set('File', this.image);
 
     this.recipeService.addImageToRecipe(this.recipe.id, formData).subscribe({
-      error: () =>
-        (this.updateResponseMessage = 'Error while updating the recipe image!'),
+      error: () => {
+        this.updateResponseMessage = 'Error while updating the recipe image!';
+        this.notifierService.showNotification(this.updateResponseMessage);
+      },
     });
   }
 
   addRecipeIngredients() {
-    console.log('adding recipe ingredients');
-
     this.recipeIngredientList.forEach((recipeIngredient) => {
       this.addRecipeIngredient(recipeIngredient.id);
     });
@@ -159,20 +165,19 @@ export class UpdateRecipeDetailsComponent implements OnInit {
 
   addRecipeIngredient(recipeIngredientId: number) {
     this.responseMessage = '';
-    console.log('adding recipe ingredient ' + recipeIngredientId);
 
     this.recipeService
       .addRecipeIngredientToRecipe(this.recipe.id, recipeIngredientId)
       .subscribe({
-        error: () =>
-          (this.updateResponseMessage =
-            'Error while adding the ingredients to the recipe!'),
+        error: () => {
+          this.updateResponseMessage =
+            'Error while adding the ingredients to the recipe!';
+          this.notifierService.showNotification(this.updateResponseMessage);
+        },
       });
   }
 
   deleteRecipeIngredients() {
-    console.log('deleting recipe ingredients');
-
     this.toDeleteRecipeIngredientIds.forEach((recipeIngredientId) => {
       this.deleteRecipeIngredient(recipeIngredientId);
     });
@@ -180,14 +185,15 @@ export class UpdateRecipeDetailsComponent implements OnInit {
 
   deleteRecipeIngredient(recipeIngredientId: number) {
     this.responseMessage = '';
-    console.log('deleting recipe ingredient ' + recipeIngredientId);
 
     this.recipeService
       .removeRecipeIngredientFromRecipe(this.recipe.id, recipeIngredientId)
       .subscribe({
-        error: () =>
-          (this.updateResponseMessage =
-            'Error while deleting the ingredients from recipe!'),
+        error: () => {
+          this.updateResponseMessage =
+            'Error while deleting the ingredients from recipe!';
+          this.notifierService.showNotification(this.updateResponseMessage);
+        },
       });
   }
 
