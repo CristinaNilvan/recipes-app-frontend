@@ -1,4 +1,4 @@
-<mat-card class="card" *ngIf="recipeIngredient">
+<mat-card class="card" *ngIf="recipeIngredient" (click)="onClick()">
   <mat-card-title-group>
     <mat-card-title>{{ recipeIngredient.ingredient.name }}</mat-card-title>
     <mat-card-subtitle>{{ getIngredientCategory() }}</mat-card-subtitle>

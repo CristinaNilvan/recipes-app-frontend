@@ -20,7 +20,9 @@ export class RecipeDetailsCardAdminComponent implements OnInit {
 
   onClick() {
     const route = `admin/recipes/${this.recipe.id}`;
-    this.router.navigate([route]);
+    this.router.navigate([]).then(() => {
+      window.open(route);
+    });
   }
 
   getRecipeMealType() {

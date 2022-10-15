@@ -17,7 +17,9 @@ export class IngredientDetailsCardAdminComponent implements OnInit {
 
   onClick() {
     const route = `admin/ingredients/${this.ingredient.id}`;
-    this.router.navigate([route]);
+    this.router.navigate([]).then(() => {
+      window.open(route);
+    });
   }
 
   getIngredientCategory() {
