@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientPost } from 'src/app/core/models/post-models/ingredient-post';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { getIngredientCategoryKey } from '../../../../core/utils/ingredient-functions';
 
 @Component({
@@ -18,7 +19,8 @@ export class CreateIngredientComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private ingredientService: IngredientService
+    private ingredientService: IngredientService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -70,10 +72,14 @@ export class CreateIngredientComponent implements OnInit {
         this.ingredient = ingredient;
         this.addImageFromForm();
       },
-      error: () =>
-        (this.responseMessage = 'Error while creating the ingredient!'),
-      complete: () =>
-        (this.responseMessage = 'Ingredient created successfully!'),
+      error: () => {
+        this.responseMessage = 'Error while creating the ingredient!';
+        this.notifierService.showNotification(this.responseMessage);
+      },
+      complete: () => {
+        this.responseMessage = 'Ingredient created successfully!';
+        this.notifierService.showNotification(this.responseMessage);
+      },
     });
   }
 
@@ -92,8 +98,10 @@ export class CreateIngredientComponent implements OnInit {
     this.ingredientService
       .addImageToIngredient(this.ingredient.id, formData)
       .subscribe({
-        error: () =>
-          (this.responseMessage = 'Error while adding the ingredient image!'),
+        error: () => {
+          this.responseMessage = 'Error while adding the ingredient image!';
+          this.notifierService.showNotification(this.responseMessage);
+        },
       });
   }
 

@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
 import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
 import { RecipePost } from 'src/app/core/models/post-models/recipe-post';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import {
   getRecipeMealTypeKey,
@@ -30,6 +31,7 @@ export class CreateRecipeStepperComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private recipeService: RecipeService,
+    private notifierService: NotifierService,
     breakpointObserver: BreakpointObserver
   ) {
     this.stepperOrientation = breakpointObserver
@@ -89,8 +91,14 @@ export class CreateRecipeStepperComponent implements OnInit {
         this.addImageFromForm();
         this.addRecipeIngredients();
       },
-      error: () => (this.responseMessage = 'Error while creating the recipe!'),
-      complete: () => (this.responseMessage = 'Recipe created successfully!'),
+      error: () => {
+        this.responseMessage = 'Error while creating the recipe!';
+        this.notifierService.showNotification(this.responseMessage);
+      },
+      complete: () => {
+        this.responseMessage = 'Recipe created successfully!';
+        this.notifierService.showNotification(this.responseMessage);
+      },
     });
   }
 
@@ -107,8 +115,10 @@ export class CreateRecipeStepperComponent implements OnInit {
     formData.set('File', this.image);
 
     this.recipeService.addImageToRecipe(this.recipe.id, formData).subscribe({
-      error: () =>
-        (this.responseMessage = 'Error while adding the recipe image!'),
+      error: () => {
+        this.responseMessage = 'Error while adding the recipe image!';
+        this.notifierService.showNotification(this.responseMessage);
+      },
     });
   }
 
@@ -117,7 +127,6 @@ export class CreateRecipeStepperComponent implements OnInit {
   }
 
   addRecipeIngredients() {
-    console.log('adding recipe ingredients');
     this.recipeIngredientList.forEach((recipeIngredient) =>
       this.addRecipeIngredient(this.recipe.id, recipeIngredient)
     );
@@ -125,13 +134,14 @@ export class CreateRecipeStepperComponent implements OnInit {
 
   addRecipeIngredient(id: number, recipeIngredient: RecipeIngredient) {
     this.responseMessage = '';
-    console.log('adding recipe ingredient ' + recipeIngredient.id);
 
     this.recipeService
       .addRecipeIngredientToRecipe(id, recipeIngredient.id)
       .subscribe({
-        error: () =>
-          (this.responseMessage = 'Error while adding the recipe ingredients!'),
+        error: () => {
+          this.responseMessage = 'Error while adding the recipe ingredients!';
+          this.notifierService.showNotification(this.responseMessage);
+        },
       });
   }
 

@@ -31,7 +31,7 @@ export class IngredientDetailsComponent implements OnInit {
       next: (ingredient) => (this.ingredient = ingredient),
       error: (error: HttpErrorResponse) => {
         if (error.status === 404) {
-          this.responseMessage = `Ingredient with id:${id} not found!`;
+          this.responseMessage = `Ingredient with id: ${id} not found!`;
         }
       },
     });

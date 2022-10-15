@@ -5,6 +5,7 @@ import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
 import { RecipeIngredientPost } from 'src/app/core/models/post-models/recipe-ingredient-post';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeIngredientService } from 'src/app/core/services/recipe-ingredient.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class CreateRecipeIngredientComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private ingredientService: IngredientService,
-    private recipeIngredientService: RecipeIngredientService
+    private recipeIngredientService: RecipeIngredientService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -54,7 +56,8 @@ export class CreateRecipeIngredientComponent implements OnInit {
       },
       error: (error: HttpErrorResponse) => {
         if (error.status === 404) {
-          this.responseMessage = `Ingredient with name:${this.nameFromForm} not found!`;
+          this.responseMessage = `Ingredient with name: ${this.nameFromForm} not found!`;
+          this.notifierService.showNotification(this.responseMessage);
         }
       },
     });
@@ -73,9 +76,10 @@ export class CreateRecipeIngredientComponent implements OnInit {
           this.recipeIngredient = recipeIngredient;
           this.emitRecipeIngredient();
         },
-        error: () =>
-          (this.responseMessage =
-            'Error while creating the recipe ingredient!'),
+        error: () => {
+          this.responseMessage = 'Error while creating the recipe ingredient!';
+          this.notifierService.showNotification(this.responseMessage);
+        },
       });
   }
 
