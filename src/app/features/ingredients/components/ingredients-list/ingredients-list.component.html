@@ -1,11 +1,13 @@
 <div
   class="ingredient-cards"
   fxLayout="row wrap"
+  fxLayout.lt-sm="column"
   fxLayoutGap="30px"
   fxLayoutAlign="center"
 >
   <div *ngFor="let ingredient of ingredients">
     <app-ingredient-details-card
+      fxLayoutAlign.lt-sm="center"
       [ingredient]="ingredient"
     ></app-ingredient-details-card>
   </div>
