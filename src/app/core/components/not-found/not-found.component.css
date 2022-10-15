@@ -4,8 +4,12 @@
 }
 
 img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+  width: 50%;
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 1000px) {
+  img {
+    width: 100%;
+  }
 }
