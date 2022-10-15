@@ -13,3 +13,8 @@ body {
 * {
   font-size: 2.2vh;
 }
+
+.snackbar.mat-snack-bar-container {
+  background-color: white;
+  color: #00acc1;
+}

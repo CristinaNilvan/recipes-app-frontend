@@ -15,6 +15,8 @@ import { MealPlannerModule } from './features/meal-planner-feature/meal-planner.
 import { HomeModule } from './features/home-feature/home.module';
 import { AdminModule } from './features/admin-feature/admin.module';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -30,6 +32,7 @@ import { AdminModule } from './features/admin-feature/admin.module';
     FindRecipesModule,
     MealPlannerModule,
     AdminModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

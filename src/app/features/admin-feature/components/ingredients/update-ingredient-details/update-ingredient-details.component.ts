@@ -2,15 +2,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IngredientCategory } from 'src/app/core/enums/ingredient-category';
 import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientPost } from 'src/app/core/models/post-models/ingredient-post';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import {
   getIngredientCategoryKey,
   getIngredientCategoryValue,
 } from 'src/app/core/utils/ingredient-functions';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-update-ingredient-details',
@@ -30,7 +29,7 @@ export class UpdateIngredientDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private ingredientService: IngredientService,
-    private snackBar: MatSnackBar
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +61,7 @@ export class UpdateIngredientDetailsComponent implements OnInit {
       next: (ingredient) => (this.ingredient = ingredient),
       error: (error: HttpErrorResponse) => {
         if (error.status === 404) {
-          this.responseMessage = `Ingredient with id:${id} not found!`;
+          this.responseMessage = `Ingredient with id: ${id} not found!`;
         }
       },
     });
@@ -113,11 +112,13 @@ export class UpdateIngredientDetailsComponent implements OnInit {
         next: () => {
           if (this.image !== null) this.addImageFromForm();
         },
-        error: () =>
-          (this.updateResponseMessage = 'Error while updating the ingredient!'),
+        error: () => {
+          this.updateResponseMessage = 'Error while updating the ingredient!';
+          this.notifierService.showNotification(this.updateResponseMessage);
+        },
         complete: () => {
           this.updateResponseMessage = 'Ingredient updated successfully!';
-          this.openSnackBar(this.updateResponseMessage);
+          this.notifierService.showNotification(this.updateResponseMessage);
         },
       });
   }
@@ -137,14 +138,12 @@ export class UpdateIngredientDetailsComponent implements OnInit {
     this.ingredientService
       .addImageToIngredient(this.ingredient.id, formData)
       .subscribe({
-        error: () =>
-          (this.updateResponseMessage =
-            'Error while updating the ingredient image!'),
+        error: () => {
+          this.updateResponseMessage =
+            'Error while updating the ingredient image!';
+          this.notifierService.showNotification(this.updateResponseMessage);
+        },
       });
-  }
-
-  refresh(): void {
-    window.location.reload();
   }
 
   get name() {
@@ -173,11 +172,5 @@ export class UpdateIngredientDetailsComponent implements OnInit {
 
   get image() {
     return this.updateIngredientForm.get('image')?.value;
-  }
-
-  openSnackBar(message: string) {
-    this.snackBar.open(message, 'Close', {
-      duration: 3000,
-    });
   }
 }
