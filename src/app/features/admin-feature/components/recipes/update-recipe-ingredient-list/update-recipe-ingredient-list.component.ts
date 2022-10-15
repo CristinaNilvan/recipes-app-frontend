@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RecipeIngredient } from 'src/app/core/models/get-models/recipe-ingredient';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 
 @Component({
   selector: 'app-update-recipe-ingredients-list',
@@ -11,9 +12,10 @@ export class UpdateRecipeIngredientsListComponent implements OnInit {
   @Input() editMode!: boolean;
   toDeleteRecipeIngredients: RecipeIngredient[] = [];
   toDeleteRecipeIngredientIds: number[] = [];
+  responseMessage: string = '';
   @Output() toDeleteRecipeIngredientListEvent = new EventEmitter<number[]>();
 
-  constructor() {}
+  constructor(private notifierService: NotifierService) {}
 
   ngOnInit(): void {}
 
@@ -23,9 +25,11 @@ export class UpdateRecipeIngredientsListComponent implements OnInit {
   }
 
   createList() {
+    this.responseMessage = 'List created successfully!';
     this.toDeleteRecipeIngredientListEvent.emit(
       this.toDeleteRecipeIngredientIds
     );
+    this.notifierService.showNotification(this.responseMessage);
   }
 
   clearList() {

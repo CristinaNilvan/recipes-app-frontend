@@ -74,6 +74,10 @@ export class UpdateIngredientDetailsComponent implements OnInit {
   toggleEditMode() {
     this.editMode = !this.editMode;
     this.updateResponseMessage = '';
+
+    if (!this.editMode) {
+      this.refresh();
+    }
   }
 
   saveChanges() {
@@ -144,6 +148,10 @@ export class UpdateIngredientDetailsComponent implements OnInit {
           this.notifierService.showNotification(this.updateResponseMessage);
         },
       });
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   get name() {

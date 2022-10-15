@@ -89,6 +89,10 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   toggleEditMode() {
     this.editMode = !this.editMode;
     this.updateResponseMessage = '';
+
+    if (!this.editMode) {
+      this.refresh();
+    }
   }
 
   saveChanges() {
@@ -203,6 +207,10 @@ export class UpdateRecipeDetailsComponent implements OnInit {
 
   setRecipeIngredientList(recipeIngredientList: RecipeIngredient[]) {
     this.recipeIngredientList = recipeIngredientList;
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   get name() {
