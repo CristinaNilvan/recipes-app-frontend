@@ -38,7 +38,7 @@ export class UpdateIngredientComponent implements OnInit {
   }
 
   onSubmit() {
-    this.ingredientService.getIngredientByName(this.name).subscribe({
+    this.ingredientService.getIngredientByName(this.name.trim()).subscribe({
       next: (ingredient) => {
         this.ingredient = ingredient;
         this.navigateToIngredient();

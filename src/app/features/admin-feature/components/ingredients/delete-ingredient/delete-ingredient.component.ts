@@ -38,7 +38,7 @@ export class DeleteIngredientComponent implements OnInit {
   onSubmit() {
     this.responseMessage = '';
 
-    this.ingredientService.getIngredientByName(this.name).subscribe({
+    this.ingredientService.getIngredientByName(this.name.trim()).subscribe({
       next: (ingredient) => {
         this.ingredient = ingredient;
         this.deleteIngredient();
