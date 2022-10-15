@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MealType } from 'src/app/core/enums/meal-type';
 import { MealPlan } from 'src/app/core/models/get-models/meal-plan';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import { getRecipeMealTypeKey } from 'src/app/core/utils/recipe-functions';
 
@@ -23,7 +24,8 @@ export class MealPlannerPageComponent implements OnInit {
   constructor(
     private scroller: ViewportScroller,
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +52,9 @@ export class MealPlannerPageComponent implements OnInit {
         },
         error: (error: HttpErrorResponse) => {
           if (error.status === 404) {
-            this.responseMessage = "Can't find recipes to generate meal plan!";
+            this.responseMessage =
+              "Can't find enough recipes based on your choices to generate meal plan!";
+            this.notifierService.showNotification(this.responseMessage);
           }
         },
       });

@@ -2,6 +2,7 @@ import { ViewportScroller } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class FoundRecipesPageComponent implements OnInit {
 
   constructor(
     private scroller: ViewportScroller,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {}
@@ -34,6 +36,7 @@ export class FoundRecipesPageComponent implements OnInit {
         if (error.status === 404) {
           this.responseMessage =
             "Can't find recipes with at least one of the ingredients!";
+          this.notifierService.showNotification(this.responseMessage);
         }
       },
     });

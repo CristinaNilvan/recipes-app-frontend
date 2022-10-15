@@ -9,7 +9,7 @@ export class NotifierService {
 
   showNotification(displayMessage: string) {
     this.snackBar.open(displayMessage, 'Close', {
-      duration: 3500,
+      duration: 4000,
       panelClass: ['snackbar'],
     });
   }

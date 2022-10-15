@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Recipe } from 'src/app/core/models/get-models/recipe';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 import { RecipeService } from 'src/app/core/services/recipe.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class SuggestedRecipesPageComponent implements OnInit {
   constructor(
     private scroller: ViewportScroller,
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit(): void {
@@ -67,6 +69,7 @@ export class SuggestedRecipesPageComponent implements OnInit {
           if (error.status === 404) {
             this.responseMessage =
               "Can't find recipes with this ingredient and quantity!";
+            this.notifierService.showNotification(this.responseMessage);
           }
         },
       });
