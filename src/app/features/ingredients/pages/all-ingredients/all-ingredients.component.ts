@@ -4,11 +4,11 @@ import { Ingredient } from 'src/app/core/models/get-models/ingredient';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
 
 @Component({
-  selector: 'app-approved-ingredients-page',
-  templateUrl: './approved-ingredients-page.component.html',
-  styleUrls: ['./approved-ingredients-page.component.css'],
+  selector: 'app-all-ingredients',
+  templateUrl: './all-ingredients.component.html',
+  styleUrls: ['./all-ingredients.component.css'],
 })
-export class ApprovedIngredientsPageComponent implements OnInit {
+export class AllIngredientsComponent implements OnInit {
   approvedIngredients: Ingredient[] = [];
   pageNumber: number = 1;
   pageSize: number = 10;
@@ -20,7 +20,7 @@ export class ApprovedIngredientsPageComponent implements OnInit {
     this.responseMessage = '';
 
     this.ingredientService
-      .getApprovedIngredients(this.pageNumber, this.pageSize)
+      .getAllIngredients(this.pageNumber, this.pageSize)
       .subscribe({
         next: (ingredients) => (this.approvedIngredients = ingredients),
         error: (error: HttpErrorResponse) => {
@@ -35,7 +35,7 @@ export class ApprovedIngredientsPageComponent implements OnInit {
     this.responseMessage = '';
 
     this.ingredientService
-      .getApprovedIngredients(++this.pageNumber, this.pageSize)
+      .getAllIngredients(++this.pageNumber, this.pageSize)
       .subscribe({
         next: (ingredients) => this.approvedIngredients.push(...ingredients),
         error: (error: HttpErrorResponse) => {

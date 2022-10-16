@@ -16,7 +16,6 @@ import { GetIngredientComponent } from './features/admin-feature/components/ingr
 import { IngredientDetailsComponent } from './features/ingredients/components/ingredient-details/ingredient-details.component';
 import { UpdateIngredientDetailsComponent } from './features/admin-feature/components/ingredients/update-ingredient-details/update-ingredient-details.component';
 import { UpdateIngredientComponent } from './features/admin-feature/components/ingredients/update-ingredient/update-ingredient.component';
-import { ApprovedIngredientsPageComponent } from './features/ingredients/pages/approved-ingredients-page/approved-ingredients-page.component';
 import { MealPlannerPageComponent } from './features/meal-planner-feature/pages/meal-planner-page/meal-planner-page.component';
 import { CreateRecipeStepperComponent } from './shared/components/recipes/create-recipe-stepper/create-recipe-stepper.component';
 import { DeleteRecipeComponent } from './features/admin-feature/components/recipes/delete-recipe/delete-recipe.component';
@@ -24,18 +23,19 @@ import { GetRecipeComponent } from './features/admin-feature/components/recipes/
 import { RecipeDetailsComponent } from './features/recipes/components/recipe-details/recipe-details.component';
 import { UpdateRecipeDetailsComponent } from './features/admin-feature/components/recipes/update-recipe-details/update-recipe-details.component';
 import { UpdateRecipeComponent } from './features/admin-feature/components/recipes/update-recipe/update-recipe.component';
-import { ApprovedRecipesPageComponent } from './features/recipes/pages/approved-recipes-page/approved-recipes-page.component';
 import { SuggestedRecipesPageComponent } from './features/suggest-recipes-feature/pages/suggested-recipes-page/suggested-recipes-page.component';
 import { ApproveIngredientComponent } from './features/admin-feature/components/ingredients/approve-ingredient/approve-ingredient.component';
 import { ApproveRecipeComponent } from './features/admin-feature/components/recipes/approve-recipe/approve-recipe.component';
+import { AllRecipesComponent } from './features/recipes/pages/all-recipes/all-recipes.component';
+import { AllIngredientsComponent } from './features/ingredients/pages/all-ingredients/all-ingredients.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'recipes', component: ApprovedRecipesPageComponent },
+  { path: 'recipes', component: AllRecipesComponent },
   { path: 'recipes/:id', component: RecipeDetailsComponent },
   { path: 'create-recipe', component: CreateRecipeStepperComponent },
-  { path: 'ingredients', component: ApprovedIngredientsPageComponent },
+  { path: 'ingredients', component: AllIngredientsComponent },
   { path: 'ingredients/:id', component: IngredientDetailsComponent },
   { path: 'create-ingredient', component: CreateIngredientComponent },
   { path: 'meal-planner', component: MealPlannerPageComponent },
