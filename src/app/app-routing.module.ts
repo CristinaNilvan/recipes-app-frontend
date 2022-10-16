@@ -28,6 +28,8 @@ import { ApproveIngredientComponent } from './features/admin-feature/components/
 import { ApproveRecipeComponent } from './features/admin-feature/components/recipes/approve-recipe/approve-recipe.component';
 import { AllRecipesComponent } from './features/recipes/pages/all-recipes/all-recipes.component';
 import { AllIngredientsComponent } from './features/ingredients/pages/all-ingredients/all-ingredients.component';
+import { AuthGuard } from './core/guards/auth.guard';
+import { LogInComponent } from './features/admin-feature/components/authentication/log-in/log-in.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -41,44 +43,114 @@ const routes: Routes = [
   { path: 'meal-planner', component: MealPlannerPageComponent },
   { path: 'suggest-recipes', component: SuggestedRecipesPageComponent },
   { path: 'find-recipes', component: FoundRecipesPageComponent },
+  { path: 'log-in', component: LogInComponent },
 
-  { path: 'admin', component: AdminFeaturesComponent },
-  { path: 'admin/all-ingredients', component: AllIngredientsAdminComponent },
+  {
+    path: 'admin',
+    component: AdminFeaturesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/all-ingredients',
+    component: AllIngredientsAdminComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'admin/approved-ingredients',
     component: ApprovedIngredientsAdminComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin/unapproved-ingredients',
     component: UnapprovedIngredientsAdminComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'admin/ingredients/:id', component: IngredientDetailsComponent },
-  { path: 'admin/create-ingredient', component: CreateIngredientComponent },
-  { path: 'admin/get-ingredient', component: GetIngredientComponent },
-  { path: 'admin/update-ingredient', component: UpdateIngredientComponent },
+  {
+    path: 'admin/ingredients/:id',
+    component: IngredientDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/create-ingredient',
+    component: CreateIngredientComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/get-ingredient',
+    component: GetIngredientComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/update-ingredient',
+    component: UpdateIngredientComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'admin/update-ingredient/:id',
     component: UpdateIngredientDetailsComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'admin/delete-ingredient', component: DeleteIngredientComponent },
-  { path: 'admin/approve-ingredient', component: ApproveIngredientComponent },
+  {
+    path: 'admin/delete-ingredient',
+    component: DeleteIngredientComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/approve-ingredient',
+    component: ApproveIngredientComponent,
+    canActivate: [AuthGuard],
+  },
 
-  { path: 'admin/all-recipes', component: AllRecipesAdminComponent },
+  {
+    path: 'admin/all-recipes',
+    component: AllRecipesAdminComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'admin/approved-recipes',
     component: ApprovedRecipesAdminComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin/unapproved-recipes',
     component: UnapprovedRecipesAdminComponent,
+    canActivate: [AuthGuard],
   },
-  { path: 'admin/recipes/:id', component: RecipeDetailsComponent },
-  { path: 'admin/create-recipe', component: CreateRecipeStepperComponent },
-  { path: 'admin/get-recipe', component: GetRecipeComponent },
-  { path: 'admin/update-recipe', component: UpdateRecipeComponent },
-  { path: 'admin/update-recipe/:id', component: UpdateRecipeDetailsComponent },
-  { path: 'admin/delete-recipe', component: DeleteRecipeComponent },
-  { path: 'admin/approve-recipe', component: ApproveRecipeComponent },
+  {
+    path: 'admin/recipes/:id',
+    component: RecipeDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/create-recipe',
+    component: CreateRecipeStepperComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/get-recipe',
+    component: GetRecipeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/update-recipe',
+    component: UpdateRecipeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/update-recipe/:id',
+    component: UpdateRecipeDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/delete-recipe',
+    component: DeleteRecipeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/approve-recipe',
+    component: ApproveRecipeComponent,
+    canActivate: [AuthGuard],
+  },
   { path: '**', component: NotFoundComponent },
 ];
 

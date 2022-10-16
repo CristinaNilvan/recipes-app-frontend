@@ -1,0 +1,36 @@
+<section class="form-content">
+  <section fxLayoutAlign="center">
+    <form [formGroup]="logInForm" class="form-group">
+      <section class="not-logged" *ngIf="!loggedIn">
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Username</mat-label>
+          <input formControlName="username" matInput placeholder="Username" />
+        </mat-form-field>
+
+        <mat-form-field class="form-control" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" matInput placeholder="Password" />
+        </mat-form-field>
+
+        <section fxLayoutAlign="center">
+          <button
+            mat-raised-button
+            color="accent"
+            [disabled]="!logInForm.valid"
+            (click)="onLogIn()"
+          >
+            Log In
+          </button>
+        </section>
+      </section>
+
+      <section class="logged" *ngIf="loggedIn">
+        <section fxLayoutAlign="center">
+          <button mat-raised-button color="accent" (click)="onLogOut()">
+            Log Out
+          </button>
+        </section>
+      </section>
+    </form>
+  </section>
+</section>
