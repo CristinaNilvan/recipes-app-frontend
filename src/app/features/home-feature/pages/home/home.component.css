@@ -2,7 +2,7 @@
   text-align: center;
   background: url("src/assets/background_image.jpg");
   background-size: cover;
-  background-position: 70% 70%;
+  background-position: 95% 95%;
   background-attachment: fixed;
   height: 55vh;
 }
@@ -15,6 +15,10 @@
   margin-top: 2%;
 }
 
-h1 {
-  font-size: 5vh;
+.image-container h1 {
+  font-size: 5.6vh;
+}
+
+.features-message h1 {
+  font-size: 4vh;
 }
