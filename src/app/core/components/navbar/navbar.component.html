@@ -13,7 +13,7 @@
         <a routerLink="/recipes">Recipes</a>
       </li>
 
-      <li>
+      <li *ngIf="!adminLoggedIn">
         <a routerLink="/create-recipe">Create recipe</a>
       </li>
 
@@ -21,7 +21,7 @@
         <a routerLink="/ingredients">Ingredients</a>
       </li>
 
-      <li>
+      <li *ngIf="!adminLoggedIn">
         <a routerLink="/create-ingredient">Create ingredient</a>
       </li>
 
