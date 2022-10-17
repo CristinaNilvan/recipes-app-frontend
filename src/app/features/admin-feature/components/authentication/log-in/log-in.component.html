@@ -9,7 +9,21 @@
 
         <mat-form-field class="form-control" appearance="outline">
           <mat-label>Password</mat-label>
-          <input formControlName="password" matInput placeholder="Password" />
+          <input
+            formControlName="password"
+            matInput
+            placeholder="Password"
+            [type]="hide ? 'password' : 'text'"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="toggleHide()"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
         </mat-form-field>
 
         <section fxLayoutAlign="center">
@@ -25,8 +39,13 @@
       </section>
 
       <section class="logged" *ngIf="loggedIn">
-        <section fxLayoutAlign="center">
-          <button mat-raised-button color="accent" (click)="onLogOut()">
+        <section fxLayoutAlign="center center">
+          <button
+            mat-raised-button
+            fxLayoutAlign="center center"
+            color="accent"
+            (click)="onLogOut()"
+          >
             Log Out
           </button>
         </section>

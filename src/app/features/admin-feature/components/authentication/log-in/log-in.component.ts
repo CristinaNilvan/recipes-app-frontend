@@ -12,9 +12,9 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class LogInComponent implements OnInit {
   logInForm!: FormGroup;
   loggedIn!: boolean;
+  hide: boolean = true;
 
   constructor(
-    private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService
   ) {}
@@ -45,6 +45,10 @@ export class LogInComponent implements OnInit {
 
   onLogOut() {
     this.authService.logOut();
+  }
+
+  toggleHide() {
+    this.hide = !this.hide;
   }
 
   get username() {
