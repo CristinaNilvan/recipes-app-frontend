@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,11 +7,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  adminLoggedIn!: boolean;
   @Output() sidenavClose = new EventEmitter();
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService) {}
 
+  ngOnInit(): void {
+    this.adminLoggedIn = this.authService.isLoggedIn;
+  }
   onSidenavClose = () => {
     this.sidenavClose.emit();
   };

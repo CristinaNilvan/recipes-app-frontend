@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { HomeModule } from './features/home-feature/home.module';
 import { AdminModule } from './features/admin-feature/admin.module';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AuthInterceptor } from './core/interceptors/authconfig.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AdminModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

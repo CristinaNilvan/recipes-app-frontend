@@ -3,7 +3,12 @@
     <span class="nav-caption">Recipes</span>
   </a>
 
-  <a mat-list-item routerLink="/create-recipe" (click)="onSidenavClose()">
+  <a
+    mat-list-item
+    routerLink="/create-recipe"
+    *ngIf="!adminLoggedIn"
+    (click)="onSidenavClose()"
+  >
     <span class="nav-caption">Create recipe</span>
   </a>
 
@@ -11,7 +16,12 @@
     <span class="nav-caption">Ingredients</span>
   </a>
 
-  <a mat-list-item routerLink="/create-ingredient" (click)="onSidenavClose()">
+  <a
+    mat-list-item
+    routerLink="/create-ingredient"
+    *ngIf="!adminLoggedIn"
+    (click)="onSidenavClose()"
+  >
     <span class="nav-caption">Create ingredient</span>
   </a>
 
@@ -27,7 +37,23 @@
     <span class="nav-caption">Find recipes</span>
   </a>
 
-  <a mat-list-item routerLink="/admin" class="admin" (click)="onSidenavClose()">
-    <span class="nav-caption">Admin</span>
+  <a
+    mat-list-item
+    routerLink="/admin"
+    *ngIf="adminLoggedIn"
+    (click)="onSidenavClose()"
+  >
+    <span class="nav-caption">Admin Panel</span>
+  </a>
+
+  <a
+    mat-list-item
+    routerLink="/log-in"
+    class="admin"
+    (click)="onSidenavClose()"
+  >
+    <span class="nav-caption">{{
+      adminLoggedIn ? "Admin Log Out" : "Admin Log In"
+    }}</span>
   </a>
 </mat-nav-list>

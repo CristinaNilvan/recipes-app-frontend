@@ -1,0 +1,41 @@
+.form-content {
+  background: url("src/assets/background_image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 94vh;
+}
+
+.form-group {
+  margin-top: 20vh;
+  border-radius: 25px;
+  background-color: white;
+  width: 40%;
+  padding: 3%;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.form-control {
+  width: 100%;
+}
+
+button {
+  margin: 2%;
+  width: 50%;
+}
+
+.response-section h1 {
+  margin-top: 5%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .form-group {
+    margin-top: 30vh;
+    padding: 6%;
+    width: 80%;
+  }
+
+  button {
+    width: 100%;
+  }
+}
