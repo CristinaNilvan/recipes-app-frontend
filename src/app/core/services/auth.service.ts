@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, catchError, map, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../models/get-models/user';
 import { UserPost } from '../models/post-models/user-post';
 import { RegisterResponse } from '../models/responses/register-response';
@@ -23,7 +23,9 @@ export class AuthService {
     const api = this.baseUrl + 'login';
     return this.httpService.post(api, user).subscribe((result: any) => {
       localStorage.setItem('access_token', result.token);
-      window.location.reload();
+      this.router.navigate(['admin']).then(() => {
+        window.location.reload();
+      });
     });
   }
 
