@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../models/get-models/user';
 import { UserPost } from '../models/post-models/user-post';
 import { RegisterResponse } from '../models/responses/register-response';
+import { NotifierService } from './notifier.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,11 @@ import { RegisterResponse } from '../models/responses/register-response';
 export class AuthService {
   baseUrl = '/api/authenticate/';
 
-  constructor(private httpService: HttpClient, public router: Router) {}
+  constructor(
+    private httpService: HttpClient,
+    public router: Router,
+    private notifierService: NotifierService
+  ) {}
 
   registerAdmin(user: UserPost): Observable<RegisterResponse> {
     const api = this.baseUrl + 'register-admin';
@@ -21,11 +26,20 @@ export class AuthService {
 
   logIn(user: User) {
     const api = this.baseUrl + 'login';
-    return this.httpService.post(api, user).subscribe((result: any) => {
-      localStorage.setItem('access_token', result.token);
-      this.router.navigate(['admin']).then(() => {
-        window.location.reload();
-      });
+    return this.httpService.post(api, user).subscribe({
+      next: (result: any) => {
+        localStorage.setItem('access_token', result.token);
+        this.router.navigate(['admin']).then(() => {
+          window.location.reload();
+        });
+      },
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          this.notifierService.showNotification(
+            'Wrong username or password, try again!'
+          );
+        }
+      },
     });
   }
 
