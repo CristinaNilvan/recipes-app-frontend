@@ -29,10 +29,21 @@
 
   <a
     mat-list-item
+    routerLink="/admin"
+    *ngIf="adminLoggedIn"
+    (click)="onSidenavClose()"
+  >
+    <span class="nav-caption">Admin Panel</span>
+  </a>
+
+  <a
+    mat-list-item
     routerLink="/log-in"
     class="admin"
     (click)="onSidenavClose()"
   >
-    <span class="nav-caption">Admin</span>
+    <span class="nav-caption">{{
+      adminLoggedIn ? "Admin Log Out" : "Admin Log In"
+    }}</span>
   </a>
 </mat-nav-list>

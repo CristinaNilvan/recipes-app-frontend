@@ -23,7 +23,7 @@ export class AuthService {
     const api = this.baseUrl + 'login';
     return this.httpService.post(api, user).subscribe((result: any) => {
       localStorage.setItem('access_token', result.token);
-      this.router.navigate(['admin']);
+      window.location.reload();
     });
   }
 

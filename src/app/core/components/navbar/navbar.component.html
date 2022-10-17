@@ -37,8 +37,14 @@
         <a routerLink="/find-recipes">Find recipes</a>
       </li>
 
+      <li *ngIf="adminLoggedIn">
+        <a routerLink="/admin">Admin Panel</a>
+      </li>
+
       <li>
-        <a routerLink="/log-in" class="admin">Admin</a>
+        <a routerLink="/log-in" class="admin">
+          {{ adminLoggedIn ? "Admin Log Out" : "Admin Log In" }}
+        </a>
       </li>
     </ul>
   </div>
