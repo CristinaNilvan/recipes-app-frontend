@@ -23,7 +23,7 @@ export class CreateRecipeStepperComponent implements OnInit {
   recipeDetailsForm!: FormGroup;
   recipeImageForm!: FormGroup;
   stepperOrientation!: Observable<StepperOrientation>;
-  recipeIngredientList!: RecipeIngredient[];
+  recipeIngredientIdList: number[] = [];
   recipe!: Recipe;
   selectedImageName!: string;
   responseMessage: string = '';
@@ -122,21 +122,13 @@ export class CreateRecipeStepperComponent implements OnInit {
     });
   }
 
-  setRecipeIngredientList(recipeIngredientList: RecipeIngredient[]) {
-    this.recipeIngredientList = recipeIngredientList;
+  setRecipeIngredientList(recipeIngredientIdList: number[]) {
+    this.recipeIngredientIdList = recipeIngredientIdList;
   }
 
   addRecipeIngredients() {
-    this.recipeIngredientList.forEach((recipeIngredient) =>
-      this.addRecipeIngredient(this.recipe.id, recipeIngredient)
-    );
-  }
-
-  addRecipeIngredient(id: number, recipeIngredient: RecipeIngredient) {
-    this.responseMessage = '';
-
     this.recipeService
-      .addRecipeIngredientToRecipe(id, recipeIngredient.id)
+      .addRecipeIngredientsToRecipe(this.recipe.id, this.recipeIngredientIdList)
       .subscribe({
         error: () => {
           this.responseMessage = 'Error while adding the recipe ingredients!';

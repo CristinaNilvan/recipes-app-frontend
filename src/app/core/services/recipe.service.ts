@@ -122,12 +122,20 @@ export class RecipeService {
     return this.httpService.delete(url);
   }
 
-  addRecipeIngredientToRecipe(
-    id: number,
-    recipeIngredientId: number
-  ): Observable<{}> {
-    const url = `${this.baseUrl}${id}/recipe-ingredients/${recipeIngredientId}`;
-    return this.httpService.post(url, null);
+  addRecipeIngredientsToRecipe(
+    recipeId: number,
+    ids: number[]
+  ): Observable<Recipe> {
+    const url = `${this.baseUrl}${recipeId}/recipe-ingredients`;
+    return this.httpService.post<Recipe>(url, ids);
+  }
+
+  removeRecipeIngredientsFromRecipe(
+    recipeId: number,
+    ids: number[]
+  ): Observable<Recipe> {
+    const url = `${this.baseUrl}${recipeId}/recipe-ingredients`;
+    return this.httpService.delete<Recipe>(url, { body: ids });
   }
 
   removeRecipeIngredientFromRecipe(

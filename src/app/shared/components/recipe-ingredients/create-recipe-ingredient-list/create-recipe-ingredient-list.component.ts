@@ -11,8 +11,9 @@ import { RecipeIngredientService } from 'src/app/core/services/recipe-ingredient
 export class CreateRecipeIngredientListComponent implements OnInit {
   @Input() editMode!: boolean;
   recipeIngredientList: RecipeIngredient[] = [];
+  recipeIngredientIdList: number[] = [];
   responseMessage: string = '';
-  @Output() recipeIngredientListEvent = new EventEmitter<RecipeIngredient[]>();
+  @Output() recipeIngredientIdListEvent = new EventEmitter<number[]>();
 
   constructor(
     private recipeIngredientService: RecipeIngredientService,
@@ -26,16 +27,18 @@ export class CreateRecipeIngredientListComponent implements OnInit {
       .getRecipeIngredientById(newRecipeIngredient.id)
       .subscribe((recipeIngredient) => {
         this.recipeIngredientList.push(recipeIngredient);
+        this.recipeIngredientIdList.push(newRecipeIngredient.id);
       });
   }
 
   createList() {
     this.responseMessage = 'List created successfully!';
-    this.recipeIngredientListEvent.emit(this.recipeIngredientList);
+    this.recipeIngredientIdListEvent.emit(this.recipeIngredientIdList);
     this.notifierService.showNotification(this.responseMessage);
   }
 
   clearList() {
     this.recipeIngredientList = [];
+    this.recipeIngredientIdList = [];
   }
 }

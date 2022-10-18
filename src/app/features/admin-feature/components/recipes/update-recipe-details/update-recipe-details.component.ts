@@ -24,8 +24,8 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   updateRecipeForm!: FormGroup;
   recipe!: Recipe;
   selectedImageName!: string;
-  recipeIngredientList: RecipeIngredient[] = [];
-  toDeleteRecipeIngredientIds: number[] = [];
+  recipeIngredientIdList: number[] = [];
+  toDeleteRecipeIngredientIdList: number[] = [];
   responseMessage: string = '';
   updateResponseMessage: string = '';
 
@@ -126,8 +126,8 @@ export class UpdateRecipeDetailsComponent implements OnInit {
     this.recipeService.patchRecipe(this.recipe.id, patchRecipe).subscribe({
       next: () => {
         if (this.image !== null) this.addImageFromForm();
-        if (this.recipeIngredientList.length > 0) this.addRecipeIngredients();
-        if (this.toDeleteRecipeIngredientIds.length > 0)
+        if (this.recipeIngredientIdList.length > 0) this.addRecipeIngredients();
+        if (this.toDeleteRecipeIngredientIdList.length > 0)
           this.deleteRecipeIngredients();
       },
       error: () => {
@@ -162,51 +162,40 @@ export class UpdateRecipeDetailsComponent implements OnInit {
   }
 
   addRecipeIngredients() {
-    this.recipeIngredientList.forEach((recipeIngredient) => {
-      this.addRecipeIngredient(recipeIngredient.id);
-    });
-  }
-
-  addRecipeIngredient(recipeIngredientId: number) {
-    this.responseMessage = '';
-
     this.recipeService
-      .addRecipeIngredientToRecipe(this.recipe.id, recipeIngredientId)
+      .addRecipeIngredientsToRecipe(this.recipe.id, this.recipeIngredientIdList)
       .subscribe({
         error: () => {
           this.updateResponseMessage =
-            'Error while adding the ingredients to the recipe!';
+            'Error while adding the recipe ingredients!';
           this.notifierService.showNotification(this.updateResponseMessage);
         },
       });
   }
 
   deleteRecipeIngredients() {
-    this.toDeleteRecipeIngredientIds.forEach((recipeIngredientId) => {
-      this.deleteRecipeIngredient(recipeIngredientId);
-    });
-  }
-
-  deleteRecipeIngredient(recipeIngredientId: number) {
-    this.responseMessage = '';
+    console.log(this.toDeleteRecipeIngredientIdList);
 
     this.recipeService
-      .removeRecipeIngredientFromRecipe(this.recipe.id, recipeIngredientId)
+      .removeRecipeIngredientsFromRecipe(
+        this.recipe.id,
+        this.toDeleteRecipeIngredientIdList
+      )
       .subscribe({
         error: () => {
           this.updateResponseMessage =
-            'Error while deleting the ingredients from recipe!';
+            'Error while deleting the recipe ingredients!';
           this.notifierService.showNotification(this.updateResponseMessage);
         },
       });
   }
 
   setToDeleteRecipeIngredientList(toDeleteRecipeIngredientIds: number[]) {
-    this.toDeleteRecipeIngredientIds = toDeleteRecipeIngredientIds;
+    this.toDeleteRecipeIngredientIdList = toDeleteRecipeIngredientIds;
   }
 
-  setRecipeIngredientList(recipeIngredientList: RecipeIngredient[]) {
-    this.recipeIngredientList = recipeIngredientList;
+  setRecipeIngredientList(recipeIngredientIdList: number[]) {
+    this.recipeIngredientIdList = recipeIngredientIdList;
   }
 
   refresh(): void {

@@ -117,7 +117,7 @@
         <section class="recipe-ingredients-set">
           <app-create-recipe-ingredient-list
             [editMode]="editMode"
-            (recipeIngredientListEvent)="setRecipeIngredientList($event)"
+            (recipeIngredientIdListEvent)="setRecipeIngredientList($event)"
           ></app-create-recipe-ingredient-list>
         </section>
 
@@ -135,7 +135,7 @@
       </form>
 
       <section class="approved-status" *ngIf="!recipe.approved">
-        <p>This recipe has not been approved yet!</p>
+        <p>*This recipe has not been approved yet!</p>
       </section>
     </section>
   </section>
