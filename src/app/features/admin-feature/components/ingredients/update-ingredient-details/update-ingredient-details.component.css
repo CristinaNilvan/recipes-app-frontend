@@ -26,6 +26,11 @@
   width: 40%;
 }
 
+.nutritional-values {
+  color: #e91e63;
+  font-style: italic;
+}
+
 .approved-status {
   color: #e91e63;
   font-style: italic;

@@ -99,10 +99,10 @@
           </mat-form-field>
         </div>
 
-        <p>Calories: {{ recipe.calories }}</p>
-        <p>Fats: {{ recipe.fats }}</p>
-        <p>Carbs: {{ recipe.carbs }}</p>
-        <p>Proteins: {{ recipe.proteins }}</p>
+        <p>Calories: {{ recipe.calories }} kCal</p>
+        <p>Fats: {{ recipe.fats }} g</p>
+        <p>Carbs: {{ recipe.carbs }} g</p>
+        <p>Proteins: {{ recipe.proteins }} g</p>
 
         <section class="recipe-ingredients-set">
           <app-update-recipe-ingredients-list
@@ -135,7 +135,7 @@
       </form>
 
       <section class="approved-status" *ngIf="!recipe.approved">
-        <p>This recipe has not been approved yet!</p>
+        <p>*This recipe has not been approved yet!</p>
       </section>
     </section>
   </section>

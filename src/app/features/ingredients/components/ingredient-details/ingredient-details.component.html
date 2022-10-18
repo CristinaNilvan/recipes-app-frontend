@@ -12,13 +12,17 @@
     <section class="ingredient-details">
       <h1>{{ ingredient.name }}</h1>
       <p>Category: {{ getIngredientCategory() }}</p>
-      <p>Calories: {{ ingredient.calories }}</p>
-      <p>Fats: {{ ingredient.fats }}</p>
-      <p>Carbs: {{ ingredient.carbs }}</p>
-      <p>Proteins: {{ ingredient.proteins }}</p>
+      <p>Calories: {{ ingredient.calories }} kCal</p>
+      <p>Fats: {{ ingredient.fats }} g</p>
+      <p>Carbs: {{ ingredient.carbs }} g</p>
+      <p>Proteins: {{ ingredient.proteins }} g</p>
+
+      <section class="nutritional-values">
+        <p>*The values are per 100g!</p>
+      </section>
 
       <section class="approved-status" *ngIf="!ingredient.approved">
-        <p>This ingredient has not been approved yet!</p>
+        <p>**This ingredient has not been approved yet!</p>
       </section>
     </section>
   </section>
