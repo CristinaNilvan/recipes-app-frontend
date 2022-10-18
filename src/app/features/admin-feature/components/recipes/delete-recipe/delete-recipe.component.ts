@@ -67,6 +67,9 @@ export class DeleteRecipeComponent implements OnInit {
     this.responseMessage = '';
 
     this.recipeService.deleteRecipe(this.recipe.id).subscribe({
+      next: () => {
+        this.recipeService.removeImageFromRecipe(this.recipe.id);
+      },
       complete: () => {
         this.responseMessage = 'Recipe deleted successfully!';
         this.notifierService.showNotification(this.responseMessage);
