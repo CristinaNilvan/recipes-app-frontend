@@ -57,7 +57,7 @@ export class DeleteIngredientComponent implements OnInit {
 
     this.ingredientService.deleteIngredient(this.ingredient.id).subscribe({
       next: () => {
-        this.ingredientService.removeImageFromRecipe(this.ingredient.id);
+        this.ingredientService.removeImageFromIngredient(this.ingredient.id);
       },
       complete: () => {
         this.responseMessage = 'Ingredient deleted successfully!';

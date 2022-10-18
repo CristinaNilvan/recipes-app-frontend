@@ -142,4 +142,9 @@ export class RecipeService {
     const url = `${this.baseUrl}${id}/image`;
     return this.httpService.post(url, formData);
   }
+
+  removeImageFromRecipe(id: number): Observable<Recipe> {
+    const url = `${this.baseUrl}${id}/image`;
+    return this.httpService.delete<Recipe>(url);
+  }
 }

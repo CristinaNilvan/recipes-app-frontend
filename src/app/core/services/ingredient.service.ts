@@ -85,7 +85,7 @@ export class IngredientService {
     return this.httpService.post(url, formData);
   }
 
-  removeImageFromRecipe(id: number): Observable<Ingredient> {
+  removeImageFromIngredient(id: number): Observable<Ingredient> {
     const url = `${this.baseUrl}${id}/image`;
     return this.httpService.delete<Ingredient>(url);
   }
