@@ -102,7 +102,7 @@ export class ApproveRecipeComponent implements OnInit {
   approveRecipe() {
     this.recipeService.approveRecipe(this.recipe.id).subscribe({
       complete: () => {
-        this.responseMessage = `Recipe with name: ${this.name} or author: ${this.author} approved!`;
+        this.responseMessage = `Recipe with name: ${this.name} and author: ${this.author} approved!`;
         this.notifierService.showNotification(this.responseMessage);
       },
     });
