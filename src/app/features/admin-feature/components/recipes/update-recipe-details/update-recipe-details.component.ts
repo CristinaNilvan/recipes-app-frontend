@@ -126,9 +126,7 @@ export class UpdateRecipeDetailsComponent implements OnInit {
     this.recipeService.patchRecipe(this.recipe.id, patchRecipe).subscribe({
       next: () => {
         if (this.image !== null) this.addImageFromForm();
-        if (this.recipeIngredientIdList.length > 0) this.addRecipeIngredients();
-        if (this.toDeleteRecipeIngredientIdList.length > 0)
-          this.deleteRecipeIngredients();
+        this.updateRecipeIngredients();
       },
       error: () => {
         this.updateResponseMessage = 'Error while updating the recipe!';
@@ -161,10 +159,18 @@ export class UpdateRecipeDetailsComponent implements OnInit {
     });
   }
 
+  updateRecipeIngredients() {
+    if (this.recipeIngredientIdList.length > 0) this.addRecipeIngredients();
+  }
+
   addRecipeIngredients() {
     this.recipeService
       .addRecipeIngredientsToRecipe(this.recipe.id, this.recipeIngredientIdList)
       .subscribe({
+        next: () => {
+          if (this.toDeleteRecipeIngredientIdList.length > 0)
+            this.deleteRecipeIngredients();
+        },
         error: () => {
           this.updateResponseMessage =
             'Error while adding the recipe ingredients!';
